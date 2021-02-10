@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
-import logo from '../images/gym8.jpg';
+import image from '../images/gym8.jpg';
 
 function GymSite() {
-
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/todos')
-            .then(response => {
-                setData(response.data);
-            })
-    });
 
     return (
         <div className=
@@ -21,40 +11,40 @@ function GymSite() {
             <h1 className='text-4xl mt-4 h-10 justify-self-center'>
                 GYM NAME
             </h1>
-            <img alt='x' src={logo} className='h-xs w-md pl-8 shadow-2xl' />
-            <div className="modal w-xs">
+            <img alt='x' src={image} className='h-xs w-md pl-8 shadow-3xl ml-8 justify-self-start' />
+            <div className="modal w-xs justify-self-end">
                 <h2>Opening hours</h2>
-                <div id="Wednesday" className="dateTime">
+                <div className="dateTime">
                     <div className="day">Wednesday</div>
                     <div className="time">6am - 10pm</div>
                 </div>
                 <br />
-                <div id="Thursday" className="dateTime">
+                <div className="dateTime">
                     <div className="day">Thursday</div>
                     <div className="time">6am - 10pm</div>
                 </div>
                 <br />
-                <div id="Friday" className="dateTime">
+                <div className="dateTime">
                     <div className="day">Friday</div>
                     <div className="time">6am - 10pm</div>
                 </div>
                 <br />
-                <div id="Saturday" className="dateTime">
+                <div className="dateTime">
                     <div className="day">Saturday</div>
                     <div className="time">6am - 10pm</div>
                 </div>
                 <br />
-                <div id="Sunday" className="dateTime">
+                <div className="dateTime">
                     <div className="day">Sunday</div>
                     <div className="time">6am - 10pm</div>
                 </div>
                 <br />
-                <div id="Monday" className="dateTime">
+                <div className="dateTime">
                     <div className="day">Monday</div>
                     <div className="time">6am - 10pm</div>
                 </div>
                 <br />
-                <div id="Tuesday" className="dateTime">
+                <div className="dateTime">
                     <div className="day">Tuesday</div>
                     <div className="time">6am - 10pm</div>
                 </div>

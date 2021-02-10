@@ -5,7 +5,7 @@ function Calendar() {
     return (
         <div className="container mt-60">
             <table className='shadow-2xl mr-3 ml-3'>
-                <thead className='divide-y-2 divide-y-reverse divide-black'>
+                <thead className='divide-y-2 divide-y-reverse divide-gray-400'>
                 <tr>
                     <th className="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
                         <span className="xl:block lg:block md:block sm:block hidden">Monday 15.02</span>
