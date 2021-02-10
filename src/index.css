@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: "HelveticaNeue-Light";
+}
+
 body {
-  font-family: "Gill Sans", serif;
-  background: url('images/gym6.jpg') no-repeat center fixed;
+  background: url('images/gym.jpg') no-repeat center fixed;
   background-size: cover;
 }
 

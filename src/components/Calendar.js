@@ -25,7 +25,7 @@ function Calendar() {
                     <th className="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
                         <span className="xl:block lg:block md:block sm:block hidden">Saturday 20.02</span>
                     </th>
-                    <th className="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+                    <th className="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 text-capitalize ">
                         <span className="xl:block lg:block md:block sm:block hidden">Sunday 21.02</span>
                     </th>
                 </tr>

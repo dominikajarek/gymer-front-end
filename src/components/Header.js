@@ -1,22 +1,19 @@
 import React from 'react';
 
 import Navigation from './Navigation';
+import {Button, ButtonGroup} from "react-bootstrap";
 
 function Header() {
 
     return (
         <header className='h-xs w-5xl fixed top-0'>
+            <ButtonGroup aria-label="Basic example" className='float-right font-semibold rounded-lg bg-transparent '>
+                <Button variant='secondary' className='px-4 py-1 mt-2 mb-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-400 rounded focus:outline-none'
+                >Sign in</Button>
+                <Button variant='secondary' className='px-4 py-1 mt-2 mb-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-400 rounded focus:outline-none'
+                >Sign up</Button>
+            </ButtonGroup>
 
-            <button className='float-right px-4 py-2 m-4 text-sm font-semibold bg-transparent rounded-lg
-                                                                hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200
-                                                                hover:shadow-2xl
-                                                                focus:bg-gray-200 focus:outline-none focus:shadow-outline'
-            >Sign in</button>
-            <button className='float-right px-4 py-2 m-4 mt-4 text-sm font-semibold bg-transparent rounded-lg
-                                                                hover:text-gray-900 focus:text-gray-900
-                                                                hover:bg-gray-200 hover:shadow-2xl
-                                                                focus:bg-gray-200 focus:outline-none focus:shadow-outline'
-            >Sign up</button>
             <Navigation />
         </header>
     );

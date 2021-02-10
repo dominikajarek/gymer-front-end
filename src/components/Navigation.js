@@ -1,5 +1,6 @@
 import React from 'react';
-import { Navbar, Nav } from "react-bootstrap";
+import {Navbar, Nav, Button, ButtonGroup} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 function Navigation() {
 
@@ -9,18 +10,18 @@ function Navigation() {
                                                                     divide-y-2 divide-gray-500 divide-y-reverse pr-3 py-16">
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="-mb-px flex float-left">
-                    <Nav className="mr-auto float-left">
-                        <Nav.Link href={'/gymsite'} className='px-4 py-2 mt-2 text-sm font-semibold bg-transparent
-                                                                rounded-lg md:mt-0 md:ml-4 hover:text-gray-900
-                                                                focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200
-                                                                focus:outline-none focus:shadow-outline float-left'>
-                            About</Nav.Link>
-                        <Nav.Link href={'/calendar'} className='px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg
-                                                                md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200
-                                                                focus:bg-gray-200 focus:outline-none focus:shadow-outline float-left'>
-                            Timetable</Nav.Link>
-                    </Nav>
+                    <ButtonGroup aria-label="Basic example" className='float-right font-semibold rounded-lg bg-transparent '>
+                        <Button variant='secondary' className='px-4 py-1 mt-2 mb-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-400 rounded focus:outline-none'
+                        >
+                            <Link to='/gymsite'>About</Link>
+                        </Button>
+                        <Button variant='secondary' className='px-4 py-1 mt-2 mb-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-400 rounded focus:outline-none'
+                        >
+                            <Link to='/calendar'>Timetable</Link>
+                        </Button>
+                    </ButtonGroup>
                 </Navbar.Collapse>
+
             </Navbar>
     );
 }
