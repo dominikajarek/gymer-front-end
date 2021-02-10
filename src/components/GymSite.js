@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import logo from '../images/gym8.jpg';
 
 function GymSite() {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios.get('https://jsonplaceholder.typicode.com/todos')
+            .then(response => {
+                setData(response.data);
+            })
+    });
+
     return (
         <div className=
                  'mt-56 w-full h-100 grid justify-items-stretch'

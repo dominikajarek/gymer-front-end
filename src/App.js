@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import GymSite from './components/GymSite';
 import Calendar from "./components/Calendar";
 import Header from "./components/Header";
+import Home from "./components/Home";
 
 import './index.css';
 
@@ -17,6 +18,9 @@ function App() {
         <Router>
             <Header />
             <Switch>
+                <Route exact path={'/'}>
+                    <Home />
+                </Route>
                 <Route exact path={'/gymsite'}>
                     <GymSite />
                 </Route>
