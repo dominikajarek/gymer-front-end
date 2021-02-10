@@ -6,9 +6,10 @@ function Home() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/todos')
+        axios.get('/api/partners/1')
             .then(response => {
                 const result = response.data;
+                console.log(response.data);
                 setData(result);
             })
     }, []);
@@ -16,9 +17,7 @@ function Home() {
     return (
         <div>
             {
-                data.map(value =>
-                    <p key={value.id}>{value.title}</p>
-                )
+
             }
         </div>
     );
