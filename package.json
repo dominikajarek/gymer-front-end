@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^12.1.10",
     "autoprefixer": "^9.8.6",
     "bootstrap": "^4.6.0",
+    "http-proxy-middleware": "^1.0.6",
     "postcss": "^7.0.35",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
