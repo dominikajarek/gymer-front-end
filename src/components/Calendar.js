@@ -56,9 +56,11 @@ function Calendar() {
                     </th>
                 </tr>
                 </thead>
+
                 <tbody>
                 <tr>
-                    <td className="shadow-lg p-1 h-40 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-200 text-center">
+                    <td className="shadow-lg p-1 h-40 w-10 overflow-auto transition cursor-pointer
+                        duration-500 ease hover:bg-gray-200 text-center">
                         <Button variant="primary">
                             <Link to={'/reservation'}>8am - fitness class</Link>
                         </Button>
@@ -66,13 +68,16 @@ function Calendar() {
                             className="flex flex-col h-5 w-5 overflow-hidden">
                         </div>
                     </td>
-                    <td className="shadow-lg p-1 h-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-200 text-center">
+                    <td
+                        className="shadow-lg p-1 h-20 w-10 overflow-auto transition cursor-pointer
+                            duration-500 ease hover:bg-gray-200 text-center">
                         <div
                             className="flex flex-col h-5 w-5 overflow-hidden">
                         </div>
                     </td>
-
-                    <td className="shadow-lg p-1 h-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-200 text-center">
+                    <td
+                        className="shadow-lg p-1 h-20 w-10 overflow-auto transition cursor-pointer
+                            duration-500 ease hover:bg-gray-200 text-center">
                         <Button variant="primary">
                             <Link to={'/reservation'}>10am - crossfit</Link>
                         </Button>
@@ -80,22 +85,30 @@ function Calendar() {
                             className="flex flex-col h-5 w-5 overflow-hidden">
                         </div>
                     </td>
-                    <td className="shadow-lg p-1 h-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-200 text-center">
+                    <td
+                        className="shadow-lg p-1 h-20 w-10 overflow-auto transition cursor-pointer
+                            duration-500 ease hover:bg-gray-200 text-center">
                         <div
                             className="flex flex-col h-5 w-5 overflow-hidden">
                         </div>
                     </td>
-                    <td className="shadow-lg p-1 h-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-200 text-center">
+                    <td
+                        className="shadow-lg p-1 h-20 w-10 overflow-auto transition cursor-pointer
+                            duration-500 ease hover:bg-gray-200 text-center">
                         <div
                             className="flex flex-col h-5 w-5 overflow-hidden">
                         </div>
                     </td>
-                    <td className="shadow-lg p-1 h-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-200 text-center">
+                    <td
+                        className="shadow-lg p-1 h-20 w-10 overflow-auto transition cursor-pointer
+                            duration-500 ease hover:bg-gray-200 text-center">
                         <div
                             className="flex flex-col h-5 w-5 overflow-hidden">
                         </div>
                     </td>
-                    <td className="shadow-lg p-1 h-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-200 text-center">
+                    <td
+                        className="shadow-lg p-1 h-20 w-10 overflow-auto transition cursor-pointer
+                            duration-500 ease hover:bg-gray-200 text-center">
                         <div
                             className="flex flex-col h-5 w-5 overflow-hidden">
                         </div>
