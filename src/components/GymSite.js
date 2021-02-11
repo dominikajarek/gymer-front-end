@@ -1,9 +1,41 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import image from '../images/gym8.jpg';
 import gymLogo from '../images/logo_transparent.png';
+import axios from "axios";
 
 function GymSite() {
+
+    const [data, setGymData] = useState([]);
+    const [employees, setEmployeesData] = useState([]);
+    const [workingHours, setWorkingHoursData] = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/partners/1')
+            .then(response => {
+                const result = response.data;
+                console.log(response.data);
+                setGymData(result);
+            })
+    }, []);
+
+    useEffect(() => {
+        axios.get('/api/partners/1/employees')
+            .then(response => {
+                const result = response.data._embedded.employeeDTOList;
+                console.log(response.data._embedded.employeeDTOList);
+                setEmployeesData(result);
+            })
+    }, []);
+
+    useEffect(() => {
+        axios.get('/api/partners/1/workinghours')
+            .then(response => {
+                const result = response.data._embedded.workingHourDTOList;
+                console.log(response.data._embedded.workingHourDTOList);
+                setWorkingHoursData(result);
+            })
+    }, []);
 
     return (
         <div className='mt-56 w-full h-100 grid justify-items-stretch'>
