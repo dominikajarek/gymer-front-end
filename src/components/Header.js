@@ -11,12 +11,12 @@ function Header() {
                          className='float-right font-semibold rounded-lg bg-transparent '>
                 <Button
                     variant='secondary'
-                    className='px-4 py-1 mt-2 mb-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-400 rounded focus:outline-none'>
+                    className='px-4 py-1 mt-2 mb-2 hover:text-gray-900 focus:text-gray-900 button-hover rounded focus:outline-none'>
                 Sign in
                 </Button>
                 <Button
                     variant='secondary'
-                    className='px-4 py-1 mt-2 mb-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-400 rounded focus:outline-none'>
+                    className='px-4 py-1 mt-2 mb-2 hover:text-gray-900 focus:text-gray-900 button-hover rounded focus:outline-none'>
                 Sign up
                 </Button>
             </ButtonGroup>

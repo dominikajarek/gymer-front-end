@@ -5,7 +5,7 @@ import GymSite from './components/GymSite';
 import Calendar from "./components/Calendar";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import Categories from "./components/Categories";
+import MainMenu from "./components/MainMenu";
 
 import './index.css';
 
@@ -14,10 +14,9 @@ function App() {
     <div className=
              'text-black py-3 border h-full
              mx-8 w-6xl bg-white 2xl:bg-opacity-95
-             flex justify-center shadow-lg'
-    >
+             flex justify-center shadow-lg'>
         <Router>
-            <Categories />
+            <MainMenu />
             <Header />
             <Switch>
                 <Route exact path={'/'}>
@@ -30,6 +29,7 @@ function App() {
                     <Calendar />
                 </Route>
             </Switch>
+
         </Router>
     </div>
   );

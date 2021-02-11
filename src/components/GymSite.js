@@ -7,7 +7,7 @@ function GymSite() {
 
     return (
         <div className='mt-56 w-full h-100 grid justify-items-stretch'>
-            <img alt='logo' src={gymLogo} className='h-30 w-60 pb-3 justify-self-center' />
+            <img alt='logo' src={gymLogo} className='h-40 w-70 pb-8 justify-self-center' />
             <img alt='x' src={image} className='h-xs w-md pl-8 shadow-3xl ml-8 justify-self-start rounded-lg' />
             <div className="modal w-xs justify-self-end">
                 <h2>Opening hours</h2>
@@ -45,11 +45,20 @@ function GymSite() {
                     <div className="day">Sunday</div>
                     <div className="time">6am - 10pm</div>
                 </div>
+                <h2 className='pt-10'>Contact</h2>
+                <p>
+                    466658689
+                </p>
+                <p>
+                    gymsite@gmail.com
+                </p>
+                <p>
+                    Orchan Road 77, NYC
+                </p>
             </div>
-            <div className="w-xs justify-self-start pl-16 pt-7">
+            <div className="w-xs justify-self-start pl-16 pt-16">
                 <div className="w-2xl">
-                    <div className="inline-block float-left text-capitalize xl:text-3xl">About us</div>
-                    <div className="inline-block float-right text-capitalize xl:text-3xl">Our team</div>
+                    <div className="float-left text-capitalize xl:text-3xl">About us</div>
                 </div>
                 <div className="dateTime">
                     <div className="day">
@@ -60,6 +69,11 @@ function GymSite() {
                         Duis aute irure dolor in reprehenderit in voluptate
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </div>
+                </div>
+            </div>
+            <div className="w-xs justify-self-start pl-16 pt-16">
+                <div className="w-2xl">
+                    <div className="float-left text-capitalize xl:text-3xl">Our team</div>
                 </div>
             </div>
         </div>
