@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
-import image from '../images/gym8.jpg';
+import React from 'react';
 
 function GuestReservation() {
 
@@ -9,14 +7,12 @@ function GuestReservation() {
             <h1 className='text-4xl mt-4 h-10 justify-self-center'>
                 GYM NAME
             </h1>
-            <img alt='x' src={image} className='h-xs w-md pl-8 shadow-3xl ml-8 justify-self-start rounded-lg' />
-            <div className="modal w-xs justify-self-end">
+            <form>
 
-            </div>
-            <div>
-            </div>
+            </form>
         </div>
     );
+
 }
 
 export default GuestReservation;
