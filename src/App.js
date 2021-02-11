@@ -13,7 +13,7 @@ import GuestReservation from "./components/GuestReservation";
 function App() {
   return (
     <div className=
-             'text-black py-3 border h-6xl
+             'text-black py-3 border h-full
              mx-8 w-6xl bg-white 2xl:bg-opacity-95
              flex justify-center shadow-lg'
     >
