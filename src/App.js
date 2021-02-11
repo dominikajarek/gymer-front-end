@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import Categories from "./components/Categories";
 
 import './index.css';
+import GuestReservation from "./components/GuestReservation";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
             <Switch>
                 <Route exact path={'/'}>
                     <Home />
+                </Route>
+                <Route exact path={'/reservation'}>
+                    <GuestReservation />
                 </Route>
                 <Route exact path={'/gymsite'}>
                     <GymSite />
