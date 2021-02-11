@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
 function Home() {
@@ -15,10 +15,10 @@ function Home() {
     }, []);
 
     return (
-        <div>
-            {
-
-            }
+        <div className='mt-56 w-full h-100 grid justify-items-stretch'>
+            <h1 className='text-4xl mt-4 h-10 justify-self-center'>
+                Home
+            </h1>
         </div>
     );
 }
