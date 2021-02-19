@@ -1,0 +1,51 @@
+.container-main-menu {
+    display: grid;
+    height: auto;
+    font-weight: lighter;
+    font-size: 0.8em;
+}
+
+.nav {
+    display: grid;
+    grid-template-areas:
+            "home"
+            "gym"
+            "fitness"
+            "personal-trainer";
+    grid-template-rows: repeat(5, 2em);
+    grid-template-columns: 1fr;
+    grid-gap: 3em;
+    margin-top: 3em;
+}
+
+.a-nav1 {
+    grid-area: home;
+}
+
+.a-nav2 {
+    grid-area: gym;
+}
+
+.a-nav3 {
+    grid-area: fitness;
+}
+
+.a-nav4 {
+    grid-area: personal-trainer;
+}
+
+.a-nav1, .a-nav2, .a-nav3, .a-nav4 {
+    text-decoration: none;
+    color: rgba(2, 2, 2, 1);
+    line-height: 3em;
+    height: 3em;
+}
+
+.a-nav1:hover, .a-nav2:hover, .a-nav3:hover, .a-nav4:hover {
+    letter-spacing: 0.1em;
+}
+
+.app-logo {
+    max-width: 100%;
+    border-bottom: rgba(167, 165, 165, 0.5) solid 0.1em;
+}

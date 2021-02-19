@@ -1,0 +1,19 @@
+.calendar {
+    text-align: center;
+    font-family: HelveticaNeue-Light, sans-serif;
+    font-size: small;
+}
+
+.calendar-header {
+    background-color: #222;
+    height: 1em;
+    color: white;
+}
+
+.calendar-title {
+    font-size: 1.5em;
+}
+
+.calendar-intro {
+    font-size: large;
+}

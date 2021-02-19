@@ -1,64 +1,53 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 * {
-  font-family: "HelveticaNeue-Light";
+  box-sizing: border-box;
+}
+
+#root {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  font-family: "HelveticaNeue-Light", sans-serif;
 }
 
 body {
   background: url('images/gym.jpg') no-repeat center fixed;
-  background-size: cover;
+  background-size: 100% 100%;
+  display: grid;
+  align-self: center;
+  justify-self: center;
+  grid-template-columns: 1fr;
 }
 
-#root {
-  display: flex;
-  justify-content: center;
+.router {
+  background: rgb(186,189,194);
+  background: radial-gradient(circle, rgba(242, 243, 243, 0.95) 0%, rgba(236, 239, 239, 0.95) 100%);
+  width: 80%;
+  height: auto;
+  display: grid;
+  align-self: center;
+  justify-self: center;
+  grid-template-columns: 0.5fr 1fr 1fr;
+  grid-template-rows: 0.5fr 4fr 0.5fr;
+  grid-template-areas:
+          "nav  header  header"
+          "nav  content content"
+          "nav  footer  footer"
 }
 
-.button-hover:hover {
-  background-color: rgba(63,132,114,0.37);
+.main-menu {
+  grid-area: nav;
+  border-right: rgba(167, 165, 165, 0.5) solid 0.1em;
+  padding: 1em;
 }
 
-.dateTime {
-  max-width: 320px;
-  margin: 0 auto;
+.header {
+  grid-area: header;
 }
 
-.day {
-  display: inline-block;
-  float: left;
+.content {
+  grid-area: content;
 }
 
-.time {
-  display: inline-block;
-  float: right
-}
-
-.modal {
-  position: absolute;
-  margin-top: 6em;
-  padding: 2em 2em;
-  background-color: rgba(63,132,114,0.37);
-  right: 23em;
-  bottom: 5em;
-  text-align: center;
-  box-shadow: 1em 1em 1em rgba(0,0,0,0.1);
-  max-width: 20em;
-  line-height: 1.8;
-  border-radius: 0.5em;
-}
-
-.modal h2 {
-  margin-top: 0;
-  line-height: 25px;
-  font-size: 22px;
-  border-bottom: 1px solid #323232;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  font-weight: 400;
-}
-
-.classes {
-  background-color: rgba(63,132,114,0.37);
+.footer {
+  grid-area: footer;
 }

@@ -1,0 +1,16 @@
+.buttons-nav {
+    display: grid;
+    justify-content: start;
+    grid-template-areas:
+            "about timetable";
+    font-family: "HelveticaNeue-Light", sans-serif;
+    font-weight: lighter;
+    font-size: 0.8em;
+    padding-top: 1em;
+    width: 100%;
+    margin: 2em;
+}
+
+.about:hover, .timetable:hover {
+    letter-spacing: 0.1em;
+}

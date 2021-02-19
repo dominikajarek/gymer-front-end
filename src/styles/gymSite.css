@@ -1,0 +1,88 @@
+.container-gymsite {
+    font-family: "HelveticaNeue-Light", sans-serif;
+    display: grid;
+    grid-template-areas:
+            "contact about"
+            "team team";
+    grid-template-rows: 2fr 2fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    color: rgba(2, 2, 2, 0.8);
+    text-transform: uppercase;
+    font-weight: lighter;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 4em;
+}
+
+.grid-nav {
+    grid-area: nav;
+    height: 1em;
+}
+
+.info-container {
+    grid-area: contact;
+    justify-self: center;
+    width: 20rem;
+    padding: 1em;
+    box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.25);
+    max-width: 10em;
+}
+
+.contact {
+    padding-top: 2.5rem;
+}
+
+.team-info {
+    grid-area: team;
+    justify-self: center;
+}
+
+.about-info {
+    grid-area: about;
+    justify-self: center;
+    box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.25);
+    border-radius: 0.5em;
+}
+
+.title {
+    float: left;
+    text-transform: uppercase;
+    font-size: 2rem;
+    line-height: 2rem;
+    margin: 1em;
+}
+
+.dateTime {
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.day {
+    display: inline-block;
+    float: left;
+}
+
+.time {
+    display: inline-block;
+    float: right
+}
+
+.modal {
+    background-color: #A2AAB0;
+    text-align: center;
+    box-shadow: 1em 1em 1em rgba(0,0,0,0.1);
+    max-width: 20em;
+    line-height: 1.8;
+    border-radius: 0.5em;
+}
+
+.modal h2 {
+    margin-top: 0;
+    line-height: 25px;
+    font-size: 22px;
+    border-bottom: 1px solid #323232;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    font-weight: lighter;
+}

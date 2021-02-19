@@ -1,15 +1,26 @@
 import React from 'react';
 
-import image from '../images/gym8.jpg';
-import gymLogo from '../images/logo_transparent.png';
+import Slider from '../slider/Slider';
+import Navigation from "./Navigation";
+import '../../styles/gymSite.css';
+import image from '../../images/gym8.jpg';
+import gymLogo from '../../images/logo-gym.png';
 
 function GymSite() {
+    const slideData = [
+        {
+            index: 0,
+            src: gymLogo
+        },
+        {
+            index: 1,
+            src: image
+        }
+    ]
 
     return (
-        <div className='mt-56 w-full h-100 grid justify-items-stretch'>
-            <img alt='logo' src={gymLogo} className='h-40 w-70 pb-8 justify-self-center' />
-            <img alt='x' src={image} className='h-xs w-md pl-8 shadow-3xl ml-8 justify-self-start rounded-lg' />
-            <div className="modal w-xs justify-self-end">
+        <div className='container-gymsite'>
+            <div className="modal info-container">
                 <h2>Opening hours</h2>
                 <div className="dateTime">
                     <div className="day">Monday</div>
@@ -45,7 +56,7 @@ function GymSite() {
                     <div className="day">Sunday</div>
                     <div className="time">6am - 10pm</div>
                 </div>
-                <h2 className='pt-10'>Contact</h2>
+                <h2 className='contact'>Contact</h2>
                 <p>
                     466658689
                 </p>
@@ -56,9 +67,9 @@ function GymSite() {
                     Orchan Road 77, NYC
                 </p>
             </div>
-            <div className="w-xs justify-self-start pl-16 pt-16">
-                <div className="w-2xl">
-                    <div className="float-left text-capitalize xl:text-3xl">About us</div>
+            <div className="about-info">
+                <div>
+                    <div className="title">About us</div>
                 </div>
                 <div className="dateTime">
                     <div className="day">
@@ -71,9 +82,10 @@ function GymSite() {
                     </div>
                 </div>
             </div>
-            <div className="w-xs justify-self-start pl-16 pt-16">
-                <div className="w-2xl">
-                    <div className="float-left text-capitalize xl:text-3xl">Our team</div>
+            <div className="team-info">
+                <div>
+                    <div className="title">Our team</div>
+                    <Slider className='grid-slider' heading="Example Slider" slides={slideData} />
                 </div>
             </div>
         </div>
