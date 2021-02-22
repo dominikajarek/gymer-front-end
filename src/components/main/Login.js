@@ -38,7 +38,7 @@ function Login() {
     return (
         <div>
             <label htmlFor="email">Email:</label><br/>
-            <input type="text" id="email" name="email" defaultValue={"email"}/><br/>
+            <input type="text" id="email" name="email" defaultValue={"jk7223039@gmail.com"}/><br/>
             <label htmlFor="password">Password:</label><br/>
             <input type="password" id="password" name="password" defaultValue={"password"}/><br/>
             <input onClick={handleSubmit} defaultValue={"Submit"}/>
