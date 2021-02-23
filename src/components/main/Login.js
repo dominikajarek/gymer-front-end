@@ -13,30 +13,20 @@ function Login() {
 
         axios.post("/api/login", loginDetails)
             .then(response => {
-                // show message fron JsonResponse object
-                console.log(response.data);
-                alert(response.data.message);
-
-                // set up JSON Web Token to the variable
+                document.getElementById('message-label').textContent = response.data.message;
                 const jwt = response.headers.authorization;
-                console.log(jwt);
-
-                // if error field === false should redirect to the homepage
-                if (response.data.error === false) {
-                    // redirect to homepage with logged in status
-                }
             })
             .catch(reason => {
                 // if there is error with credentials like 400 bad request or else with message in json format
                 if (reason.response) {
-                    console.log(reason.response.data);
-                    alert(reason.response.data.message);
+                    document.getElementById('message-label').textContent = reason.response.data.message;
                 }
             });
     }
 
     return (
         <div>
+            <h2 id="message-label">Message</h2>
             <label htmlFor="email">Email:</label><br/>
             <input type="text" id="email" name="email" defaultValue={"jk7223039@gmail.com"}/><br/>
             <label htmlFor="password">Password:</label><br/>
