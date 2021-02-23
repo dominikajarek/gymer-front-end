@@ -6,9 +6,8 @@ import axios from "axios";
 
 function Login() {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [user, setUser] = useState();
+    const [email, setEmail] = useState('test@gmail.com');
+    const [password, setPassword] = useState('test');
     const [message, setMessage] = useState('');
 
     const history = useHistory();
@@ -16,16 +15,14 @@ function Login() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        const user = { email, password };
+        const user = {email, password};
         axios.post("/api/login", user)
             .then(response => {
                 setMessage(response.data.message);
-                setUser(response.data);
-                localStorage.setItem('jwt', JSON.stringify(response.headers.authorization));
+                localStorage.setItem('Authorization', response.headers.authorization);
                 setTimeout(handleSuccessLogin, 500);
             })
             .catch(reason => {
-                // if there is error with credentials like 400 bad request or else with message in json format
                 if (reason.response) {
                     setMessage(reason.response.data.message);
                 }
@@ -39,20 +36,18 @@ function Login() {
             <input
                 type="email"
                 name="email"
-                defaultValue={"jk7223039@gmail.com"}
                 value={email}
                 onChange={({target}) => setEmail(target.value)}
             />
-                <br/>
+            <br/>
             <label htmlFor="password">Password:</label><br/>
             <input
                 type="password"
                 name="password"
-                defaultValue={"password"}
                 value={password}
                 onChange={({target}) => setPassword(target.value)}
             />
-                <br/>
+            <br/>
             <input onClick={handleSubmit} defaultValue={"Submit"}/>
         </div>
     );
