@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useCallback} from 'react';
+import {useHistory} from 'react-router-dom';
 
 import '../../styles/login.css';
 import axios from "axios";
 
 function Login() {
+
+    const history = useHistory();
+    const handleSuccessLogin = useCallback(() => history.push('/'), [history]);
 
     function handleSubmit() {
         const loginDetails = {
@@ -15,6 +19,7 @@ function Login() {
             .then(response => {
                 document.getElementById('message-label').textContent = response.data.message;
                 const jwt = response.headers.authorization;
+                setTimeout(handleSuccessLogin, 500);
             })
             .catch(reason => {
                 // if there is error with credentials like 400 bad request or else with message in json format
