@@ -1,11 +1,10 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
-    app.use(
-        '/api',
-        createProxyMiddleware({
-            target: 'http://localhost:8080',
-            changeOrigin: true,
-        })
-    );
+    const options = {
+        target: 'https://gymer-management-system.herokuapp.com',
+        changeOrigin: true
+    };
+
+    app.use('/api/', createProxyMiddleware(options));
 };
