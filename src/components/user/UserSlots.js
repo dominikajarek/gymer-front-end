@@ -1,11 +1,9 @@
 import React from 'react';
 
-function Slots() {
+export const UserSlots = () => {
     return (
         <div>
             Your classes
         </div>
     );
 }
-
-export default Slots;

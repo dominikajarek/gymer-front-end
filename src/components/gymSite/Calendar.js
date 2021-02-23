@@ -1,50 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
-import Navigation from "./Navigation";
+import { BookForm } from "../forms/BookForm";
+import { Slots } from './Slots';
 
 import '../../styles/calendar.css';
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { Modal } from "react-responsive-modal";
 
 const localizer = momentLocalizer(moment);
 
-function Calendars() {
+export const Calendars = () => {
 
     const [events, setEvents] = useState([]);
-    const [isOpen, setIsOpen] = useState(false);
-
-    const togglePop = () => {
-        setIsOpen(!isOpen);
-    }
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         setEvents([
             {
                 title: 'swimming classes - John',
-                start: new Date(2021, 1, 18, 9),
-                end: new Date(2021, 1, 18, 10),
+                start: new Date(2021, 1, 22, 9),
+                end: new Date(2021, 1, 22, 10),
             },
             {
                 title: 'swimming classes - John',
-                start: new Date(2021, 1, 18, 11),
-                end: new Date(2021, 1, 18, 12),
+                start: new Date(2021, 1, 23, 11),
+                end: new Date(2021, 1, 23, 12),
             },
             {
                 title: 'fitness classes - Jane',
-                start: new Date(2021, 1, 18, 16),
-                end: new Date(2021, 1, 18, 17),
+                start: new Date(2021, 1, 24, 16),
+                end: new Date(2021, 1, 24, 17),
             },
             {
                 title: 'swimming classes - John',
-                start: new Date(2021, 1, 19, 9),
-                end: new Date(2021, 1, 19, 10),
+                start: new Date(2021, 1, 24, 9),
+                end: new Date(2021, 1, 24, 10),
             },
             {
                 title: 'fitness classes - Jane',
-                start: new Date(2021, 1, 19, 14),
-                end: new Date(2021, 1, 19, 16),
+                start: new Date(2021, 1, 25, 14),
+                end: new Date(2021, 1, 25, 16),
             },
-
         ])
     }, []);
 
@@ -55,10 +52,34 @@ function Calendars() {
         marginRight: "2em"
     }
 
+    function Event({ event }) {
+        return (
+                <span>
+                  <strong>
+                  {event.title}
+                  </strong>
+                            { event.desc && (':  ' + event.desc)}
+                </span>
+        );
+    }
+
+    function EventAgenda({ event }) {
+        return (
+                <span>
+                <em style={{ color: 'magenta'}}>{event.title}</em>
+                <p>{ event.desc }</p>
+                </span>
+        );
+    }
+
+    function onEventClick() {
+        setOpen(true);
+    }
+
     return (
         <div className="calendar">
             <Calendar
-                popup
+                onSelectEvent={event => onEventClick(event)}
                 selectable
                 localizer={ localizer }
                 defaultDate={ new Date() }
@@ -72,9 +93,17 @@ function Calendars() {
                     week: true
                 }}
                 style={ style }
+                components={{
+                    event: Event,
+                    agenda: {
+                        event: EventAgenda
+                    }
+                }}
             />
+            <Modal open={open} onClose={() => setOpen(false)} center>
+                <BookForm />
+            </Modal>
+            <Slots />
         </div>
     );
 }
-
-export default Calendars;

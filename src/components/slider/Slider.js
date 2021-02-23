@@ -43,7 +43,7 @@ class Slider extends Component {
     }
 
     render() {
-        const { current, direction } = this.state
+        const { current } = this.state
         const { slides, heading } = this.props
         const headingId = `slider-heading__${heading.replace(/\s+/g, '-').toLowerCase()}`
         const wrapperTransform = {

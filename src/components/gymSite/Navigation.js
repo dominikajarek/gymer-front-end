@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import '../../styles/navigation.css';
 import '../../styles/header.css';
 
-
-function Navigation() {
+export const Navigation = ()=> {
 
     return (
         <div className='buttons-nav'>
@@ -14,5 +13,3 @@ function Navigation() {
         </div>
     );
 }
-
-export default Navigation;

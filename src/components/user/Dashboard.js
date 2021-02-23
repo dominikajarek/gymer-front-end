@@ -1,10 +1,9 @@
 import React from 'react';
 
-export const Home = () => {
-
+export const Dashboard = () => {
     return (
         <div>
-            home page
+            user's dashboard
         </div>
     );
 }

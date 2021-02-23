@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../images/Logo-transparent.png';
 import '../../styles/leftMenu.css';
 
-function LeftMenu() {
+export const LeftMenu = () => {
     return (
         <div className='container-main-menu'>
             <img alt='logo' src={logo} className='app-logo' />
@@ -17,5 +17,3 @@ function LeftMenu() {
         </div>
     );
 }
-
-export default LeftMenu;

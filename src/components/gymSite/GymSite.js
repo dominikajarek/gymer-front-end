@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import Slider from '../slider/Slider';
-import Navigation from "./Navigation";
 import '../../styles/gymSite.css';
 import image from '../../images/gym8.jpg';
 import gymLogo from '../../images/logo-gym.png';
 
-function GymSite() {
+export const GymSite = () => {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios.get('https://gymer-management-system.herokuapp.com/api/partners/1')
+            .then(response => {
+                let result = response.data;
+                setData(result);
+                console.log(result);
+            })
+    }, []);
+
     const slideData = [
         {
             index: 0,
@@ -20,6 +32,7 @@ function GymSite() {
 
     return (
         <div className='container-gymsite'>
+            <h1>{data.name}</h1>
             <div className="modal info-container">
                 <h2>Opening hours</h2>
                 <div className="dateTime">
@@ -91,5 +104,3 @@ function GymSite() {
         </div>
     );
 }
-
-export default GymSite;
