@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import '../../styles/login.css';
@@ -6,36 +6,54 @@ import axios from "axios";
 
 function Login() {
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [user, setUser] = useState();
+    const [message, setMessage] = useState('');
+
     const history = useHistory();
     const handleSuccessLogin = useCallback(() => history.push('/'), [history]);
 
-    function handleSubmit() {
-        const loginDetails = {
-            "email": document.getElementById('email').value,
-            "password": document.getElementById('password').value
-        }
-
-        axios.post("/api/login", loginDetails)
+    function handleSubmit(e) {
+        e.preventDefault();
+        const user = { email, password };
+        axios.post("/api/login", user)
             .then(response => {
-                document.getElementById('message-label').textContent = response.data.message;
                 const jwt = response.headers.authorization;
+                setMessage(response.data.message);
+                setUser(response.data);
+                localStorage.setItem('user', JSON.stringify(response.data));
                 setTimeout(handleSuccessLogin, 500);
             })
             .catch(reason => {
                 // if there is error with credentials like 400 bad request or else with message in json format
                 if (reason.response) {
-                    document.getElementById('message-label').textContent = reason.response.data.message;
+                    setMessage(reason.response.data.message);
                 }
             });
     }
 
     return (
         <div>
-            <h2 id="message-label">Message</h2>
+            <h2>{message}</h2>
             <label htmlFor="email">Email:</label><br/>
-            <input type="text" id="email" name="email" defaultValue={"jk7223039@gmail.com"}/><br/>
+            <input
+                type="email"
+                name="email"
+                defaultValue={"jk7223039@gmail.com"}
+                value={email}
+                onChange={({target}) => setEmail(target.value)}
+            />
+                <br/>
             <label htmlFor="password">Password:</label><br/>
-            <input type="password" id="password" name="password" defaultValue={"password"}/><br/>
+            <input
+                type="password"
+                name="password"
+                defaultValue={"password"}
+                value={password}
+                onChange={({target}) => setPassword(target.value)}
+            />
+                <br/>
             <input onClick={handleSubmit} defaultValue={"Submit"}/>
         </div>
     );
