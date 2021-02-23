@@ -4,6 +4,7 @@ import axios from "axios";
 import '../../index.css';
 import '../../styles/userSlots.css';
 import {useHistory} from "react-router-dom";
+import * as Url from "url";
 
 export const UserSlots = () => {
 
@@ -13,6 +14,10 @@ export const UserSlots = () => {
 
     const history = useHistory();
     const handleRemoveSlot = useCallback(() => window.location.reload(), [history]);
+    const handlePartnerRedirect = partnerId => {
+        const gymUrl = '/gymsite/' + partnerId;
+        history.push(gymUrl);
+    }
 
     let config = {
         headers: {
@@ -50,27 +55,32 @@ export const UserSlots = () => {
     }
 
     const listOfSlots = slots.map(slot =>
-        <div className="table" key={slot.id}>
-            <div className="row">
-                <div className="value">{slot.slotType}</div>
-                <div className="value">Time: {slot.startTime} - {slot.endTime}</div>
-                <div className="value">Date: {slot.date}</div>
+        <div className="grid-container" key={slot.id}>
+            <div className="name padding-grid">{slot.slotType}</div>
+            <div className="date padding-grid">
+                <div className="day text-justify-in-grid">{slot.date}</div>
+                <div className="time text-justify-in-grid">{slot.startTime} - {slot.endTime}</div>
             </div>
-            <div className="row">
-                <div className="value">{slot.description}</div>
-                <div className="value">Is private: {slot.private}</div>
-                <div className="value">Size: {slot.size}</div>
-            </div>
-            <button className="row" onClick={() => resignPopup(slot.id)}>RESIGN</button>
+            <div className="description padding-grid">{slot.description}</div>
+            <button className="resign button-on-slot padding-grid" onClick={() => resignPopup(slot.id)}>RESIGN</button>
+            <button className="go-to-partner button-on-slot padding-grid" onClick={() => goToPartner(slot._links.self.href)}>PARTNER</button>
+            <div className="private padding-grid">{slot.private ? "private" : "public"}</div>
+            <div className="size padding-grid">{slot.size === 1 ? "1 slot" : slot.size + " slots"}</div>
         </div>
     );
 
     const resignPopup = (id) => {
-        if (window.confirm('Really go to another page?')) {
+        if (window.confirm('Do you want to resign from this slot?')) {
             resignRequest(id);
         } else {
 
         }
+    }
+
+    const goToPartner = (slotUrl) => {
+        const path = slotUrl.split("/");
+        const partnerId = path.length - 3;
+        handlePartnerRedirect(path[partnerId]);
     }
 
     const resignRequest = (slotId) => {
