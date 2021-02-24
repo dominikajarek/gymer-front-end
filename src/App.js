@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { AuthContext } from "./components/main/Auth";
+// import { AuthContext } from "./components/main/Auth";
 import { GymSite } from './components/gymSite/GymSite';
 import { Calendars } from "./components/gymSite/Calendar";
 import { Header } from "./components/main/Header";
@@ -14,7 +14,8 @@ import { UserSlots } from './components/user/UserSlots';
 import { Profile } from './components/user/Profile';
 import { Dashboard } from "./components/user/Dashboard";
 import { Navigation } from "./components/gymSite/Navigation";
-import { UserForm } from './components/forms/UserForm';
+import { Login } from './components/main/Login';
+import { Register } from './components/main/Register';
 
 import './index.css';
 
@@ -31,8 +32,8 @@ export const App = () => {
               </div>
               <div className='content'>
                   <Switch>
-                      <Route exact path={'/login'} component={ UserForm } />
-                      <Route exact path={'/register'} />
+                      <Route exact path={'/login'} component={ Login } />
+                      <Route exact path={'/register'} component={ Register } />
                       <Route exact path={'/'} component={ Home } />
                       <Route exact path={'/gymsite'} ><Navigation /><GymSite /></Route>
                       <Route exact path={'/calendar'} ><Navigation /><Calendars /></Route>

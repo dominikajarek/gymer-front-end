@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 import '../../styles/login.css';
 import axios from "axios";
 
-function Login() {
+export function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -58,5 +58,3 @@ function Login() {
         </div>
     );
 }
-
-export default Login;
