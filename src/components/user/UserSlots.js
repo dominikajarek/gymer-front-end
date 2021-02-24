@@ -1,10 +1,8 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import axios from "axios";
-
-import '../../index.css';
-import '../../styles/userSlots.css';
 import {useHistory} from "react-router-dom";
-import * as Url from "url";
+
+import '../../styles/user-details-site.css';
 
 export const UserSlots = () => {
 
@@ -46,7 +44,6 @@ export const UserSlots = () => {
                 if (response.data != null) {
                     setSlots(response.data._embedded.slotDTOList);
                 }
-
             }).catch(reason => {
             if (reason.response != null) {
                 console.log(reason.response);
@@ -55,7 +52,7 @@ export const UserSlots = () => {
     }
 
     const listOfSlots = slots.map(slot =>
-        <div className="grid-container" key={slot.id}>
+        <div className="grid-container-user-slots" key={slot.id}>
             <div className="name padding-grid">{slot.slotType}</div>
             <div className="date padding-grid">
                 <div className="day text-justify-in-grid">{slot.date}</div>
