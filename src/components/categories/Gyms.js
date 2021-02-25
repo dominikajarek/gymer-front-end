@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {useAxiosGet} from "../useAxiosGet";
+import {useAxiosGet} from "../../useAxiosGet";
 import { GymsCard } from "./GymsCard";
 
 export const Gyms = () => {
@@ -24,7 +24,7 @@ export const Gyms = () => {
         return (
             content =
                 gyms.data._embedded.partnerDTOList.map((gym, key) =>
-                    <div key={ key } className='card-container'>
+                    <div key={ key } >
                         <GymsCard
                             gyms={ gym } />
                     </div>

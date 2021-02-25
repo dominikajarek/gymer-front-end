@@ -30,25 +30,32 @@ export const Login = () => {
     }
 
     return (
-        <div>
+        <div className="register">
             <h2>{message}</h2>
-            <label htmlFor="email">Email:</label><br/>
-            <input
-                type="email"
-                name="email"
-                value={email}
-                onChange={({target}) => setEmail(target.value)}
-            />
-            <br/>
-            <label htmlFor="password">Password:</label><br/>
-            <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={({target}) => setPassword(target.value)}
-            />
-            <br/>
-            <input onClick={handleSubmit} defaultValue={"Submit"}/>
+            <form onSubmit={handleSubmit} className='register-form'>
+
+                <p className='register-input-field'>
+                    <label htmlFor="email" className="floatLabel formLabel">Email</label>
+                    <input id="email"
+                           name="email"
+                           type="email"
+                           value={email}
+                           onChange={({target}) => setEmail(target.value)}
+                    />
+                </p>
+                <p className='register-input-field'>
+                    <label htmlFor="password" className="floatLabel formLabel">Password</label>
+                    <input id="password"
+                           name="password"
+                           type="password"
+                           value={password}
+                           onChange={({target}) => setPassword(target.value)}
+                    />
+                </p>
+                <p className='register-input-field'>
+                    <input type="submit" value="Sign in" id="submit" />
+                </p>
+            </form>
         </div>
     );
 }

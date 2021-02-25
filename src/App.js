@@ -35,15 +35,15 @@ export const App = () => {
                       <Route exact path={'/'} component={ Home } />
                       <Route exact path={'/gymsite/:id'} ><GymSite /></Route>
                       <Route exact path={'/calendar/:id'} ><Calendars /></Route>
-                      <div className='categories'>
-                          <Route exact path={'/gyms'} component={ Gyms } />
-                          <Route exact path={'/fitness'} component={ Fitness } />
-                          <Route exact path={'/personal-trainers'} component={ PersonalTrainers } />
-                      </div>
                       <Route exact path={'/user-slots'} component={ UserSlots } />
                       <Route exact path={'/profile'} component={ Profile } />
                       <Route exact path={'/dashboard'} component={ Dashboard } />
                   </Switch>
+                  <div className='categories'>
+                      <Route exact path={'/gyms'} component={ Gyms } />
+                      <Route exact path={'/fitness'} component={ Fitness } />
+                      <Route exact path={'/personal-trainers'} component={ PersonalTrainers } />
+                  </div>
               </div>
           </Router>
       </div>

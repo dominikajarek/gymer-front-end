@@ -8,7 +8,7 @@
     padding: 4em 4em 2em;
     max-width: 400px;
     margin: 50px auto 0;
-    box-shadow: 0 0 1em #222;
+    box-shadow: 1em 1em 1em 0.5em rgba(0, 0, 0, 0.25);
     border-radius: 2px;
 }
 
@@ -43,7 +43,7 @@ input[type="password"] {
     border: 1px solid #dbdbdb;
     font-size: 1.6em;
     padding: .8em .5em;
-    border-radius: 2px;
+    border-radius: 0.5em;
 }
 
 input[type="email"]:focus,
@@ -52,9 +52,9 @@ input[type="password"]:focus {
 }
 
 input[type="submit"] {
-    background: darkgreen;
+    background: #cfab91;
     box-shadow: 0 3px 0 0;
-    border-radius: 2px;
+    border-radius: 0.5em;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -64,11 +64,11 @@ input[type="submit"] {
     margin: 2em 0 0;
     outline: none;
     padding: .8em 0;
-    text-shadow: 0 1px #68B25B;
+    text-shadow: 0 1px #609899;
 }
 
 input[type="submit"]:hover {
-    background: rgba(148,175,101,1);
+    background: rgb(229, 198, 183);
     text-shadow:0 1px 3px;
 
 }
@@ -115,6 +115,7 @@ li .checkbox {
     text-align: center;
     cursor: pointer;
     transition: .5s ease;
+    border-radius: 0.05em;
 }
 
 li .checkbox:hover {

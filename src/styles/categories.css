@@ -69,6 +69,7 @@
     transition: 0.2s;
     cursor: pointer;
     text-decoration: none;
+    outline: none;
 }
 .card__btn span {
     margin-left: 1rem;
@@ -77,4 +78,5 @@
 
 .card__btn:hover span, .card__btn:active span {
     margin-left: 1.5rem;
+    outline: none;
 }
