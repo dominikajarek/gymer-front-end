@@ -13,6 +13,8 @@ import { UserSlots } from './components/user/UserSlots';
 import { Profile } from './components/user/Profile';
 import { Dashboard } from "./components/user/Dashboard";
 import { Login } from "./components/main/Login";
+import { Navigation } from "./components/gymSite/Navigation";
+import { Register } from './components/main/Register';
 
 import './index.css';
 
@@ -30,7 +32,7 @@ export const App = () => {
               <div className='content'>
                   <Switch>
                       <Route exact path={'/login'} component={ Login } />
-                      <Route exact path={'/register'} />
+                      <Route exact path={'/register'} component={ Register } />
                       <Route exact path={'/'} component={ Home } />
                       <Route exact path={'/gymsite/:id'} ><GymSite /></Route>
                       <Route exact path={'/calendar/:id'} ><Calendars /></Route>
