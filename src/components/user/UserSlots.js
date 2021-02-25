@@ -1,7 +1,7 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {useHistory} from "react-router-dom";
+import React, { useCallback, useEffect, useState } from 'react';
+import { useHistory } from "react-router-dom";
 
-import {Connection} from "../../Connection.js";
+import { Connection } from "../../Connection.js";
 
 import '../../styles/user-details-site.css';
 

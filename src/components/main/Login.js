@@ -30,25 +30,29 @@ export const Login = () => {
     }
 
     return (
-        <div>
+        <div className='login-container'>
             <h2>{message}</h2>
-            <label htmlFor="email">Email:</label><br/>
-            <input
-                type="email"
-                name="email"
-                value={email}
-                onChange={({target}) => setEmail(target.value)}
-            />
+            <div className='login-input'>
+                <label htmlFor="email">Email:</label><br/>
+                <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={({target}) => setEmail(target.value)}
+                />
+            </div>
             <br/>
-            <label htmlFor="password">Password:</label><br/>
-            <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={({target}) => setPassword(target.value)}
-            />
+            <div className='password-input'>
+                <label htmlFor="password">Password:</label><br/>
+                <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={({target}) => setPassword(target.value)}
+                />
+            </div>
             <br/>
-            <input onClick={handleSubmit} defaultValue={"Submit"}/>
+            <input onClick={handleSubmit} defaultValue={"Submit"} className='submit-button'/>
         </div>
     );
 }
