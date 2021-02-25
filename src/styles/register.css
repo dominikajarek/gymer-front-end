@@ -1,11 +1,9 @@
-
 .register {
     font-family: sans-serif;
     font-size: 10px
 }
 
-
-form {
+.register-form {
     background: #fff;
     padding: 4em 4em 2em;
     max-width: 400px;
@@ -14,7 +12,7 @@ form {
     border-radius: 2px;
 }
 
-h2 {
+.text {
     margin:0 0 2em 0;
     padding: 1em;
     text-align: center;
@@ -26,7 +24,7 @@ h2 {
     color: red;
 }
 
-p {
+.register-input-field {
     margin: 0 0 3em 0;
     position: relative;
 }
@@ -51,13 +49,6 @@ input[type="password"] {
 input[type="email"]:focus,
 input[type="password"]:focus {
     background: #fff
-}
-
-span {
-    display:block;
-    background: #F9A5A5;
-    padding: 2px 5px;
-    color: #666;
 }
 
 input[type="submit"] {

@@ -1,5 +1,5 @@
-import React, {useCallback, useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import React, { useCallback, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import '../../styles/register.css';
 import axios from "axios";
@@ -44,9 +44,8 @@ export function Register() {
 
     return (
         <div className="register">
-
-            <form onSubmit={handleSubmit}>
-                <h2>Choose account type:</h2>
+            <form onSubmit={handleSubmit} className='register-form'>
+                <h2 className='text'>Choose account type:</h2>
                 <ul className="tab-group">
                     <li className="tab"> {/* here should be optionally class active to visual effect*/}
                         <label className="checkbox" htmlFor="partner">
@@ -72,7 +71,7 @@ export function Register() {
                 </ul>
 
                 {error ? (<h3 className="error">{message}</h3>) : (<h3></h3>)}
-                <p>
+                <p className='register-input-field'>
                     <label htmlFor="email" className="floatLabel formLabel">Email</label>
                     <input id="email"
                            name="email"
@@ -81,7 +80,7 @@ export function Register() {
                            onChange={({target}) => setEmail(target.value)}
                     />
                 </p>
-                <p>
+                <p className='register-input-field'>
                     <label htmlFor="password" className="floatLabel formLabel">Password</label>
                     <input id="password"
                            name="password"
@@ -90,7 +89,7 @@ export function Register() {
                            onChange={({target}) => setPassword(target.value)}
                     />
                 </p>
-                <p>
+                <p className='register-input-field'>
                     <label htmlFor="confirmPassword" className="floatLabel formLabel">Confirm Password</label>
                     <input id="confirmPassword"
                            name="confirmPassword"
@@ -99,12 +98,11 @@ export function Register() {
                            onChange={({target}) => setConfirmPassword(target.value)}
                     />
                 </p>
-                <p>
+                <p className='register-input-field'>
                     <input type="submit" value="Sign in" id="submit" disabled={!validateForm()}/>
                 </p>
             </form>
         </div>
-
     );
 }
 

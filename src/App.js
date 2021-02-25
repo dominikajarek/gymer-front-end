@@ -13,7 +13,6 @@ import { UserSlots } from './components/user/UserSlots';
 import { Profile } from './components/user/Profile';
 import { Dashboard } from "./components/user/Dashboard";
 import { Login } from "./components/main/Login";
-import { Navigation } from "./components/gymSite/Navigation";
 import { Register } from './components/main/Register';
 
 import './index.css';
