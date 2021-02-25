@@ -21,7 +21,7 @@ body {
 .router {
   background: rgb(186,189,194);
   background: radial-gradient(circle, rgba(242, 243, 243, 0.95) 0%, rgba(236, 239, 239, 0.95) 100%);
-  width: 80%;
+  width: 70%;
   height: auto;
   display: grid;
   align-self: center;
@@ -46,8 +46,18 @@ body {
 
 .content {
   grid-area: content;
+  display: grid;
+  height: 150vh;
 }
 
 .footer {
   grid-area: footer;
+}
+
+.categories {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
 }

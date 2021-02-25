@@ -5,12 +5,19 @@
             "about timetable";
     font-family: "HelveticaNeue-Light", sans-serif;
     font-weight: lighter;
-    font-size: 0.8em;
     padding-top: 1em;
     width: 100%;
     margin: 2em;
+    font-size: small;
+    padding-bottom: 1em;
+    border-bottom: rgba(167, 165, 165, 0.5) solid 0.1em;
 }
 
 .about:hover, .timetable:hover {
     letter-spacing: 0.1em;
+}
+
+.about, .timetable, .link-style {
+    text-decoration: none;
+    color: rgba(2, 2, 2, 1);
 }

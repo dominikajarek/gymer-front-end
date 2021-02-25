@@ -12,25 +12,18 @@ export const Header = () => {
     const [openFirstRegistration, setOpenFirstRegistration] = useState(false);
     const [openSecond, setOpenSecond] = useState(false);
 
-    const linkStyle = {
-        'textDecoration':'none',
-        'color':'rgba(2, 2, 2, 1)'
-    }
-
     return (
             <header className='header-container'>
                 <div className="search__container">
                     <input className="search__input" type="text" placeholder="Search" />
                 </div>
                     <Link to='/login'
-                          className='btn btn-one sign-in'
-                          style={linkStyle}
+                          className='btn btn-one sign-in link-style'
                           >
                         Sign in
                     </Link>
                     <Link to='/register'
-                          className='btn btn-one sign-up'
-                          style={linkStyle}
+                          className='btn btn-one sign-up link-style'
                           onClick={() => setOpenFirstRegistration(true)}>
                         Sign up
                     </Link>

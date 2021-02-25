@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
+import axios from 'axios';
+
 import { BookForm } from "../forms/BookForm";
 import { Slots } from './Slots';
+import { Modal } from "react-responsive-modal";
 
 import '../../styles/calendar.css';
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { Modal } from "react-responsive-modal";
+import {Navigation} from "./Navigation";
 
 const localizer = momentLocalizer(moment);
 
@@ -14,6 +18,9 @@ export const Calendars = () => {
 
     const [events, setEvents] = useState([]);
     const [open, setOpen] = useState(false);
+    const [data, setData] = useState();
+
+    const { id } = useParams();
 
     useEffect(() => {
         setEvents([
@@ -78,6 +85,7 @@ export const Calendars = () => {
 
     return (
         <div className="calendar">
+            <Navigation id={id} className='calendar-nav' />
             <Calendar
                 onSelectEvent={event => onEventClick(event)}
                 selectable

@@ -29,7 +29,7 @@ export const BookForm = () => {
     return (
         <div className='login-container'>
             <Form method='post' action='/reservation'>
-                <Form.Group size='lg' controlId='phone-number'>
+                <Form.Group size='lg' controlId='email'>
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                         autoFocus
@@ -51,7 +51,7 @@ export const BookForm = () => {
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)} />
                 </Form.Group>
-                <Form.Group size='lg' controlId='phone-number'>
+                <Form.Group size='lg' controlId='info'>
                     <Form.Label>Additional information</Form.Label>
                     <Form.Control
                         type='text'

@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { AuthContext } from "./components/main/Auth";
-import { GymSite } from './components/gymSite/GymSite';
-import { Calendars } from "./components/gymSite/Calendar";
+import { GymSite } from './components/partner/GymSite';
+import { Calendars } from "./components/partner/Calendar";
 import { Header } from "./components/main/Header";
 import { Home } from "./components/main/Home";
 import { LeftMenu } from "./components/main/LeftMenu";
@@ -13,8 +12,7 @@ import { PersonalTrainers } from "./components/categories/PersonalTrainers";
 import { UserSlots } from './components/user/UserSlots';
 import { Profile } from './components/user/Profile';
 import { Dashboard } from "./components/user/Dashboard";
-import { Navigation } from "./components/gymSite/Navigation";
-import { UserForm } from './components/forms/UserForm';
+import { Login } from "./components/main/Login";
 
 import './index.css';
 
@@ -31,14 +29,16 @@ export const App = () => {
               </div>
               <div className='content'>
                   <Switch>
-                      <Route exact path={'/login'} component={ UserForm } />
+                      <Route exact path={'/login'} component={ Login } />
                       <Route exact path={'/register'} />
                       <Route exact path={'/'} component={ Home } />
-                      <Route exact path={'/gymsite'} ><Navigation /><GymSite /></Route>
-                      <Route exact path={'/calendar'} ><Navigation /><Calendars /></Route>
-                      <Route exact path={'/gyms'} component={ Gyms } />
-                      <Route exact path={'/fitness'} component={ Fitness } />
-                      <Route exact path={'/personal-trainers'} component={ PersonalTrainers } />
+                      <Route exact path={'/gymsite/:id'} ><GymSite /></Route>
+                      <Route exact path={'/calendar/:id'} ><Calendars /></Route>
+                      <div className='categories'>
+                          <Route exact path={'/gyms'} component={ Gyms } />
+                          <Route exact path={'/fitness'} component={ Fitness } />
+                          <Route exact path={'/personal-trainers'} component={ PersonalTrainers } />
+                      </div>
                       <Route exact path={'/user-slots'} component={ UserSlots } />
                       <Route exact path={'/profile'} component={ Profile } />
                       <Route exact path={'/dashboard'} component={ Dashboard } />

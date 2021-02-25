@@ -2,6 +2,13 @@
     text-align: center;
     font-family: HelveticaNeue-Light, sans-serif;
     font-size: small;
+    grid-template-areas:
+            "nav nav"
+            "calendar calendar";
+}
+
+.calendar-nav {
+    grid-area: nav;
 }
 
 .calendar-header {
