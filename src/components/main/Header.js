@@ -26,12 +26,13 @@ export const Header = () => {
                           className='btn btn-one sign-in'
                           style={linkStyle}
                           >
-                        Sign in
+                        Log in
                     </Link>
                     <Link to='/register'
                           className='btn btn-one sign-up'
                           style={linkStyle}
-                          onClick={() => setOpenFirstRegistration(true)}>
+                          // onClick={() => setOpenFirstRegistration(true)}
+                        >
                         Sign up
                     </Link>
 
