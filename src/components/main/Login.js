@@ -6,30 +6,25 @@ import '../../styles/login.css';
 
 export const Login = () => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('test@gmail.com');
+    const [password, setPassword] = useState('test');
     const [message, setMessage] = useState('');
-    const [user, setUser] = useState();
 
     const history = useHistory();
     const handleSuccessLogin = useCallback(() => history.push('/'), [history]);
 
     function handleSubmit(e) {
         e.preventDefault();
-        const user = { email, password };
+        const user = {email, password};
         axios.post("/api/login", user)
             .then(response => {
-                const result = response.data;
-                const jwt = response.headers.authorization;
-                setMessage(result.message);
-                setUser(result);
-                localStorage.setItem('user', JSON.stringify(result));
+                setMessage(response.data.message);
+                localStorage.setItem('Authorization', response.headers.authorization);
                 setTimeout(handleSuccessLogin, 500);
             })
             .catch(reason => {
-                // if there is error with credentials like 400 bad request or else with message in json format
                 if (reason.response) {
-                    setMessage(reason.response.message);
+                    setMessage(reason.response.data.message);
                 }
             });
     }
@@ -57,8 +52,3 @@ export const Login = () => {
         </div>
     );
 }
-
-/*
-test@gmail.com
-test
- */
