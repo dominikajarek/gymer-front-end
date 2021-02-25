@@ -21,10 +21,9 @@ export function Register() {
         const user = {email, password, confirmPassword, accountType};
         axios.post(`/api/registration/${accountType}`, user, {withCredentials: true})
             .then(response => {
-
                 setError(response.data.error);
                 setMessage(response.data.message);
-                if (!error) {
+                if (!response.data.error) {
                     setTimeout(handleSuccessRegister, 500);
                 }
             }).catch(error => {
@@ -56,7 +55,6 @@ export function Register() {
                                    onChange={({target}) => setActive(target)}
                             /> Partner
                         </label>
-
                     </li>
                     <li className="tab">
                         <label className="checkbox" htmlFor="user">
@@ -69,8 +67,6 @@ export function Register() {
                         </label>
                     </li>
                 </ul>
-
-                {error ? (<h3 className="error">{message}</h3>) : (<h3></h3>)}
                 <p className='register-input-field'>
                     <label htmlFor="email" className="floatLabel formLabel">Email</label>
                     <input id="email"
@@ -98,6 +94,7 @@ export function Register() {
                            onChange={({target}) => setConfirmPassword(target.value)}
                     />
                 </p>
+                {error &&<h3 className="error">{message}</h3>}
                 <p className='register-input-field'>
                     <input type="submit" value="Sign in" id="submit" disabled={!validateForm()}/>
                 </p>
