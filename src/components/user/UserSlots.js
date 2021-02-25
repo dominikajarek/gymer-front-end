@@ -1,14 +1,43 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import axios from "axios";
 import {useHistory} from "react-router-dom";
+
+import {Connection} from "../../Connection.js";
 
 import '../../styles/user-details-site.css';
 
 export const UserSlots = () => {
 
-    const [user, setUser] = useState([]);
-    const [slots, setSlots] = useState([]);
-    const [message, setMessage] = useState('');
+    const [user, setUserState] = useState([]);
+    const [slots, setSlotsState] = useState([]);
+    const [message, setMessageState] = useState('');
+
+    /**
+     * Section responsible for obtaining all necessary information.
+     * Active user is obtained first, next slots list is obtained as well only if first request was valid.
+     * All necessary information are stored in state variables.
+     */
+
+    useEffect(() => {
+        const activeUserUrl = '/api/me';
+        Connection.getRequestWithCallbacks(activeUserUrl, setActiveUserAndGetUserSlots, Connection.logMessageCallback);
+    }, []);
+
+    const setActiveUserAndGetUserSlots = data => {
+        setUserState(data);
+
+        const getSlotsUrl = '/api/users/' + data.id + '/slots';
+        Connection.getRequestWithCallbacks(getSlotsUrl, setUserSlots, Connection.logMessageCallback);
+    }
+
+    const setUserSlots = data => {
+        setSlotsState(data._embedded.slotDTOList);
+    }
+
+    /**
+     * Section responsible for managing buttons showed on site.
+     * First button is responsible for resigning from the slot.
+     * Second button is responsible for redirecting to the connected partner site.
+     */
 
     const history = useHistory();
     const handleRemoveSlot = useCallback(() => window.location.reload(), [history]);
@@ -17,39 +46,39 @@ export const UserSlots = () => {
         history.push(gymUrl);
     }
 
-    let config = {
-        headers: {
-            'Authorization': localStorage.getItem('Authorization')
+    const resignPopup = (id) => {
+        if (window.confirm('Do you want to resign from this slot?')) {
+            resignRequest(id);
+        } else {
+
         }
     }
 
-    useEffect(() => {
-        getActiveUser();
-    }, []);
+    const resignRequest = slotId => {
+        const body = {
+            "userId": user.id,
+            "slotId": slotId,
+            "cancel": true
+        }
 
-    const getActiveUser = () => {
-        axios.get('/api/me', config)
-            .then(response => {
-                setUser(response.data);
-                getActiveUsersSlots(response.data.id);
-            }).catch(reason => {
-            console.log(reason.response);
-        });
+        const removeSlotsUrl = '/api/slotuser/' + slotId + '/reservation/user';
+        Connection.postRequestWithCallbacks(removeSlotsUrl, body, handleRemoveAndSetMessage, Connection.logMessageCallback);
     }
 
-    const getActiveUsersSlots = (id) => {
-        const getSlotsUrl = '/api/users/' + id + '/slots';
-        axios.get(getSlotsUrl, config)
-            .then(response => {
-                if (response.data != null) {
-                    setSlots(response.data._embedded.slotDTOList);
-                }
-            }).catch(reason => {
-            if (reason.response != null) {
-                console.log(reason.response);
-            }
-        });
+    const handleRemoveAndSetMessage = data => {
+        setMessageState(data.message);
+        handleRemoveSlot();
     }
+
+    const goToPartner = slotUrl => {
+        const path = slotUrl.split("/");
+        const partnerId = path.length - 3;
+        handlePartnerRedirect(path[partnerId]);
+    }
+
+    /**
+     * Section where HTML skeleton is build up from obtained data.
+     */
 
     const listOfSlots = slots.map(slot =>
         <div className="grid-container-user-slots" key={slot.id}>
@@ -60,43 +89,13 @@ export const UserSlots = () => {
             </div>
             <div className="description padding-grid">{slot.description}</div>
             <button className="resign button-on-slot padding-grid" onClick={() => resignPopup(slot.id)}>RESIGN</button>
-            <button className="go-to-partner button-on-slot padding-grid" onClick={() => goToPartner(slot._links.self.href)}>PARTNER</button>
+            <button className="go-to-partner button-on-slot padding-grid"
+                    onClick={() => goToPartner(slot._links.self.href)}>PARTNER
+            </button>
             <div className="private padding-grid">{slot.private ? "private" : "public"}</div>
             <div className="size padding-grid">{slot.size === 1 ? "1 slot" : slot.size + " slots"}</div>
         </div>
     );
-
-    const resignPopup = (id) => {
-        if (window.confirm('Do you want to resign from this slot?')) {
-            resignRequest(id);
-        } else {
-
-        }
-    }
-
-    const goToPartner = (slotUrl) => {
-        const path = slotUrl.split("/");
-        const partnerId = path.length - 3;
-        handlePartnerRedirect(path[partnerId]);
-    }
-
-    const resignRequest = (slotId) => {
-        const body = {
-            "userId": user.id,
-            "slotId": slotId,
-            "cancel": true
-        }
-        const removeSlotsUrl = '/api/slotuser/' + slotId + '/reservation/user';
-        axios.post(removeSlotsUrl, body, config)
-            .then(response => {
-                if (response.data.error === false) {
-                    setMessage(response.data.message);
-                    handleRemoveSlot();
-                }
-            }).catch(reason => {
-            console.log(reason.response);
-        });
-    }
 
     return (<div className="content"><h2>{message}</h2>{listOfSlots}</div>);
 }

@@ -2,110 +2,85 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {useHistory} from "react-router-dom";
 import axios from "axios";
 
+import {Connection} from "../../Connection.js";
+
 import '../../styles/user-details-site.css';
 
 export const Profile = () => {
 
-    const [activeUser, setUser] = useState([]);
-    const [userDetails, setUserDetails] = useState([]);
-    const [credentials, setCredentials] = useState([]);
+    const [userDetails, setUserDetailsState] = useState([]);
+    const [credentials, setCredentialsState] = useState([]);
 
-    const [messageLabel, setMessageLabel] = useState('');
-    const [firstNameValue, setFirstName] = useState('');
-    const [lastNameValue, setLastName] = useState('');
-    const [emailValue, setEmail] = useState('');
-    const [phoneNumberValue, setPhoneNumber] = useState('');
-    const [passwordValue, setPassword] = useState('');
-    const [newPasswordValue, setNewPassword] = useState('');
-
-    const history = useHistory();
-    const handleChangingDetails = useCallback(() => window.location.reload(), [history]);
+    const [messageLabel, setMessageLabelState] = useState('');
+    const [firstNameValue, setFirstNameState] = useState('');
+    const [lastNameValue, setLastNameState] = useState('');
+    const [emailValue, setEmailState] = useState('');
+    const [phoneNumberValue, setPhoneNumberState] = useState('');
+    const [passwordValue, setPasswordState] = useState('');
+    const [newPasswordValue, setNewPasswordState] = useState('');
 
     const [userUrl, setUserUrl] = useState('');
     const [credentialUrl, setCredentialUrl] = useState('');
 
-    let config = {
-        headers: {
-            'Authorization': localStorage.getItem('Authorization')
-        }
-    }
+    /**
+     * Section responsible for obtaining all necessary information.
+     * Active user is obtained first, next detailed info about user is get from the server.
+     * At the end credentials for this specific user are obtained.
+     * All necessary information are stored in state variables.
+     */
 
     useEffect(() => {
-        getActiveUser();
+        const getActiveUserUrl = '/api/me';
+        Connection.getRequestWithCallbacks(getActiveUserUrl, setActiveUserAndGetUserDetails, Connection.logMessageCallback);
     }, []);
 
-    const getActiveUser = () => {
-        axios.get('/api/me', config)
-            .then(response => {
-                setUser(response.data);
-                getActiveUsersDetails(response.data.id);
-            }).catch(reason => {
-            console.log(reason.response);
-        });
+    const setActiveUserAndGetUserDetails = data => {
+        const userUrl = '/api/users/' + data.id;
+        setUserUrl(userUrl);
+        Connection.getRequestWithCallbacks(userUrl, setUserDetailsAndGetUserCredentials, Connection.logMessageCallback);
     }
 
-    const getActiveUsersDetails = (id) => {
-        const getUserUrl = '/api/users/' + id;
-        setUserUrl(getUserUrl);
-        axios.get(getUserUrl, config)
-            .then(response => {
-                if (response.data != null) {
-                    setUserDetails(response.data);
-                    if (response.data != null) {
-                        const getCredentialUrl = response.data._links.credentials.href;
-                        setCredentialUrl(getCredentialUrl);
-                        getActiveUsersCredentials(getCredentialUrl);
-                        setFirstName(response.data.firstName);
-                        setLastName(response.data.lastName);
-                    }
-                }
-            }).catch(reason => {
-            if (reason.response != null) {
-                console.log(reason.response);
-            }
-        });
+    const setUserDetailsAndGetUserCredentials = data => {
+        setUserDetailsState(data);
+        setFirstNameState(data.firstName);
+        setLastNameState(data.lastName);
+
+        const getCredentialUrl = data._links.credentials.href;
+        setCredentialUrl(getCredentialUrl);
+        Connection.getRequestWithCallbacks(getCredentialUrl, setUserCredentials, Connection.logMessageCallback);
     }
 
-    const getActiveUsersCredentials = (getCredentialUrl) => {
-        axios.get(getCredentialUrl, config)
-            .then(response => {
-                if (response.data != null) {
-                    setEmail(response.data.email);
-                    setPhoneNumber(response.data.phoneNumber);
-                    setCredentials(response.data);
-                }
-            }).catch(reason => {
-            if (reason.response != null) {
-                console.log(reason.response);
-            }
-        });
+    const setUserCredentials = data => {
+        setEmailState(data.email);
+        setPhoneNumberState(data.phoneNumber);
+        setCredentialsState(data);
     }
+
+    /**
+     * Section responsible for managing buttons and actions showed on site.
+     * First button is responsible for sending put request with User details.
+     * Second button is responsible for sending put request with User new password settings.
+     */
+
+    const history = useHistory();
+    const handleChangingDetails = useCallback(() => window.location.reload(), [history]);
 
     const submitNewDetails = (e) => {
         e.preventDefault();
         if (window.confirm('Do you really want to update your account details?')) {
-            updateUserDetails();
+            handleConfirmWhenSubmittingNewDetails();
         } else {
 
         }
     }
 
-    const updateUserDetails = () => {
+    const handleConfirmWhenSubmittingNewDetails = () => {
         const newUserData = {
             "id": userDetails.id,
             "firstName": firstNameValue,
             "lastName": lastNameValue
         }
-        axios.put(userUrl, newUserData, config)
-            .then(response => {
-                if (response.data != null) {
-                    updateCredentialDetails();
-                }
-            }).catch(reason => {
-            if (reason.response != null) {
-                console.log(reason.response);
-            }
-        });
+        Connection.putRequestWithCallbacks(userUrl, newUserData, updateCredentialDetails, Connection.logMessageCallback);
     }
 
     const updateCredentialDetails = () => {
@@ -113,46 +88,43 @@ export const Profile = () => {
             "id": credentials.id,
             "phoneNumber": phoneNumberValue
         }
-        axios.put(credentialUrl, newCredentialData, config)
-            .then(response => {
-                if (response.data != null) {
-                    setMessageLabel("Details updated successfully");
-                    setTimeout(handleChangingDetails, 300);
-                }
-            }).catch(reason => {
-            if (reason.response != null) {
-                console.log(reason.response);
-            }
-        });
+        Connection.putRequestWithCallbacks(credentialUrl, newCredentialData, showMessageAndHandleSuccessUpdate, Connection.logMessageCallback)
+    }
+
+    const showMessageAndHandleSuccessUpdate = () => {
+        setMessageLabelState("Details updated successfully");
+        setTimeout(handleChangingDetails, 300);
     }
 
     const submitNewPassword = (e) => {
         e.preventDefault();
         if (window.confirm('Do you really want to update your account details?')) {
-            updateNewPassword();
+            handleConfirmWhenSubmittingNewPassword();
         } else {
 
         }
     }
 
-    const updateNewPassword = () => {
+    const handleConfirmWhenSubmittingNewPassword = () => {
         const newPasswordData = {
             "oldPassword": passwordValue,
             "newPassword": newPasswordValue
         }
-
         const newPasswordUrl = userUrl + "/password";
-        axios.put(newPasswordUrl, newPasswordData, config)
-            .then(response => {
-                setMessageLabel("Password changed successfully");
-            })
-            .catch(reason => {
-            if (reason.response != null) {
-                setMessageLabel("Password's doesn't match.");
-            }
-        });
-
+        Connection.putRequestWithCallbacks(newPasswordUrl, newPasswordData, updateNewPassword, showErrorMessage)
     }
+
+    const updateNewPassword = () => {
+        setMessageLabelState("Password changed successfully");
+    }
+
+    const showErrorMessage = () => {
+        setMessageLabelState("Password's doesn't match.");
+    }
+
+    /**
+     * Section where HTML skeleton is build up from obtained data.
+     */
 
     return (
         <div>
@@ -162,17 +134,17 @@ export const Profile = () => {
                 <div className="firstNameLabel padding-grid">
                     <label htmlFor="fnfield" className="fnlabel text-justify-in-grid">First name:</label>
                     <input className="fnfield text-justify-in-grid" type="text" defaultValue={firstNameValue}
-                           onChange={({target}) => setFirstName(target.value)}/>
+                           onChange={({target}) => setFirstNameState(target.value)}/>
                 </div>
                 <div className="lastNameLabel padding-grid">
                     <label htmlFor="lnfield" className="lnlabel text-justify-in-grid">Last name:</label>
                     <input className="lnfield text-justify-in-grid" type="text" defaultValue={lastNameValue}
-                           onChange={({target}) => setLastName(target.value)}/>
+                           onChange={({target}) => setLastNameState(target.value)}/>
                 </div>
                 <div className="phoneLabel padding-grid">
                     <label htmlFor="pField" className="pLabel text-justify-in-grid">Phone number:</label>
                     <input className="pField text-justify-in-grid" type="text" defaultValue={phoneNumberValue}
-                           onChange={({target}) => setPhoneNumber(target.value)}/>
+                           onChange={({target}) => setPhoneNumberState(target.value)}/>
                 </div>
                 <div className="buttonHolder text-justify-in-grid">
                     <button className="resign button-on-slot" onClick={submitNewDetails}>SAVE</button>
@@ -183,13 +155,13 @@ export const Profile = () => {
                 </div>
                 <div className="passwordLabel padding-grid">
                     <label htmlFor="passfield" className="passlabel text-justify-in-grid">Old password:</label>
-                    <input className="passfield text-justify-in-grid" type="text" defaultValue={passwordValue}
-                           onChange={({target}) => setPassword(target.value)}/>
+                    <input className="passfield text-justify-in-grid" type="password" defaultValue={passwordValue}
+                           onChange={({target}) => setPasswordState(target.value)}/>
                 </div>
                 <div className="newPasswordLabel padding-grid">
                     <label htmlFor="passfield2" className="passlabel2 text-justify-in-grid">New password:</label>
-                    <input className="passfield2 text-justify-in-grid" type="text" defaultValue={newPasswordValue}
-                           onChange={({target}) => setNewPassword(target.value)}/>
+                    <input className="passfield2 text-justify-in-grid" type="password" defaultValue={newPasswordValue}
+                           onChange={({target}) => setNewPasswordState(target.value)}/>
                 </div>
                 <div className="buttonPassSubmit text-justify-in-grid">
                     <button className="resign button-on-slot" onClick={submitNewPassword}>CONFIRM</button>
