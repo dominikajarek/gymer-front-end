@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {useAxiosGet} from "../../useAxiosGet";
+import { useAxiosGet } from "../../useAxiosGet";
 import { GymsCard } from "./GymsCard";
 
 export const Gyms = () => {

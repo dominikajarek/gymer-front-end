@@ -1,11 +1,10 @@
 import React from 'react';
 
 import '../../styles/register.css';
+import {Gyms} from "./Gyms";
 
 export const Fitness = () => {
     return (
-        <div className='register-container'>
-            Fitness category
-        </div>
+            <Gyms />
     );
 }
