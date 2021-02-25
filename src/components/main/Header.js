@@ -14,7 +14,17 @@ export const Header = () => {
 
     const linkStyle = {
         'textDecoration':'none',
-        'color':'rgba(2, 2, 2, 1)'
+        'color':'rgba(2, 2, 2, 1)',
+    }
+    const partnerStyle = {
+        'textDecoration':'none',
+        'color': 'red',
+        'padding': '1em'
+    }
+    const userStyle = {
+        'textDecoration':'none',
+        'color': 'green',
+        'padding': '1em'
     }
 
     return (
@@ -36,6 +46,7 @@ export const Header = () => {
                         Sign up
                     </Link>
 
+{/*login*/}
                 <Modal open={openFirstLogin} onClose={() => setOpenFirstLogin(false)} center>
                     <button className="button" onClick={() => setOpenSecond(true)}>
                         Sign in as user
@@ -48,17 +59,27 @@ export const Header = () => {
                     <UserForm />
                 </Modal>
 
-                <Modal open={openFirstRegistration} onClose={() => setOpenFirstRegistration(false)} center>
-                    <button className="button" onClick={() => setOpenSecond(true)}>
-                        Sign up as user
-                    </button>
-                    <button className="button" onClick={() => setOpenSecond(true)}>
-                        Sign up as partner
-                    </button>
-                </Modal>
-                <Modal open={openSecond} onClose={() => setOpenSecond(false)} center>
-                    <UserForm />
-                </Modal>
+{/*register*/}
+{/*                <Modal open={openFirstRegistration} onClose={() => setOpenFirstRegistration(false)} center>*/}
+{/*                    <Link*/}
+{/*                        to={"/register/?accountType=partner"}*/}
+{/*                        className='btn btn-one sign-up'*/}
+{/*                        style={partnerStyle}*/}
+{/*                        onClick={() => setOpenFirstRegistration(false)}*/}
+{/*                    >*/}
+{/*                        AS PARTNER*/}
+{/*                    </Link>*/}
+
+{/*                    <Link*/}
+{/*                        to={"/register"}*/}
+{/*                        className='btn btn-one sign-up'*/}
+
+{/*                        style={userStyle}*/}
+{/*                        onClick={() => setOpenFirstRegistration(false)}*/}
+{/*                    >*/}
+{/*                        AS USER</Link>*/}
+{/*                </Modal>*/}
+
             </header>
     );
 }
