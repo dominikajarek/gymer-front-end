@@ -52,12 +52,6 @@ export const GymSite = () => {
                             <div className="dateTime">
                                 <div className="hours-container">
                                     {data.data.description}
-                                    {data.data.description}
-                                    {data.data.description}
-                                    {data.data.description}
-                                    {data.data.description}
-                                    {data.data.description}
-                                    {data.data.description}
                                     {"\n"}
                                 </div>
                             </div>
