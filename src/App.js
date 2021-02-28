@@ -14,6 +14,7 @@ import { Profile } from './components/user/Profile';
 import { Dashboard } from "./components/user/Dashboard";
 import { Login } from "./components/main/Login";
 import { Register } from './components/main/Register';
+import { Activation } from './components/main/Activation';
 
 import './index.css';
 
@@ -30,6 +31,7 @@ export const App = () => {
               </div>
               <div className='content'>
                   <Switch>
+                      <Route exact path={'/verify'} component={ Activation } />
                       <Route exact path={'/login'} component={ Login } />
                       <Route exact path={'/register'} component={ Register } />
                       <Route exact path={'/'} component={ Home } />
