@@ -29,10 +29,10 @@ export const Employees = () => {
                     <div className="title">Our team</div>
                     <div className='name-photo-container'>
                         {employees.data._embedded.employeeDTOList.map(employee =>
-                            <p key={employee.id} className=''>
+                            <div key={employee.id}>
                                 <p className='employee-name'>{employee.firstName}{" "}{employee.lastName}</p>
                                 <img alt='photo' src={image} className='gym-image1' />
-                            </p>)}
+                            </div>)}
                     </div>
                 </div>
         );

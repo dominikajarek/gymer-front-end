@@ -23,17 +23,15 @@ export const WorkingHours = () => {
     if (hours.data) {
         return (
             content =
-                <div className='div-workinghours'>
+                <div>
                     <p className='info-header'>Working hours</p>
-                    <div className='hours-container'>
-                        <div className='working-hours'>
-                            {hours.data._embedded.workingHourDTOList.map(hour =>
-                                <p key={hour.id} className='p-days'>
-                                    <p>{hour.day}</p>
-                                    <p>{hour.startHour}</p>
-                                    <p>{hour.endHour}</p>
-                                </p>)}
-                        </div>
+                    <div className='working-hours'>
+                        {hours.data._embedded.workingHourDTOList.map(hour =>
+                            <div key={hour.id} className='p-days'>
+                                <p>{hour.day}</p>
+                                <p>{hour.startHour}</p>
+                                <p>{hour.endHour}</p>
+                            </div>)}
                     </div>
                 </div>
         );

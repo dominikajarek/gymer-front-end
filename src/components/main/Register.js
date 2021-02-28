@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from "axios";
 
 import '../../styles/register.css';
-import axios from "axios";
 
 export function Register() {
     const [email, setEmail] = useState('');
@@ -96,7 +96,7 @@ export function Register() {
                 </p>
                 {error &&<h3 className="error">{message}</h3>}
                 <p className='register-input-field'>
-                    <input type="submit" value="Sign in" id="submit" disabled={!validateForm()}/>
+                    <input type="submit" value="Sign in" disabled={!validateForm()}/>
                 </p>
             </form>
         </div>

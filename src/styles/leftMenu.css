@@ -1,12 +1,14 @@
 .container-main-menu {
-    display: grid;
     height: auto;
-    font-weight: lighter;
+    font-weight: var(--font-weight);
     font-size: 0.8em;
 }
 
+.container-main-menu, .nav {
+    display: var(--display-grid);
+}
+
 .nav {
-    display: grid;
     grid-template-areas:
             "home"
             "gym"
@@ -35,8 +37,8 @@
 }
 
 .a-nav1, .a-nav2, .a-nav3, .a-nav4 {
-    text-decoration: none;
-    color: rgba(2, 2, 2, 1);
+    text-decoration: var(--text-deco);
+    color: var(--color-black);
     line-height: 3em;
     height: 3em;
 }
@@ -47,5 +49,5 @@
 
 .app-logo {
     max-width: 100%;
-    border-bottom: rgba(167, 165, 165, 0.5) solid 0.1em;
+    border-bottom: var(--border-nav);
 }

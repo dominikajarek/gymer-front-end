@@ -2,34 +2,32 @@
     margin: 0.3em;
     padding: 0.3em;
     border: 1px solid gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1em;
 }
 
-.text-justify-in-grid {
+.padding-grid, .text-justify-in-grid {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: var(--justify-content);
+    align-items: var(--align-items);
+}
+
+.text-justify-in-grid {
     font-size: 1em;
     margin: 0.2em 0.2em 0.2em 0.2em;
 }
 
 .grid-container-user-slots {
-    margin: 0em 1em 3em 1em;
+    margin: 0 1em 3em 1em;
     background-color: whitesmoke;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    -webkit-box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     padding: 0.3em;
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 2fr 1fr;
-    gap: 0px 0px;
     grid-template-areas:
-    "name name name date date date"
-    "description description description description description description"
-    "private size . . go-to-partner resign";
+            "name name name date date date"
+            "description description description description description description"
+            "private size . . go-to-partner resign";
 }
 
 .name {
@@ -37,13 +35,9 @@
 }
 
 .date {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
     grid-template-areas:
-    "day day day"
-    "time time time";
+            "day day day"
+            "time time time";
     grid-area: date;
 }
 
@@ -75,45 +69,54 @@
     grid-area: resign;
 }
 
+.date, .grid-container-user-details, .firstNameLabel, .lastNameLabel, .phoneLabel {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .button-on-slot {
     background-color: floralwhite;
     border-radius: 1em;
     color: #323232;
     padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
+    text-align: var(--text-align);
+    text-decoration: var(--text-deco);
     display: inline-block;
     font-size: 16px;
+}
+
+.grid-container-user-details, .date, .passwordLabel, .newPasswordLabel,
+.emailContainer, .phoneLabel, .firstNameLabel, .lastNameLabel, .grid-container-user-slots {
+    display: var(--display-grid);
 }
 
 .grid-container-user-details {
     margin: 1em 8em 3em 8em;
     background-color: whitesmoke;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    -webkit-box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     padding: 0.3em;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    gap: 0px 0px;
     grid-template-areas:
-    ". formLabel ."
-    "firstNameLabel lastNameLabel phoneLabel"
-    ". buttonHolder ."
-    "emailContainer passwordLabel confirmPasswordLabel"
-    ". buttonPassSubmit .";
+            ". formLabel ."
+            "firstNameLabel lastNameLabel phoneLabel"
+            ". buttonHolder ."
+            "emailContainer passwordLabel confirmPasswordLabel"
+            ". buttonPassSubmit .";
 }
 
-.formLabel { grid-area: formLabel; }
+.formLabel {
+    grid-area: formLabel;
+}
+
+.grid-container-user-details, .grid-container-user-slots, .phoneLabel,
+.emailContainer, .newPasswordLabel, .passwordLabel, .lastNameLabel, .firstNameLabel, .date {
+    gap: 0 0;
+}
 
 .firstNameLabel {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
     grid-template-areas:
-    ". fnlabel ."
-    ". fnfield .";
+            ". fnlabel ."
+            ". fnfield .";
     grid-area: firstNameLabel;
 }
 
@@ -122,13 +125,9 @@
 .fnfield { grid-area: fnfield; }
 
 .lastNameLabel {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
     grid-template-areas:
-    ". lnlabel ."
-    ". lnfield .";
+            ". lnlabel ."
+            ". lnfield .";
     grid-area: lastNameLabel;
 }
 
@@ -137,13 +136,14 @@
 .lnfield { grid-area: lnfield; }
 
 .passwordLabel {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
     grid-template-areas:
-    ". passlabel ."
-    ". passfield .";
+            ". passlabel ."
+            ". passfield .";
     grid-area: passwordLabel;
+}
+
+.phoneLabel, .emailContainer, .newPasswordLabel, .passwordLabel, .lastNameLabel, .firstNameLabel, .date {
+    grid-template-rows: 1fr 1fr;
 }
 
 .messageLabel {
@@ -151,12 +151,9 @@
 }
 
 .newPasswordLabel {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
     grid-template-areas:
-    ". passlabel2 ."
-    ". passfield2 .";
+            ". passlabel2 ."
+            ". passfield2 .";
     grid-area: confirmPasswordLabel;
 }
 
@@ -169,12 +166,9 @@
 .passfield2 { grid-area: passfield2; }
 
 .emailContainer {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
     grid-template-areas:
-    ". emailLabel ."
-    ". emailField .";
+            ". emailLabel ."
+            ". emailField .";
     grid-area: emailContainer;
 }
 
@@ -191,13 +185,9 @@
 .eField { grid-area: eField; }
 
 .phoneLabel {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
     grid-template-areas:
-    ". pLabel ."
-    ". pField .";
+            ". pLabel ."
+            ". pField .";
     grid-area: phoneLabel;
 }
 

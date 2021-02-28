@@ -1,7 +1,7 @@
 import React from 'react';
+import { Gyms } from "./Gyms";
 
 import '../../styles/categories.css';
-import {Gyms} from "./Gyms";
 
 export const PersonalTrainers = () => {
     return (

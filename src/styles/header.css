@@ -3,16 +3,19 @@
 }
 
 .header-container {
-    display: grid;
+    display: var(--display-grid);
     justify-content: stretch;
-    align-items: center;
+    align-items: var(--align-items);
     width: 100%;
     grid-template-areas:
             "search button1 button2";
-    font-family: "HelveticaNeue-Light", sans-serif;
-    font-weight: lighter;
+    grid-template-columns: 2fr 1fr 1fr;
     font-size: 0.8em;
     grid-gap: 1em;
+}
+
+.header-container, .btn {
+    font-weight: var(--font-weight);
 }
 
 div[class*=box] {
@@ -33,10 +36,9 @@ div[class*=box] {
 .btn {
     line-height: 3em;
     height: 3em;
-    text-align: center;
+    text-align: var(--text-align);
     width: 10em;
-    font-weight: lighter;
-    color: rgba(2, 2, 2, 1);
+    color: var(--color-black);
 }
 
 .btn-one {
@@ -129,7 +131,7 @@ div[class*=box] {
     padding: 1em 0;
     outline: 0;
     border: 1px solid transparent;
-    border-bottom: 0.1em solid #575756;
+    border-bottom: var(--border-nav);
     border-radius: 0;
     background-position: 100% center;
 }

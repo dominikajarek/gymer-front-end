@@ -1,23 +1,16 @@
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
 }
 
-.gym-link {
-    text-decoration: none;
-}
-
 .grid {
-    display: grid;
+    display: var(--display-grid);
     width: fit-content;
     height: fit-content;
     grid-gap: 2em;
     grid-template-columns: 1fr;
-    align-items: center;
-
+    align-items: var(--align-items);
 }
 
 @media (max-width: 60em) {
@@ -28,9 +21,8 @@
 
 .grid__item {
     background-color: rgba(239,239,239,0.6);
-    border-radius: 0.4rem;
     overflow: hidden;
-    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     cursor: pointer;
     transition: 0.2s;
 }
@@ -42,20 +34,31 @@
 
 .card__content {
     padding: 1em 1em;
-    justify-items: center;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
+    justify-items: var(--justify-items);
+    align-items: var(--align-items);
+    justify-content: var(--justify-content);
+    align-content: var(--align-content);
 }
 
 .card__header {
     font-size: 1em;
     font-weight: 800;
-    color: #0d0d0d;
+    color: var(--color-black);
     margin-bottom: 1.5rem;
     margin-top: 0.5em;
-    text-align: center;
-    text-decoration: none;
+}
+
+.card__btn, .grid__item {
+    border-radius: var(--border-radius);
+}
+
+
+.card__header, .card__btn {
+    text-align: var(--text-align);
+}
+
+.card__header, .card__btn, .gym-link {
+    text-decoration: var(--text-deco);
 }
 
 .card__btn {
@@ -63,20 +66,19 @@
     width: 100%;
     padding: 1.5rem;
     font-size: 1em;
-    text-align: center;
     border: none;
-    border-radius: 0.4rem;
     transition: 0.2s;
     cursor: pointer;
-    text-decoration: none;
-    outline: none;
 }
 .card__btn span {
     margin-left: 1rem;
     transition: 0.2s;
 }
 
+.card__btn, .card__btn:hover span, .card__btn:active span {
+    outline: none;
+}
+
 .card__btn:hover span, .card__btn:active span {
     margin-left: 1.5rem;
-    outline: none;
 }

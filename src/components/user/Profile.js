@@ -1,8 +1,6 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {useHistory} from "react-router-dom";
-import axios from "axios";
-
-import {Connection} from "../../Connection.js";
+import React, { useCallback, useEffect, useState } from 'react';
+import { useHistory } from "react-router-dom";
+import { Connection } from "../../Connection.js";
 
 import '../../styles/user-details-site.css';
 

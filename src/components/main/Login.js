@@ -53,7 +53,7 @@ export const Login = () => {
                     />
                 </p>
                 <p className='register-input-field'>
-                    <input type="submit" value="Sign in" id="submit" />
+                    <input type="submit" value="Sign in" />
                 </p>
             </form>
         </div>

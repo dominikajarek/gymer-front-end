@@ -13,7 +13,6 @@ export const Slots = () => {
             .then(response => {
                 const result = response.data;
                 setSlots(result);
-                console.log(result._embedded.slotDTOList.map(slot => slot.description));
             })
     }, []);
 

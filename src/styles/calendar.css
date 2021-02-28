@@ -1,6 +1,5 @@
 .calendar {
-    text-align: center;
-    font-family: HelveticaNeue-Light, sans-serif;
+    text-align: var(--text-align);
     font-size: small;
     grid-template-areas:
             "nav nav"
@@ -23,4 +22,11 @@
 
 .calendar-intro {
     font-size: large;
+}
+
+.calendar-style {
+    height: 80em;
+    margin-top: 6em;
+    margin-left: 2em;
+    margin-right: 2em;
 }

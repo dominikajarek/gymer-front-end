@@ -2,15 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
-import axios from 'axios';
-
+import { Navigation } from "./Navigation";
 import { BookForm } from "../forms/BookForm";
 import { Slots } from './Slots';
 import { Modal } from "react-responsive-modal";
 
 import '../../styles/calendar.css';
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import {Navigation} from "./Navigation";
 
 const localizer = momentLocalizer(moment);
 
@@ -52,13 +50,6 @@ export const Calendars = () => {
         ])
     }, []);
 
-    const style = {
-        height: "80em",
-        marginTop: "6em",
-        marginLeft: "2em",
-        marginRight: "2em"
-    }
-
     function Event({ event }) {
         return (
                 <span>
@@ -87,6 +78,7 @@ export const Calendars = () => {
         <div className="calendar">
             <Navigation id={id} className='calendar-nav' />
             <Calendar
+                className='calendar-style'
                 onSelectEvent={event => onEventClick(event)}
                 selectable
                 localizer={ localizer }
@@ -100,7 +92,6 @@ export const Calendars = () => {
                     month: true,
                     week: true
                 }}
-                style={ style }
                 components={{
                     event: Event,
                     agenda: {

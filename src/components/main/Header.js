@@ -14,7 +14,7 @@ export const Header = () => {
 
     return (
             <header className='header-container'>
-                <div className="search__container">
+                <div>
                     <input className="search__input" type="text" placeholder="Search" />
                 </div>
                     <Link to='/login'
@@ -30,10 +30,10 @@ export const Header = () => {
 
 {/*login*/}
                 <Modal open={openFirstLogin} onClose={() => setOpenFirstLogin(false)} center>
-                    <button className="button" onClick={() => setOpenSecond(true)}>
+                    <button onClick={() => setOpenSecond(true)}>
                         Sign in as user
                     </button>
-                    <button className="button" onClick={() => setOpenSecond(true)}>
+                    <button onClick={() => setOpenSecond(true)}>
                         Sign in as partner
                     </button>
                 </Modal>

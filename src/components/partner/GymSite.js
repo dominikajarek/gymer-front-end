@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-
 import { Navigation } from "./Navigation";
 import { Employees } from "./Employees";
 import { Contact } from './Contact';
@@ -30,7 +29,6 @@ export const GymSite = () => {
         content = 'Loading...'
     }
 
-    console.log(data);
     if (data.data) {
         return (
             content =
@@ -49,8 +47,8 @@ export const GymSite = () => {
                             <div>
                                 <div className="title">About us</div>
                             </div>
-                            <div className="dateTime">
-                                <div className="hours-container">
+                            <div>
+                                <div>
                                     {data.data.description}
                                     {"\n"}
                                 </div>
