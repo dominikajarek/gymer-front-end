@@ -7,7 +7,9 @@ import '../../styles/leftMenu.css';
 export const LeftMenu = () => {
     return (
         <div className='container-main-menu'>
-            <img alt='logo' src={logo} className='app-logo' />
+            <a href='/'>
+                <img alt='logo' src={logo} className='app-logo' />
+            </a>
             <nav className='nav'>
                 <Link className='a-nav1 btn-one' to='/'>Home</Link>
                 <Link className='a-nav2 btn-one' to="/gyms">Gym</Link>
