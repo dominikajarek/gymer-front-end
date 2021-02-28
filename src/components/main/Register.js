@@ -4,7 +4,7 @@ import axios from "axios";
 
 import '../../styles/register.css';
 
-export function Register() {
+export const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');

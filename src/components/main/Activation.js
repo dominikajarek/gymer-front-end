@@ -1,13 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {useLocation} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
-
 import axios from "axios";
 
-export function Activation() {
+export const Activation = () => {
     const [message, setMessage] = useState('');
-    const {search} = useLocation();
-    const {code} = queryString.parse(search)
+    const { search } = useLocation();
+    const { code } = queryString.parse(search);
 
     useEffect(() => {
         axios.get(`/api/verify?code=${code}`)
@@ -15,7 +14,6 @@ export function Activation() {
                 setMessage(response.data.message);
             })
     }, []);
-
 
     return (
         <div>
