@@ -3,15 +3,27 @@
 }
 
 .header-container {
+    grid-template-areas:
+            "search buttons";
+    grid-template-columns: 1.5fr 1fr;
+    font-size: 0.8em;
+    grid-gap: 1em;
+}
+
+.header-container, .button-container {
     display: var(--display-grid);
     justify-content: stretch;
     align-items: var(--align-items);
     width: 100%;
-    grid-template-areas:
-            "search button1 button2";
-    grid-template-columns: 2fr 1fr 1fr;
-    font-size: 0.8em;
     grid-gap: 1em;
+}
+
+.button-container {
+    grid-area: buttons;
+    grid-template-areas:
+            "button1 button2";
+    grid-template-columns: 1fr 1fr;
+    font-size: 1em;
 }
 
 .header-container, .btn {
