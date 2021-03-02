@@ -15,6 +15,7 @@ import { Dashboard } from "./components/user/Dashboard";
 import { Login } from "./components/main/Login";
 import { Register } from './components/main/Register';
 import { Activation } from './components/main/Activation';
+import { LoginViaGoogleActivation } from "./components/main/LoginViaGoogleActivation";
 
 import './index.css';
 
@@ -32,6 +33,7 @@ export const App = () => {
               <div className='content'>
                   <Switch>
                       <Route exact path={'/verify'} component={ Activation } />
+                      <Route exact path={'/google'} component={ LoginViaGoogleActivation } />
                       <Route exact path={'/login'} component={ Login } />
                       <Route exact path={'/register'} component={ Register } />
                       <Route exact path={'/'} component={ Home } />
