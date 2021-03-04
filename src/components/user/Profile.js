@@ -116,8 +116,8 @@ export const Profile = () => {
         setMessageLabelState("Password changed successfully");
     }
 
-    const showErrorMessage = () => {
-        setMessageLabelState("Password's doesn't match.");
+    const showErrorMessage = response => {
+        setMessageLabelState(response.data.message);
     }
 
     /**

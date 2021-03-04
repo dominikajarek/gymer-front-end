@@ -68,6 +68,11 @@ export const Login = () => {
                     <a className="google-auth-button" href="/api/google-auth">Login with google</a>
                 </p>
             </form>
+            <form className='register-form'>
+                <p className='register-input-field'>
+                    <a className="floatLabel formLabel" href="/api/google-auth">"Login via Google"</a>
+                </p>
+            </form>
         </div>
     );
 }
