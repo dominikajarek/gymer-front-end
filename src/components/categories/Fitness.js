@@ -1,7 +1,7 @@
 import React from 'react';
 import { Gyms } from "./Gyms";
 
-import '../../styles/register.css';
+import '../../styles/login-register.css';
 
 export const Fitness = () => {
     return (

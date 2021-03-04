@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
-import { Connection } from "../../Connection.js";
+import { Connection } from "../../actions/Connection.js";
 
 import '../../styles/user-details-site.css';
 
@@ -96,5 +96,6 @@ export const UserSlots = () => {
         </div>
     );
 
-    return (<div className="content"><h2>{message}</h2>{listOfSlots}</div>);
+    return (<div className='slots-container'><p className='message'>{message}</p>{listOfSlots.length > 0 ?
+        listOfSlots : <div className='no-slots-container'><p className='user-info'>You don't have any active slots</p></div>}</div>);
 }

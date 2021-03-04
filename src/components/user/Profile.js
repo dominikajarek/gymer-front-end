@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
-import { Connection } from "../../Connection.js";
+import { Connection } from "../../actions/Connection.js";
 
 import '../../styles/user-details-site.css';
 
@@ -125,46 +125,67 @@ export const Profile = () => {
      */
 
     return (
-        <div>
+        <div className='register'>
             <h3 className="text-justify-in-grid">{messageLabel}</h3>
-            <div className="grid-addon grid-container-user-details">
-                <label className="formLabel text-justify-in-grid">Change user details:</label>
-                <div className="firstNameLabel padding-grid">
-                    <label htmlFor="fnfield" className="fnlabel text-justify-in-grid">First name:</label>
-                    <input className="fnfield text-justify-in-grid" type="text" defaultValue={firstNameValue}
-                           onChange={({target}) => setFirstNameState(target.value)}/>
+            <form className="register-form">
+                <div>
+                    <p className='register-input-field'>
+                        <label htmlFor="email" className="floatLabel formLabel">First name</label>
+                        <input defaultValue={firstNameValue}
+                               name="email"
+                               type="email"
+                               onChange={({target}) => setFirstNameState(target.value)}
+                        />
+                    </p>
+                    <p className='register-input-field'>
+                        <label htmlFor="email" className="floatLabel formLabel">Last name</label>
+                        <input defaultValue={lastNameValue}
+                               name="email"
+                               type="email"
+                               onChange={({target}) => setLastNameState(target.value)}
+                        />
+                    </p>
+                    <p className='register-input-field'>
+                        <label htmlFor="email" className="floatLabel formLabel">Phone number</label>
+                        <input defaultValue={phoneNumberValue}
+                               name="email"
+                               type="email"
+                               onChange={({target}) => setPhoneNumberState(target.value)}
+                        />
+                    </p>
+                    <p className='register-input-field'>
+                        <button className="button-submit" onClick={submitNewDetails}>Save</button>
+                    </p>
+
                 </div>
-                <div className="lastNameLabel padding-grid">
-                    <label htmlFor="lnfield" className="lnlabel text-justify-in-grid">Last name:</label>
-                    <input className="lnfield text-justify-in-grid" type="text" defaultValue={lastNameValue}
-                           onChange={({target}) => setLastNameState(target.value)}/>
+                <div>
+                    <p className='register-input-field'>
+                        <label htmlFor="email" className="floatLabel formLabel">Email</label>
+                        <input defaultValue={emailValue} disabled={true}
+                               name="email"
+                               type="email"
+                               onChange={({target}) => setFirstNameState(target.value)}
+                        />
+                    </p>
+                    <p className='register-input-field'>
+                        <label htmlFor="email" className="floatLabel formLabel">Password</label>
+                        <input defaultValue={passwordValue}
+                               name="password"
+                               type="password"
+                               onChange={({target}) => setPasswordState(target.value)}
+                        />
+                    </p>
+                    <p className='register-input-field'>
+                        <label htmlFor="email" className="floatLabel formLabel">Confirm password</label>
+                        <input defaultValue={newPasswordValue}
+                               name="password"
+                               type="password"
+                               onChange={({target}) => setNewPasswordState(target.value)}
+                        />
+                    </p>
+                    <button className="button-submit" onClick={submitNewPassword}>Confirm</button>
                 </div>
-                <div className="phoneLabel padding-grid">
-                    <label htmlFor="pField" className="pLabel text-justify-in-grid">Phone number:</label>
-                    <input className="pField text-justify-in-grid" type="text" defaultValue={phoneNumberValue}
-                           onChange={({target}) => setPhoneNumberState(target.value)}/>
-                </div>
-                <div className="buttonHolder text-justify-in-grid">
-                    <button className="resign button-on-slot" onClick={submitNewDetails}>SAVE</button>
-                </div>
-                <div className="emailContainer padding-grid">
-                    <label htmlFor="emailField" className="emailLabel text-justify-in-grid">Email:</label>
-                    <input className="emailField text-justify-in-grid" type="text" defaultValue={emailValue} disabled={true}/>
-                </div>
-                <div className="passwordLabel padding-grid">
-                    <label htmlFor="passfield" className="passlabel text-justify-in-grid">Old password:</label>
-                    <input className="passfield text-justify-in-grid" type="password" defaultValue={passwordValue}
-                           onChange={({target}) => setPasswordState(target.value)}/>
-                </div>
-                <div className="newPasswordLabel padding-grid">
-                    <label htmlFor="passfield2" className="passlabel2 text-justify-in-grid">New password:</label>
-                    <input className="passfield2 text-justify-in-grid" type="password" defaultValue={newPasswordValue}
-                           onChange={({target}) => setNewPasswordState(target.value)}/>
-                </div>
-                <div className="buttonPassSubmit text-justify-in-grid">
-                    <button className="resign button-on-slot" onClick={submitNewPassword}>CONFIRM</button>
-                </div>
-            </div>
+            </form>
         </div>
     );
 }

@@ -9,12 +9,14 @@
     max-width: 400px;
     margin: 50px auto 0;
     box-shadow: var(--box-shadow);
+    max-height: 100em;
 }
 
 .text {
-    margin:0 0 2em 0;
+    margin:0 0 1em 0;
     padding: 1em;
-    border-bottom: solid 1px #e5e5e5;
+    font-weight: var(--font-weight);
+    font-size: medium;
 }
 
 .error, .text, li .checkbox {
@@ -59,7 +61,7 @@ input[type="submit"] {
     background: #e9ad81;
     box-shadow: var(--box-shadow);
     border: none;
-    color: #fff;
+    color: var(--color-black);
     cursor: pointer;
     display: block;
     font-size: 2em;
@@ -67,7 +69,7 @@ input[type="submit"] {
     margin: 2em 0 0;
     outline: none;
     padding: .8em 0;
-    text-shadow: 0 1px #609899;
+    font-weight: var(--font-weight);
 }
 
 input[type="submit"]:hover {
@@ -94,6 +96,7 @@ input[type="submit"]:hover {
     list-style: none;
     padding: 0;
     margin: 0 0 40px 0;
+    border-bottom: solid 0.1em #e5e5e5;
 }
 
 .tab-group:after {
@@ -112,7 +115,8 @@ li .checkbox {
     width: 50%;
     cursor: pointer;
     transition: .5s ease;
-    border-radius: 0.05em;
+    border-radius: 0.1em;
+    margin-bottom: 2em;
 }
 
 li .checkbox, .formLabel, .floatLabel {
@@ -130,4 +134,56 @@ li .checkbox:hover, .active .checkbox {
 
 .tab-content > div:last-child {
     display: none;
+}
+
+.user-info {
+    justify-self: center;
+    align-self: center;
+    font-weight: var(--font-weight);
+}
+
+.button {
+    cursor: pointer;
+    display: block;
+    font-size: 1.3em;
+    box-sizing: content-box;
+    margin: 20px auto 0;
+    width: 20%;
+    padding: 15px 20px;
+    border-radius: 24px;
+    border-color: transparent;
+    background-color: white;
+    box-shadow: 0 16px 60px rgba(78, 79, 114, 0.08);
+    position: relative;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.buttonText {
+    color: #4285f4;
+    font-weight: bolder;
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+    position: center;
+    justify-self: center;
+    align-self: center;
+}
+
+.google-auth-container {
+    display: grid;
+    justify-content: center;
+    padding-top: 1.5em;
+    font-size: small;
+}
+
+.google-auth-button {
+    background-color: transparent;
+    text-decoration: var(--text-deco);
+    margin-top: 1em;
+    color: var(--color-black);
 }

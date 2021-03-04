@@ -3,8 +3,6 @@ import { Redirect } from 'react-router-dom';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-import '../../styles/login.css';
-
 export const BookForm = () => {
 
     const [redirect, setRedirect] = useState(false);
@@ -28,40 +26,31 @@ export const BookForm = () => {
 
     return (
         <div className='login-container'>
-            <Form method='post' action='/reservation'>
-                <Form.Group size='lg' controlId='email'>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                        autoFocus
-                        type='email'
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)} />
-                </Form.Group>
-                <Form.Group size='lg' controlId='password'>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                        type='password'
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)} />
-                </Form.Group>
-                <Form.Group size='lg' controlId='phone-number'>
-                    <Form.Label>Phone number</Form.Label>
-                    <Form.Control
-                        type='text'
-                        value={phoneNumber}
-                        onChange={(e) => setPhoneNumber(e.target.value)} />
-                </Form.Group>
-                <Form.Group size='lg' controlId='info'>
-                    <Form.Label>Additional information</Form.Label>
-                    <Form.Control
-                        type='text'
-                        value={additionalInfo}
-                        onChange={(e) => setAdditionalInfo(e.target.value)} />
-                </Form.Group>
-                <Button block size='lg' type='submit' disabled={!validateForm()} onSubmit={handleSubmit} >
-                    Book
-                </Button>
-            </Form>
+            <p className='register-input-field'>
+                <label htmlFor="email" className="floatLabel formLabel">First name</label>
+                <input
+                       name="email"
+                       type="email"
+
+                />
+            </p>
+            <p className='register-input-field'>
+                <label htmlFor="email" className="floatLabel formLabel">Last name</label>
+                <input
+                       name="email"
+                       type="email"
+                />
+            </p>
+            <p className='register-input-field'>
+                <label htmlFor="email" className="floatLabel formLabel">Phone number</label>
+                <input
+                       name="email"
+                       type="email"
+                />
+            </p>
+            <p className='register-input-field'>
+                <button className="button-submit">Save</button>
+            </p>
         </div>
     );
 }

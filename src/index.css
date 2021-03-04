@@ -83,3 +83,13 @@ body {
   align-items: var(--align-items);
   margin-top: 2em;
 }
+
+.recommended-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.recommended {
+
+
+}

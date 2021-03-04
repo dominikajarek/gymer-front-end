@@ -1,17 +1,20 @@
 import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from "axios";
-
-import '../../styles/login.css';
+import logoGoogle from "../../images/google.svg";
 
 export const Login = () => {
 
     const [email, setEmail] = useState('test@gmail.com');
     const [password, setPassword] = useState('test');
     const [message, setMessage] = useState('');
+    const [error, setError] = useState(false);
 
     const history = useHistory();
-    const handleSuccessLogin = useCallback(() => history.push('/'), [history]);
+    const handleSuccessLogin = useCallback(() => {
+        history.push('/user-slots');
+        refreshPage();
+    }, [history]);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -19,7 +22,9 @@ export const Login = () => {
         axios.post("/api/login", user)
             .then(response => {
                 setMessage(response.data.message);
+                setError(response.data.error);
                 localStorage.setItem('Authorization', response.headers.authorization);
+                localStorage.setItem('loggedIn', 'true');
                 setTimeout(handleSuccessLogin, 500);
             })
             .catch(reason => {
@@ -29,11 +34,13 @@ export const Login = () => {
             });
     }
 
+    const refreshPage = () => {
+        window.location.reload();
+    }
+
     return (
         <div className="register">
-            <h2>{message}</h2>
             <form onSubmit={handleSubmit} className='register-form'>
-
                 <p className='register-input-field'>
                     <label htmlFor="email" className="floatLabel formLabel">Email</label>
                     <input id="email"
@@ -52,8 +59,13 @@ export const Login = () => {
                            onChange={({target}) => setPassword(target.value)}
                     />
                 </p>
+                <h3 className="error">{message}</h3>
                 <p className='register-input-field'>
                     <input type="submit" value="Sign in" />
+                </p>
+                <p className='google-auth-container'>
+                    <img src={logoGoogle} alt="google login" className="icon"></img>
+                    <a className="google-auth-button" href="/api/google-auth">Login with google</a>
                 </p>
             </form>
         </div>

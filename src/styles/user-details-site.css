@@ -1,14 +1,17 @@
 .padding-grid {
-    margin: 0.3em;
-    padding: 0.3em;
-    border: 1px solid gray;
     font-size: 1em;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
 }
 
 .padding-grid, .text-justify-in-grid {
-    display: flex;
+    display: grid;
     justify-content: var(--justify-content);
     align-items: var(--align-items);
+    align-content: center;
+    justify-items: center;
 }
 
 .text-justify-in-grid {
@@ -17,28 +20,40 @@
 }
 
 .grid-container-user-slots {
-    margin: 0 1em 3em 1em;
-    background-color: whitesmoke;
-    -webkit-box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-    box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.70);
+    box-shadow: var(--box-shadow);
     padding: 0.3em;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
-            "name name name date date date"
-            "description description description description description description"
-            "private size . . go-to-partner resign";
+            "name date"
+            "description description"
+            "private size"
+            "go-to-partner resign";
+    width: 50%;
+    border-radius: var(--border-radius);
+    margin-left: 15em;
+    margin-bottom: 2em;
+    font-weight: var(--font-weight);
 }
 
 .name {
     grid-area: name;
+
+}
+
+.name, .date, .description, .private, .size {
+    border-bottom: var(--border-nav);
+    padding: 1em;
 }
 
 .date {
+    display: grid;
     grid-template-areas:
             "day day day"
             "time time time";
     grid-area: date;
+    border-bottom: var(--border-nav);
 }
 
 .day {
@@ -47,10 +62,12 @@
 
 .time {
     grid-area: time;
+    justify-self: right;
 }
 
 .description {
     grid-area: description;
+    justify-self: stretch;
 }
 
 .private {
@@ -69,19 +86,24 @@
     grid-area: resign;
 }
 
-.date, .grid-container-user-details, .firstNameLabel, .lastNameLabel, .phoneLabel {
+.date .firstNameLabel, .lastNameLabel, .phoneLabel {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
 .button-on-slot {
-    background-color: floralwhite;
-    border-radius: 1em;
-    color: #323232;
-    padding: 15px 32px;
-    text-align: var(--text-align);
-    text-decoration: var(--text-deco);
-    display: inline-block;
-    font-size: 16px;
+    background: #e9ad81;
+    box-shadow: var(--box-shadow);
+    border: none;
+    color: var(--color-black);
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    line-height: 1.6em;
+    outline: none;
+    font-weight: var(--font-weight);
+    border-radius: var(--border-radius);
+    margin: 1em;
+    padding: 0.5em;
 }
 
 .grid-container-user-details, .date, .passwordLabel, .newPasswordLabel,
@@ -90,115 +112,131 @@
 }
 
 .grid-container-user-details {
-    margin: 1em 8em 3em 8em;
-    background-color: whitesmoke;
-    -webkit-box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-    box-shadow: 0 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-    padding: 0.3em;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin: 2em;
+    grid-template-rows: 1fr;
+    grid-gap: 2em;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
-            ". formLabel ."
-            "firstNameLabel lastNameLabel phoneLabel"
-            ". buttonHolder ."
-            "emailContainer passwordLabel confirmPasswordLabel"
-            ". buttonPassSubmit .";
+            "names password";
+    background-color: rgba(249,249,249,0.80);
+    width: 50em;
+    justify-self: center;
+    align-self: center;
 }
 
-.formLabel {
-    grid-area: formLabel;
+.message {
+    height: 5em;
+}
+.no-slots-info {
+    justify-items: center;
+    align-items: center;
+    grid-area: message;
 }
 
-.grid-container-user-details, .grid-container-user-slots, .phoneLabel,
-.emailContainer, .newPasswordLabel, .passwordLabel, .lastNameLabel, .firstNameLabel, .date {
-    gap: 0 0;
+.no-slots-container {
+    display: grid;
+    grid-template-areas: "message";
+    justify-content: center;
+    align-content: center;
 }
 
-.firstNameLabel {
+.profile-container {
+    margin-top: 4em;
+    border-radius: var(--border-radius);
+}
+
+.profile-labels {
+
+}
+
+.password-labels {
+    grid-area: password;
+    display: grid;
     grid-template-areas:
-            ". fnlabel ."
-            ". fnfield .";
-    grid-area: firstNameLabel;
+            "email"
+            "password"
+            "password2"
+            "button2";
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    justify-items: center;
+    align-items: center;
+    width: 10em;
+    padding: 2em;
 }
 
-.fnlabel { grid-area: fnlabel; }
-
-.fnfield { grid-area: fnfield; }
-
-.lastNameLabel {
+.names-labels {
+    grid-area: names;
+    display: grid;
     grid-template-areas:
-            ". lnlabel ."
-            ". lnfield .";
-    grid-area: lastNameLabel;
+            "name"
+            "surname"
+            "phone"
+            "button1";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    padding: 2em;
 }
 
-.lnlabel { grid-area: lnlabel; }
-
-.lnfield { grid-area: lnfield; }
-
-.passwordLabel {
-    grid-template-areas:
-            ". passlabel ."
-            ". passfield .";
-    grid-area: passwordLabel;
+.email {
+    grid-area: email;
 }
 
-.phoneLabel, .emailContainer, .newPasswordLabel, .passwordLabel, .lastNameLabel, .firstNameLabel, .date {
-    grid-template-rows: 1fr 1fr;
+.password {
+    grid-area: password;
 }
 
-.messageLabel {
-    grid-area: messageLabel;
+.password2 {
+    grid-area: password2;
 }
 
-.newPasswordLabel {
-    grid-template-areas:
-            ". passlabel2 ."
-            ". passfield2 .";
-    grid-area: confirmPasswordLabel;
+.first-name {
+    grid-area: name;
+
 }
 
-.passlabel { grid-area: passlabel; }
-
-.passfield { grid-area: passfield; }
-
-.passlabel2 { grid-area: passlabel2; }
-
-.passfield2 { grid-area: passfield2; }
-
-.emailContainer {
-    grid-template-areas:
-            ". emailLabel ."
-            ". emailField .";
-    grid-area: emailContainer;
+.last-name {
+    grid-area: surname;
 }
 
-.emailLabel {
-    grid-area: emailLabel;
+.phone-number {
+    grid-area: phone;
 }
 
-.emailField {
-    grid-area: emailField;
+.input-label {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: var(--border-radius);
+    margin: 1em;
+    height: 2em;
+    width: 10em;
+    box-shadow: var(--box-shadow);
+    padding: 1em;
+    border-bottom: var(--border-nav) solid 1em;
 }
 
-.eLabel { grid-area: eLabel; }
-
-.eField { grid-area: eField; }
-
-.phoneLabel {
-    grid-template-areas:
-            ". pLabel ."
-            ". pField .";
-    grid-area: phoneLabel;
-}
-
-.pLabel { grid-area: pLabel; }
-
-.pField { grid-area: pField; }
-
-.buttonHolder {
-    grid-area: buttonHolder;
-}
-
-.buttonPassSubmit {
-    grid-area: buttonPassSubmit;
+.button-submit {
+    background: #e9ad81;
+    box-shadow: var(--box-shadow);
+    border: none;
+    color: var(--color-black);
+    cursor: pointer;
+    display: block;
+    font-size: 2em;
+    line-height: 1.6em;
+    outline: none;
+    padding: .8em 0;
+    font-weight: var(--font-weight);
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: 3em;
 }

@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from "axios";
 
-import '../../styles/register.css';
+import '../../styles/login-register.css';
 
 export const Register = () => {
     const [email, setEmail] = useState('');
@@ -13,8 +13,8 @@ export const Register = () => {
     const [accountType, setAccountType] = useState('');
 
     const history = useHistory();
-    const handleSuccessRegister = useCallback(() => history.push('/'), [history]);
-
+    const handleSuccessRegister = useCallback(() =>
+        history.push('/info'), [history]);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -26,6 +26,7 @@ export const Register = () => {
                 if (!response.data.error) {
                     setTimeout(handleSuccessRegister, 500);
                 }
+                setTimeout(handleSuccessRegister, 500);
             }).catch(error => {
             setMessage(error.response.data.message);
         })
@@ -39,7 +40,6 @@ export const Register = () => {
     function setActive(element) {
         setAccountType(element.value);
     }
-
 
     return (
         <div className="register">
@@ -94,9 +94,9 @@ export const Register = () => {
                            onChange={({target}) => setConfirmPassword(target.value)}
                     />
                 </p>
-                {error &&<h3 className="error">{message}</h3>}
+                { error && <h3 className="error">{message}</h3> }
                 <p className='register-input-field'>
-                    <input type="submit" value="Sign in" disabled={!validateForm()}/>
+                    <input type="submit" value="Sign up" disabled={!validateForm()} />
                 </p>
             </form>
         </div>

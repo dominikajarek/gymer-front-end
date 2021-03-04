@@ -12,6 +12,7 @@ export const Activation = () => {
         axios.get(`/api/verify?code=${code}`)
             .then(response => {
                 setMessage(response.data.message);
+                console.log(response.data.message)
             })
     }, []);
 

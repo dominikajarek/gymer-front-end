@@ -4,7 +4,7 @@ import { Navigation } from "./Navigation";
 import { Employees } from "./Employees";
 import { Contact } from './Contact';
 import { WorkingHours } from "./WorkingHours";
-import { useAxiosGet } from "../../useAxiosGet";
+import { useAxiosGet } from "../../actions/useAxiosGet";
 
 import '../../styles/gymSite.css';
 import image from '../../images/gym9.jpg';
