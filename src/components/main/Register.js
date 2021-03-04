@@ -9,7 +9,6 @@ export const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
-    const [error, setError] = useState(false);
     const [accountType, setAccountType] = useState('');
 
     const history = useHistory();
@@ -21,12 +20,8 @@ export const Register = () => {
         const user = {email, password, confirmPassword, accountType};
         axios.post(`/api/registration/${accountType}`, user, {withCredentials: true})
             .then(response => {
-                setError(response.data.error);
                 setMessage(response.data.message);
-                if (!response.data.error) {
-                    setTimeout(handleSuccessRegister, 500);
-                }
-                setTimeout(handleSuccessRegister, 500);
+                handleSuccessRegister();
             }).catch(error => {
             setMessage(error.response.data.message);
         })
@@ -94,7 +89,7 @@ export const Register = () => {
                            onChange={({target}) => setConfirmPassword(target.value)}
                     />
                 </p>
-                { error && <h3 className="error">{message}</h3> }
+                <h3 className="error">{message}</h3>
                 <p className='register-input-field'>
                     <input type="submit" value="Sign up" disabled={!validateForm()} />
                 </p>
