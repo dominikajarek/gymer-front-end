@@ -24,28 +24,38 @@ export const Calendars = () => {
         setEvents([
             {
                 title: 'swimming classes - John',
-                start: new Date(2021, 1, 22, 9),
-                end: new Date(2021, 1, 22, 10),
+                start: new Date(2021, 2, 5, 9),
+                end: new Date(2021, 2, 5, 10),
             },
             {
                 title: 'swimming classes - John',
-                start: new Date(2021, 1, 23, 11),
-                end: new Date(2021, 1, 23, 12),
+                start: new Date(2021, 2, 3, 11),
+                end: new Date(2021, 2, 3, 12),
             },
             {
                 title: 'fitness classes - Jane',
-                start: new Date(2021, 1, 24, 16),
-                end: new Date(2021, 1, 24, 17),
+                start: new Date(2021, 2, 6, 16),
+                end: new Date(2021, 2, 6, 17),
             },
             {
                 title: 'swimming classes - John',
-                start: new Date(2021, 1, 24, 9),
-                end: new Date(2021, 1, 24, 10),
+                start: new Date(2021, 2, 3, 9),
+                end: new Date(2021, 2, 3, 10),
             },
             {
                 title: 'fitness classes - Jane',
-                start: new Date(2021, 1, 25, 14),
-                end: new Date(2021, 1, 25, 16),
+                start: new Date(2021, 2, 2, 16),
+                end: new Date(2021, 2, 2, 17),
+            },
+            {
+                title: 'swimming classes - Jane',
+                start: new Date(2021, 2, 5, 11),
+                end: new Date(2021, 2, 5, 12),
+            },
+            {
+                title: 'fitness classes - Jane',
+                start: new Date(2021, 2, 1, 14),
+                end: new Date(2021, 2, 1, 16),
             },
         ])
     }, []);
