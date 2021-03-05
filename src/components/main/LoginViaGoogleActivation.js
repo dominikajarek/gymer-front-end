@@ -13,7 +13,6 @@ export const LoginViaGoogleActivation = () => {
     useEffect(() => {
         axios.get(`/api/google`)
             .then(response => {
-                console.log(response);
                 localStorage.setItem('Authorization', response.headers.authorization);
                 localStorage.setItem('loggedIn', 'true');
                 redirect();
