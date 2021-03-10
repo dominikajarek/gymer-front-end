@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { Connection } from "../../actions/Connection.js";
+import { EditProfileForm } from "../forms/EditProfileForm";
 
 import '../../styles/user-details-site.css';
 
@@ -10,12 +11,12 @@ export const Profile = () => {
     const [credentials, setCredentialsState] = useState([]);
 
     const [messageLabel, setMessageLabelState] = useState('');
-    const [firstNameValue, setFirstNameState] = useState('');
-    const [lastNameValue, setLastNameState] = useState('');
-    const [emailValue, setEmailState] = useState('');
-    const [phoneNumberValue, setPhoneNumberState] = useState('');
-    const [passwordValue, setPasswordState] = useState('');
-    const [newPasswordValue, setNewPasswordState] = useState('');
+    const [firstNameValue, setFirstNameValue] = useState('');
+    const [lastNameValue, setLastNameValue] = useState('');
+    const [emailValue, setEmailValue] = useState('');
+    const [phoneNumberValue, setPhoneNumberValue] = useState('');
+    const [passwordValue, setPasswordValue] = useState('');
+    const [newPasswordValue, setNewPasswordValue] = useState('');
 
     const [userUrl, setUserUrl] = useState('');
     const [credentialUrl, setCredentialUrl] = useState('');
@@ -40,8 +41,8 @@ export const Profile = () => {
 
     const setUserDetailsAndGetUserCredentials = data => {
         setUserDetailsState(data);
-        setFirstNameState(data.firstName);
-        setLastNameState(data.lastName);
+        setFirstNameValue(data.firstName);
+        setLastNameValue(data.lastName);
 
         const getCredentialUrl = data._links.credentials.href;
         setCredentialUrl(getCredentialUrl);
@@ -49,8 +50,8 @@ export const Profile = () => {
     }
 
     const setUserCredentials = data => {
-        setEmailState(data.email);
-        setPhoneNumberState(data.phoneNumber);
+        setEmailValue(data.email);
+        setPhoneNumberValue(data.phoneNumber);
         setCredentialsState(data);
     }
 
@@ -125,67 +126,22 @@ export const Profile = () => {
      */
 
     return (
-        <div className='register'>
-            <h3 className="text-justify-in-grid">{messageLabel}</h3>
-            <form className="register-form">
-                <div>
-                    <p className='register-input-field'>
-                        <label htmlFor="email" className="floatLabel formLabel">First name</label>
-                        <input defaultValue={firstNameValue}
-                               name="email"
-                               type="email"
-                               onChange={({target}) => setFirstNameState(target.value)}
-                        />
-                    </p>
-                    <p className='register-input-field'>
-                        <label htmlFor="email" className="floatLabel formLabel">Last name</label>
-                        <input defaultValue={lastNameValue}
-                               name="email"
-                               type="email"
-                               onChange={({target}) => setLastNameState(target.value)}
-                        />
-                    </p>
-                    <p className='register-input-field'>
-                        <label htmlFor="email" className="floatLabel formLabel">Phone number</label>
-                        <input defaultValue={phoneNumberValue}
-                               name="email"
-                               type="email"
-                               onChange={({target}) => setPhoneNumberState(target.value)}
-                        />
-                    </p>
-                    <p className='register-input-field'>
-                        <button className="button-submit" onClick={submitNewDetails}>Save</button>
-                    </p>
-
-                </div>
-                <div>
-                    <p className='register-input-field'>
-                        <label htmlFor="email" className="floatLabel formLabel">Email</label>
-                        <input defaultValue={emailValue} disabled={true}
-                               name="email"
-                               type="email"
-                               onChange={({target}) => setFirstNameState(target.value)}
-                        />
-                    </p>
-                    <p className='register-input-field'>
-                        <label htmlFor="email" className="floatLabel formLabel">Password</label>
-                        <input defaultValue={passwordValue}
-                               name="password"
-                               type="password"
-                               onChange={({target}) => setPasswordState(target.value)}
-                        />
-                    </p>
-                    <p className='register-input-field'>
-                        <label htmlFor="email" className="floatLabel formLabel">Confirm password</label>
-                        <input defaultValue={newPasswordValue}
-                               name="password"
-                               type="password"
-                               onChange={({target}) => setNewPasswordState(target.value)}
-                        />
-                    </p>
-                    <button className="button-submit" onClick={submitNewPassword}>Confirm</button>
-                </div>
-            </form>
-        </div>
+        <EditProfileForm
+            messageLabel={messageLabel}
+            firstNameValue={firstNameValue}
+            lastNameValue={lastNameValue}
+            phoneNumberValue={phoneNumberValue}
+            emailValue={emailValue}
+            passwordValue={passwordValue}
+            newPasswordValue={newPasswordValue}
+            setFirstNameValue={setFirstNameValue}
+            setLastNameValue={setLastNameValue}
+            setPhoneNumberValue={setPhoneNumberValue}
+            setEmailValue={setEmailValue}
+            setPasswordValue={setPasswordValue}
+            setNewPasswordValue={setNewPasswordValue}
+            submitNewDetails={submitNewDetails}
+            submitNewPassword={submitNewPassword}
+        />
     );
 }
