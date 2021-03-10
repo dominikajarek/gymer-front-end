@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
-import { Link } from "react-router-dom";
-import { Common } from "../../actions/Common";
+import {Link} from "react-router-dom";
+import {Common} from "../../actions/Common";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import {useAxiosGet} from "../../actions/useAxiosGet";
+
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUserCircle} from '@fortawesome/free-solid-svg-icons'
 import 'react-responsive-modal/styles.css';
 import '../../styles/header.css';
+import {Connection} from "../../actions/Connection";
 
 export const ProfileMenu = () => {
 
@@ -17,20 +20,25 @@ export const ProfileMenu = () => {
     }
 
     const logout = () => {
+        const logoutUrl = "/api/logout";
+        Connection.getRequestWithCallbacks(logoutUrl, validLogout, Connection.logMessageCallback);
         localStorage.clear();
+    };
+
+    const validLogout = () => {
         Common.refreshPage();
         console.log('you are logged out');
-    };
+    }
 
     return (
         <header className='header-container'>
             <div>
-                <input className="search__input" type="text" placeholder="Search" />
+                <input className="search__input" type="text" placeholder="Search"/>
             </div>
 
             <div className="dropdown">
                 <button className="dropbtn">
-                    <FontAwesomeIcon icon={faUserCircle} size='3x' onClick={openMenu} className='fa-icon' />
+                    <FontAwesomeIcon icon={faUserCircle} size='3x' onClick={openMenu} className='fa-icon'/>
                 </button>
                 <div className="dropdown-content">
                     {

@@ -83,11 +83,15 @@ export const UserSlots = () => {
         }
 
         const syncUrl = '/api/slotuser/' + slotId + '/synchronize';
-        Connection.postRequestWithCallbacks(syncUrl, body, handleResponseMessage, Connection.logMessageCallback);
+        Connection.postRequestWithCallbacks(syncUrl, body, handleResponseMessage, handleBadResponseMessage);
     }
 
     const handleResponseMessage = data => {
         setMessage(data.message);
+    }
+
+    const handleBadResponseMessage = response => {
+        setMessage(response.data.message);
     }
 
     const goToPartner = slotUrl => {
