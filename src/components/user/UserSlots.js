@@ -44,7 +44,7 @@ export const UserSlots = () => {
         history.push(gymUrl);
     }
 
-    const resignPopup = (id) => {
+    const resignPopup = id => {
         if (window.confirm('Do you want to resign from this slot?')) {
             resignRequest(id);
         } else {
@@ -66,6 +66,28 @@ export const UserSlots = () => {
     const handleRemoveAndSetMessage = data => {
         setMessage(data.message);
         handleRemoveSlot();
+    }
+
+    const synchronize = id => {
+        if (window.confirm('Do you want to synchronize with your google calendar?')) {
+            syncRequest(id);
+        } else {
+
+        }
+    }
+
+    const syncRequest = slotId => {
+        const body = {
+            "userId": user.id,
+            "slotId": slotId
+        }
+
+        const syncUrl = '/api/slotuser/' + slotId + '/synchronize';
+        Connection.postRequestWithCallbacks(syncUrl, body, handleResponseMessage, Connection.logMessageCallback);
+    }
+
+    const handleResponseMessage = data => {
+        setMessage(data.message);
     }
 
     const goToPartner = slotUrl => {
@@ -92,6 +114,7 @@ export const UserSlots = () => {
             </button>
             <div className="private padding-grid">{slot.private ? "private" : "public"}</div>
             <div className="size padding-grid">{slot.size === 1 ? "1 slot" : slot.size + " slots"}</div>
+            <button className="button-on-slot padding-grid" onClick={() => synchronize(slot.id)}>SYNC</button>
         </div>
     );
 
