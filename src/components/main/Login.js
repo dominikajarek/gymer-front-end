@@ -2,18 +2,18 @@ import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from "axios";
 import logoGoogle from "../../images/google.svg";
+import {Common} from "../../actions/Common";
 
 export const Login = () => {
 
     const [email, setEmail] = useState('test@gmail.com');
     const [password, setPassword] = useState('test');
     const [message, setMessage] = useState('');
-    const [error, setError] = useState(false);
 
     const history = useHistory();
     const handleSuccessLogin = useCallback(() => {
         history.push('/user-slots');
-        refreshPage();
+        Common.refreshPage();
     }, [history]);
 
     function handleSubmit(e) {
@@ -22,7 +22,6 @@ export const Login = () => {
         axios.post("/api/login", user)
             .then(response => {
                 setMessage(response.data.message);
-                setError(response.data.error);
                 localStorage.setItem('Authorization', response.headers.authorization);
                 localStorage.setItem('loggedIn', 'true');
                 setTimeout(handleSuccessLogin, 500);
@@ -32,10 +31,6 @@ export const Login = () => {
                     setMessage(reason.response.data.message);
                 }
             });
-    }
-
-    const refreshPage = () => {
-        window.location.reload();
     }
 
     return (

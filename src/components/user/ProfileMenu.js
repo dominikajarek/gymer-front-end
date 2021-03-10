@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from "react-router-dom";
+import { Common } from "../../actions/Common";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
@@ -15,9 +16,11 @@ export const ProfileMenu = () => {
         setShowMenu(!showMenu);
     }
 
-    const refreshPage = () => {
-        window.location.reload();
-    }
+    const logout = () => {
+        localStorage.clear();
+        Common.refreshPage();
+        console.log('you are logged out');
+    };
 
     return (
         <header className='header-container'>
@@ -43,10 +46,7 @@ export const ProfileMenu = () => {
                                 </Link>
                                 <Link to='/login'
                                       className='btn btn-one link-style logout'
-                                      onClick={() => {
-                                          localStorage.clear();
-                                          refreshPage();
-                                      }}>
+                                      onClick={logout}>
                                     Logout
                                 </Link>
                             </div>

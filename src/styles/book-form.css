@@ -1,0 +1,26 @@
+.form-container {
+    width: 40vh;
+    height: 50vh;
+    font-size: 1em;
+    font-weight: var(--font-weight);
+    padding: 10em 3em 3em;
+    display: grid;
+    grid-template-areas: "name" "surname" "email" "phone" "submit";
+}
+
+.book-input-field {
+    height: 5em;
+    width: 100%;
+}
+
+.button-submit-book {
+    width: 100%;
+    height: 4em;
+    grid-area: submit;
+}
+
+.modal-user-button {
+    width: 20vh;
+    height: 10vh;
+    padding-top: 5em;
+}

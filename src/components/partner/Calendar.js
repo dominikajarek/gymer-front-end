@@ -3,12 +3,13 @@ import { useParams } from 'react-router-dom';
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import { Navigation } from "./Navigation";
-import { BookForm } from "../forms/BookForm";
-import { Slots } from './Slots';
+import { BookSlot } from "../user/BookSlot";
 import { Modal } from "react-responsive-modal";
 
 import '../../styles/calendar.css';
+import '../../styles/book-form.css';
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import axios from "axios";
 
 const localizer = momentLocalizer(moment);
 
@@ -16,103 +17,62 @@ export const Calendars = () => {
 
     const [events, setEvents] = useState([]);
     const [open, setOpen] = useState(false);
-    const [data, setData] = useState();
+    const [slotId, setSlotId] = useState();
 
     const { id } = useParams();
+    const url = `/api/partners/${id}/slots`;
 
     useEffect(() => {
-        setEvents([
-            {
-                title: 'swimming classes - John',
-                start: new Date(2021, 2, 5, 9),
-                end: new Date(2021, 2, 5, 10),
-            },
-            {
-                title: 'swimming classes - John',
-                start: new Date(2021, 2, 3, 11),
-                end: new Date(2021, 2, 3, 12),
-            },
-            {
-                title: 'fitness classes - Jane',
-                start: new Date(2021, 2, 6, 16),
-                end: new Date(2021, 2, 6, 17),
-            },
-            {
-                title: 'swimming classes - John',
-                start: new Date(2021, 2, 3, 9),
-                end: new Date(2021, 2, 3, 10),
-            },
-            {
-                title: 'fitness classes - Jane',
-                start: new Date(2021, 2, 2, 16),
-                end: new Date(2021, 2, 2, 17),
-            },
-            {
-                title: 'swimming classes - Jane',
-                start: new Date(2021, 2, 5, 11),
-                end: new Date(2021, 2, 5, 12),
-            },
-            {
-                title: 'fitness classes - Jane',
-                start: new Date(2021, 2, 1, 14),
-                end: new Date(2021, 2, 1, 16),
-            },
-        ])
+        axios.get(url)
+            .then(response => {
+                setEvents(response.data._embedded.slotDTOList);
+            })
     }, []);
 
-    function Event({ event }) {
-        return (
-                <span>
-                  <strong>
-                  {event.title}
-                  </strong>
-                            { event.desc && (':  ' + event.desc)}
-                </span>
-        );
-    }
+    const slots = events.map((slot) => {
+        return {
+            id: slot.id,
+            title: slot.description + " " + slot.id,
+            start: new Date(slot.date.split("-")[0], slot.date.split("-")[1], slot.date.split("-")[2],
+                slot.startTime.split(":")[0], slot.startTime.split(":")[1], slot.startTime.split(":")[2]),
+            end: new Date(slot.date.split("-")[0], slot.date.split("-")[1], slot.date.split("-")[2],
+                slot.endTime.split(":")[0], slot.endTime.split(":")[1], slot.endTime.split(":")[2]),
+            desc: slot.slotType,
+            allDay: false
+        }
+    });
 
-    function EventAgenda({ event }) {
-        return (
-                <span>
-                <em style={{ color: 'magenta'}}>{event.title}</em>
-                <p>{ event.desc }</p>
-                </span>
-        );
-    }
-
-    function onEventClick() {
+    const onEventClick = () => {
         setOpen(true);
     }
 
     return (
-        <div className="calendar">
-            <Navigation id={id} className='calendar-nav' />
-            <Calendar
+        <div>
+         <div className="calendar">
+             <Navigation id={ id } className='calendar-nav' />
+             <Calendar
                 className='calendar-style'
-                onSelectEvent={event => onEventClick(event)}
+                onSelectEvent={event => {
+                    onEventClick(event);
+                    setSlotId(event.id);
+                }}
                 selectable
                 localizer={ localizer }
                 defaultDate={ new Date() }
                 defaultView="week"
-                events={ events }
+                events={ slots }
                 toolbar={ true }
-                min={ moment('9:00am', 'h:mma').toDate() }
-                max={ moment('18:00pm', 'h:mma').toDate() }
+                min={ moment('6:00am', 'h:mma').toDate() }
+                max={ moment('20:00pm', 'h:mma').toDate() }
                 views={{
-                    month: true,
+                    day: true,
                     week: true
-                }}
-                components={{
-                    event: Event,
-                    agenda: {
-                        event: EventAgenda
-                    }
                 }}
             />
             <Modal open={open} onClose={() => setOpen(false)} center>
-                <BookForm />
+                <BookSlot events={slots} slotId={slotId} />
             </Modal>
-            <Slots />
         </div>
+    </div>
     );
 }

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 
 export const BookForm = () => {
 
     const [redirect, setRedirect] = useState(false);
+    const [user, setUser] = useState();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');

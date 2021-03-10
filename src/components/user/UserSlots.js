@@ -6,9 +6,9 @@ import '../../styles/user-details-site.css';
 
 export const UserSlots = () => {
 
-    const [user, setUserState] = useState([]);
-    const [slots, setSlotsState] = useState([]);
-    const [message, setMessageState] = useState('');
+    const [user, setUser] = useState([]);
+    const [slots, setSlots] = useState([]);
+    const [message, setMessage] = useState('');
 
     /**
      * Section responsible for obtaining all necessary information.
@@ -22,14 +22,14 @@ export const UserSlots = () => {
     }, []);
 
     const setActiveUserAndGetUserSlots = data => {
-        setUserState(data);
-
+        console.log(data)
+        setUser(data);
         const getSlotsUrl = '/api/users/' + data.id + '/slots';
         Connection.getRequestWithCallbacks(getSlotsUrl, setUserSlots, Connection.logMessageCallback);
     }
 
     const setUserSlots = data => {
-        setSlotsState(data._embedded.slotDTOList);
+        setSlots(data._embedded.slotDTOList);
     }
 
     /**
@@ -65,7 +65,7 @@ export const UserSlots = () => {
     }
 
     const handleRemoveAndSetMessage = data => {
-        setMessageState(data.message);
+        setMessage(data.message);
         handleRemoveSlot();
     }
 
@@ -95,7 +95,7 @@ export const UserSlots = () => {
             <div className="size padding-grid">{slot.size === 1 ? "1 slot" : slot.size + " slots"}</div>
         </div>
     );
-
+    console.log(listOfSlots.length);
     return (<div className='slots-container'><p className='message'>{message}</p>{listOfSlots.length > 0 ?
         listOfSlots : <div className='no-slots-container'><p className='user-info'>You don't have any active slots</p></div>}</div>);
 }

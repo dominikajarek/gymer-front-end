@@ -4,6 +4,16 @@
     grid-template-areas:
             "nav nav"
             "calendar calendar";
+    height: fit-content;
+}
+
+.rbc-timeslot-group {
+    height: 10em;
+}
+
+.rbc-timeslot {
+    height: 5em;
+    width: 10em;
 }
 
 .calendar-nav {
@@ -25,7 +35,7 @@
 }
 
 .calendar-style {
-    height: 80em;
+    height: 100em;
     margin-top: 6em;
     margin-left: 2em;
     margin-right: 2em;
