@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Common } from "../../actions/Common";
 import axios from "axios";
 import logoGoogle from "../../images/google.svg";
-import {Common} from "../../actions/Common";
 
 export const Login = () => {
 

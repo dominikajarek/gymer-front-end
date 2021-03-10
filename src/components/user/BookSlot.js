@@ -27,6 +27,7 @@ export const BookSlot = (props) => {
     const setActiveUser = data => {
         localStorage.getItem('Authorization') ? setUser(data) : setUser(null);
     };
+
     const bookAsGuest = (slotId) => {
         const guestBody = {
             "cancel": false,

@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect} from 'react';
 import axios from "axios";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export const LoginViaGoogleActivation = () => {
 
@@ -24,8 +24,6 @@ export const LoginViaGoogleActivation = () => {
     }
 
     return (
-        <div>
-
-        </div>
+        <div> </div>
     );
 }
