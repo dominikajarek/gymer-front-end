@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import { useHistory } from "react-router-dom";
 import { Connection } from "../../actions/Connection";
+import { GuestBookForm } from "../forms/GuestBookForm";
 
 export const BookSlot = (props) => {
 
@@ -64,44 +65,18 @@ export const BookSlot = (props) => {
                         <button className="button-submit-book" onClick={() => bookAsUser(slotId)}>Book</button>
                     </div>
                     :
-                    <div className='form-container'>
-                        <p className='register-input-field'>
-                            <label htmlFor="name" className="floatLabel formLabel">First name</label>
-                            <input className='input-type-text'
-                                   name="name"
-                                   value={name}
-                                   onChange={({target}) => setName(target.value)}
-                            />
-                        </p>
-                        <p className='register-input-field'>
-                            <label htmlFor="surname" className="floatLabel formLabel">Last name</label>
-                            <input className='input-type-text'
-                                   name="surname"
-                                   value={surname}
-                                   onChange={({target}) => setSurname(target.value)}
-                            />
-                        </p>
-                        <p className='register-input-field'>
-                            <label htmlFor="email" className="floatLabel formLabel">Email</label>
-                            <input id="email"
-                                   name="email"
-                                   type="email"
-                                   value={email}
-                                   onChange={({target}) => setEmail(target.value)}
-                            />
-                        </p>
-                        <p className='register-input-field'>
-                            <label htmlFor="phone" className="floatLabel formLabel">Phone number</label>
-                            <input className='input-type-text'
-                                   name="phone"
-                                   value={phoneNumber}
-                                   onChange={({target}) => setPhoneNumber(target.value)}
-                            />
-                        </p>
-                        <p className='register-input-field'>
-                            <button className="button-submit-book" onClick={() => bookAsGuest(slotId)}>Book</button>
-                        </p>
-                    </div>
+                    <GuestBookForm
+                        name={name}
+                        surname={surname}
+                        email={email}
+                        phoneNumber={phoneNumber}
+                        setName={setName}
+                        setSurname={setSurname}
+                        setEmail={setEmail}
+                        setPhoneNumber={setPhoneNumber}
+                        bookAsGuest={bookAsGuest}
+                        slotId={slotId}
+                    />
             }
         </div>
     );

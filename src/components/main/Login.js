@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Common } from "../../actions/Common";
 import axios from "axios";
-import logoGoogle from "../../images/google.svg";
+import { LoginForm } from "../forms/LoginForm";
 
 export const Login = () => {
 
@@ -34,35 +34,13 @@ export const Login = () => {
     }
 
     return (
-        <div className="register">
-            <form onSubmit={handleSubmit} className='register-form'>
-                <p className='register-input-field'>
-                    <label htmlFor="email" className="floatLabel formLabel">Email</label>
-                    <input id="email"
-                           name="email"
-                           type="email"
-                           value={email}
-                           onChange={({target}) => setEmail(target.value)}
-                    />
-                </p>
-                <p className='register-input-field'>
-                    <label htmlFor="password" className="floatLabel formLabel">Password</label>
-                    <input id="password"
-                           name="password"
-                           type="password"
-                           value={password}
-                           onChange={({target}) => setPassword(target.value)}
-                    />
-                </p>
-                <h3 className="error">{message}</h3>
-                <p className='register-input-field'>
-                    <input type="submit" value="Sign in" />
-                </p>
-                <p className='google-auth-container'>
-                    <img src={logoGoogle} alt="google login" className="icon"></img>
-                    <a className="google-auth-button" href="/api/google-auth">Login with google</a>
-                </p>
-            </form>
-        </div>
+        <LoginForm
+            handleSubmit={handleSubmit}
+            email={email}
+            password={password}
+            setEmail={setEmail}
+            setPassword={setPassword}
+            message={message}
+        />
     );
 }
