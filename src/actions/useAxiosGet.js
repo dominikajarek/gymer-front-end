@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export function useAxiosGet(url) {
+export const useAxiosGet = (url) => {
 
     const [request, setRequest] = useState({
         isLoading: false,

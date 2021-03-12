@@ -1,25 +1,19 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import { Common } from "../../actions/Common";
+import { Common } from "../../../actions/Common";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import 'react-responsive-modal/styles.css';
-import '../../styles/header.css';
+import '../../../styles/header.css';
 
-export const ProfileMenu = () => {
+export const PartnerProfileMenu = () => {
 
     const [showMenu, setShowMenu] = useState(false);
 
     const openMenu = (event) => {
         event.preventDefault();
         setShowMenu(!showMenu);
-    }
-
-    const logout = () => {
-        localStorage.clear();
-        Common.refreshPage();
-        console.log('you are logged out');
     };
 
     return (
@@ -36,17 +30,17 @@ export const ProfileMenu = () => {
                     {
                         showMenu ? (
                             <div className='user-nav'>
-                                <Link to='/profile'
+                                <Link to='/partner-profile'
                                       className='btn btn-one link-style profile'>
                                     Profile
                                 </Link>
-                                <Link to='/user-slots'
+                                <Link to='/partner-slots'
                                       className='btn btn-one link-style slots'>
                                     Your slots
                                 </Link>
                                 <Link to='/login'
                                       className='btn btn-one link-style logout'
-                                      onClick={logout}>
+                                      onClick={Common.logout}>
                                     Logout
                                 </Link>
                             </div>

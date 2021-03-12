@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const EditProfileForm = (props) => {
+
     return (
         <div className='register'>
             <h3 className="text-justify-in-grid">{props.messageLabel}</h3>

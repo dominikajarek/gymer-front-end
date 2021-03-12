@@ -5,6 +5,7 @@ import logo from '../../images/Logo-transparent.png';
 import '../../styles/left-menu.css';
 
 export const LeftMenu = () => {
+
     return (
         <div className='container-main-menu'>
             <a href='/'>
