@@ -5,12 +5,12 @@ import { EditProfileForm } from "../forms/EditProfileForm";
 
 import '../../styles/user-details-site.css';
 
-export const Profile = () => {
+export const UserProfile = () => {
 
-    const [userDetails, setUserDetailsState] = useState([]);
-    const [credentials, setCredentialsState] = useState([]);
+    const [userDetails, setUserDetails] = useState([]);
+    const [credentials, setCredentials] = useState([]);
 
-    const [messageLabel, setMessageLabelState] = useState('');
+    const [messageLabel, setMessageLabel] = useState('');
     const [firstNameValue, setFirstNameValue] = useState('');
     const [lastNameValue, setLastNameValue] = useState('');
     const [emailValue, setEmailValue] = useState('');
@@ -40,7 +40,8 @@ export const Profile = () => {
     }
 
     const setUserDetailsAndGetUserCredentials = data => {
-        setUserDetailsState(data);
+        console.log(data)
+        setUserDetails(data);
         setFirstNameValue(data.firstName);
         setLastNameValue(data.lastName);
 
@@ -52,7 +53,7 @@ export const Profile = () => {
     const setUserCredentials = data => {
         setEmailValue(data.email);
         setPhoneNumberValue(data.phoneNumber);
-        setCredentialsState(data);
+        setCredentials(data);
     }
 
     /**
@@ -91,7 +92,7 @@ export const Profile = () => {
     }
 
     const showMessageAndHandleSuccessUpdate = () => {
-        setMessageLabelState("Details updated successfully");
+        setMessageLabel("Details updated successfully");
         setTimeout(handleChangingDetails, 300);
     }
 
@@ -114,11 +115,11 @@ export const Profile = () => {
     }
 
     const updateNewPassword = () => {
-        setMessageLabelState("Password changed successfully");
+        setMessageLabel("Password changed successfully");
     }
 
     const showErrorMessage = response => {
-        setMessageLabelState(response.data.message);
+        setMessageLabel(response.data.message);
     }
 
     /**

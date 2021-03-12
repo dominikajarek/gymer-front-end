@@ -12,7 +12,7 @@ export const Login = () => {
 
     const history = useHistory();
     const handleSuccessLogin = useCallback(() => {
-        history.push('/user-slots');
+        history.push('/');
         Common.refreshPage();
     }, [history]);
 

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
+import axios from "axios";
+
 import { Navigation } from "./Navigation";
 import { BookSlot } from "../user/BookSlot";
 import { Modal } from "react-responsive-modal";
@@ -9,7 +11,6 @@ import { Modal } from "react-responsive-modal";
 import '../../styles/calendar.css';
 import '../../styles/book-form.css';
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import axios from "axios";
 
 const localizer = momentLocalizer(moment);
 
@@ -28,17 +29,17 @@ export const Calendars = () => {
                 setEvents(response.data._embedded.slotDTOList);
             })
     }, []);
-
     const slots = events.map((slot) => {
         return {
             id: slot.id,
-            title: slot.description + " " + slot.id,
+            title: slot.description,
             start: new Date(slot.date.split("-")[0], slot.date.split("-")[1], slot.date.split("-")[2],
                 slot.startTime.split(":")[0], slot.startTime.split(":")[1], slot.startTime.split(":")[2]),
             end: new Date(slot.date.split("-")[0], slot.date.split("-")[1], slot.date.split("-")[2],
                 slot.endTime.split(":")[0], slot.endTime.split(":")[1], slot.endTime.split(":")[2]),
             desc: slot.slotType,
-            allDay: false
+            allDay: false,
+            employee: slot._links.employee.href
         }
     });
 
@@ -70,7 +71,10 @@ export const Calendars = () => {
                 }}
             />
             <Modal open={open} onClose={() => setOpen(false)} center>
-                <BookSlot events={slots} slotId={slotId} />
+                <BookSlot
+                    events={slots}
+                    slotId={slotId}
+                />
             </Modal>
         </div>
     </div>
