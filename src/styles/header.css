@@ -8,8 +8,8 @@
     align-items: var(--align-items);
     width: 100%;
     grid-template-areas:
-            "search buttons null";
-    grid-template-columns: 2fr 1fr 0.5fr;
+            "logo search buttons null";
+    grid-template-columns: 2fr 2fr 1fr 0.5fr;
     font-size: 0.8em;
     grid-gap: 1em;
     padding: 1em;
@@ -173,6 +173,15 @@ div[class*=box] {
 
 .logout {
     grid-area: logout;
+}
+
+.app-logo {
+    max-width: 100%;
+}
+
+.logo {
+    position: fixed;
+    max-width: 12em;
 }
 
 .profile, .slots, .logout, .sign-in, .sign-up {

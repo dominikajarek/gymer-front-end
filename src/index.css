@@ -46,13 +46,13 @@ body {
   background: rgb(186,189,194);
   background: radial-gradient(circle, rgba(242, 243, 243, 0.95) 0%, rgba(236, 239, 239, 0.95) 100%);
   width: 70%;
-  height: 500vh;
-  grid-template-columns: 0.5fr 1fr 1fr;
-  grid-template-rows: 0.1fr 4fr 0.1fr;
+  height: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.2fr 4fr 0.2fr;
   grid-template-areas:
-          "nav  header  header"
-          "nav  content content"
-          "nav  footer  footer"
+          "header  header"
+          "content content"
+          "footer  footer"
 }
 
 .main-menu {

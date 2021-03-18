@@ -4,10 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { GymSite } from './components/partner/GymSite';
 import { Calendars } from "./components/partner/Calendar";
 import { Header } from "./components/main/Header";
-import { LeftMenu } from "./components/main/LeftMenu";
-import { Gyms } from "./components/categories/Gyms";
-import { Fitness } from "./components/categories/Fitness";
-import { PersonalTrainers } from "./components/categories/PersonalTrainers";
 import { UserSlots } from './components/user/UserSlots';
 import { UserProfile } from './components/user/UserProfile';
 import { Activation } from './components/main/Activation';
@@ -30,9 +26,6 @@ export const App = () => {
     return (
           <div className='router'>
               <Router>
-                  <div className='main-menu'>
-                      <LeftMenu />
-                  </div>
                   <div className='header'>
                       {isLoggedIn ? <UserNavbar /> : <Header />}
                   </div>
@@ -52,11 +45,6 @@ export const App = () => {
                           {/*<PrivateRoute exact path={'/partner-slots'} component={ PartnerProfile } />*/}
                           <PrivateRoute exact path={'/partner-profile'} component={ PartnerProfile } />
                       </Switch>
-                      <div className='categories'>
-                          <Route exact path={'/gyms'} component={ Gyms } />
-                          <Route exact path={'/fitness'} component={ Fitness } />
-                          <Route exact path={'/personal-trainers'} component={ PersonalTrainers } />
-                      </div>
                   </div>
               </Router>
           </div>
