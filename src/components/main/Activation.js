@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import axios from "axios";
+import '../../styles/activation-info.css';
 
 export const Activation = () => {
     const [message, setMessage] = useState('');
@@ -12,13 +13,14 @@ export const Activation = () => {
         axios.get(`/api/verify?code=${code}`)
             .then(response => {
                 setMessage(response.data.message);
-                console.log(response.data.message)
-            })
+            }).catch(error => {
+            setMessage(error.response.data.message);
+        })
     }, []);
 
     return (
-        <div>
-            <h3>{message}</h3>
+        <div className="info-container">
+            <h3 className="info">{message}</h3>
         </div>
     );
 }
