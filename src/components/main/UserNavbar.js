@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import { UserProfileMenu } from "../user/UserProfileMenu";
-import { PartnerProfileMenu } from "../partner/settings/PartnerProfileMenu";
+import {UserProfileMenu} from "../user/UserProfileMenu";
+import {PartnerProfileMenu} from "../partner/settings/PartnerProfileMenu";
 import logo from "../../images/Logo-transparent.png";
-import {Link} from "react-router-dom";
+import {Header} from "./Header";
 
 export const UserNavbar = () => {
 
@@ -17,21 +17,23 @@ export const UserNavbar = () => {
     }, []);
 
     const checkUserType = () => {
-      if (userType === 'user') {
-          return <UserProfileMenu />;
-      } if (userType === 'partner') {
-          return <PartnerProfileMenu />
+        if (userType === 'user') {
+            return <UserProfileMenu/>;
+        } else if (userType === 'partner') {
+            return <PartnerProfileMenu/>
+        } else {
+            return <Header/>
         }
     };
 
     return (
-            <header className='header-container'>
-                <div className='logo'>
-                    <a href='/'>
-                        <img alt='logo' src={logo} className='app-logo' />
-                    </a>
-                </div>
-                {checkUserType()}
-            </header>
+        <header className='header-container'>
+            <div className='logo'>
+                <a href='/'>
+                    <img alt='logo' src={logo} className='app-logo'/>
+                </a>
+            </div>
+            {checkUserType()}
+        </header>
     );
 }

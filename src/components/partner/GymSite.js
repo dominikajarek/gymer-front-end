@@ -38,20 +38,18 @@ export const GymSite = () => {
                         <h1 className='gym-name'>{data.data.name}</h1>
                         <img alt='photo' src={image1} className='gym-image1' />
                         <img alt='photo' src={image} className='gym-image2' />
-                        <div className="modal info-container">
+                        <div className="gym-info modal">
                             <WorkingHours />
                             <Contact />
-                            {data.data.website}
-                        </div>
-                        <div className="about-info modal info-container">
-                            <div>
-                                <div className="title">About us</div>
+                            <div className='url-link'>
+                                <a className='gym-link' href={data.data.website}>{data.data.website}</a>
                             </div>
-                            <div>
-                                <div>
-                                    {data.data.description}
-                                    {"\n"}
-                                </div>
+                        </div>
+                        <div className="about-info modal">
+                            <div className="about-name column-name">About us</div>
+                            <div className="about-details">
+                                {data.data.description}
+                                {"\n"}
                             </div>
                         </div>
                         <div className="team-info">

@@ -34,6 +34,14 @@
     text-shadow: 0.02em 0.02em var(--color-black);
 }
 
+.message-slot {
+    display: inline-grid;
+    justify-items: center;
+    align-items: center;
+    font-size: 2em;
+    text-decoration: underline;
+}
+
 .book-input-field {
     height: 5em;
     width: 100%;

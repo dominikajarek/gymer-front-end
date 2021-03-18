@@ -24,10 +24,12 @@ export const Contact = () => {
         return (
             content =
                 <div>
-                    <p className='info-header'>Contact</p>
-                    <div className='working-hours'>
-                        <p>{address.data.city}</p>
-                        <p>{address.data.street}{" "}{address.data.number}</p>
+                    <div className="contact-name column-name">Contact</div>
+                    <div className="contact-details">
+                        <div className='working-hours'>
+                            <p>{address.data.city}</p>
+                            <p>{address.data.street}{" "}{address.data.number}</p>
+                        </div>
                     </div>
                 </div>
         );
