@@ -66,7 +66,7 @@ export const BookSlot = (props) => {
             "slotId": slotId
         };
         const bookAsGuestUrl = `/api/slotuser/${slotId}/reservation/guest`;
-        Connection.postRequestWithCallbacks(bookAsGuestUrl, guestBody, handleBookSlot, Connection.logMessageCallback);
+        Connection.postRequestWithCallbacks(bookAsGuestUrl, guestBody, handleBookSlot, handleBookMessage);
     };
 
     const bookAsUser = (slotId) => {
@@ -76,13 +76,17 @@ export const BookSlot = (props) => {
             "cancel": false
         };
         const bookAsUserUrl = `/api/slotuser/${slotId}/reservation/user`;
-        Connection.postRequestWithCallbacks(bookAsUserUrl, userBody, handleBookSlot, Connection.logMessageCallback);
+        Connection.postRequestWithCallbacks(bookAsUserUrl, userBody, handleBookSlot, handleBookMessage);
     }
 
     const handleBookSlot = data => {
         setMessage(data.message);
         bookCallback();
     };
+
+    const handleBookMessage = data => {
+        setMessage(data.data.message);
+    }
 
     return (
         <div className="register">
@@ -93,6 +97,7 @@ export const BookSlot = (props) => {
                             data={slotData}
                             employee={employee}
                         />
+                        <div className='message-slot'>{message}</div>
                         <button className="button-submit-book" onClick={() => bookAsUser(slotId)}>Book</button>
                     </div>
                     :
@@ -112,6 +117,7 @@ export const BookSlot = (props) => {
                             setPhoneNumber={setPhoneNumber}
                             bookAsGuest={bookAsGuest}
                             slotId={slotId}
+                            message={message}
                         />
                     </div>
             }

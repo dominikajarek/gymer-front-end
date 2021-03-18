@@ -1,13 +1,19 @@
 .form-container {
     font-family: var(--font-family);
     font-weight: var(--font-weight);
-    width: 70vh;
+    width: 50vh;
     height: 50vh;
     font-size: 1em;
     padding: 10em 3em 3em;
     display: grid;
-    grid-template-areas: "name" "surname" "email" "phone" "submit";
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+            "name"
+            "surname"
+            "email"
+            "phone"
+            "submit";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .book-info {
@@ -18,6 +24,14 @@
     align-content: center;
     text-align: center;
     padding: 2em;
+}
+
+.message-slot {
+    display: inline-grid;
+    justify-items: center;
+    align-items: center;
+    font-size: 2em;
+    text-decoration: underline;
 }
 
 .book-input-field {

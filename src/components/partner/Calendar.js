@@ -33,9 +33,9 @@ export const Calendars = () => {
         return {
             id: slot.id,
             title: slot.description,
-            start: new Date(slot.date.split("-")[0], slot.date.split("-")[1], slot.date.split("-")[2],
+            start: new Date(slot.date.split("-")[0], slot.date.split("-")[1] - 1, slot.date.split("-")[2],
                 slot.startTime.split(":")[0], slot.startTime.split(":")[1], slot.startTime.split(":")[2]),
-            end: new Date(slot.date.split("-")[0], slot.date.split("-")[1], slot.date.split("-")[2],
+            end: new Date(slot.date.split("-")[0], slot.date.split("-")[1] - 1, slot.date.split("-")[2],
                 slot.endTime.split(":")[0], slot.endTime.split(":")[1], slot.endTime.split(":")[2]),
             desc: slot.slotType,
             allDay: false,
