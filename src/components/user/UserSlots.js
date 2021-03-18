@@ -15,7 +15,6 @@ export const UserSlots = () => {
      * Active user is obtained first, next slots list is obtained as well only if first request was valid.
      * All necessary information are stored in state variables.
      */
-    console.log(user)
     useEffect(() => {
         const activeUserUrl = '/api/me';
         Connection.getRequestWithCallbacks(activeUserUrl, setActiveUserAndGetUserSlots, Connection.logMessageCallback);

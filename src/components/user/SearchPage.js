@@ -8,7 +8,6 @@ export const SearchPage = () => {
     const [gymsListDefault, setGymsListDefault] = useState();
     const [gymsList, setGymsList] = useState();
 
-
     useEffect(() => {
         axios.get('/api/partners')
             .then(response => {

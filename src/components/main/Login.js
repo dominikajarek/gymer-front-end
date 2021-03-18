@@ -23,7 +23,6 @@ export const Login = () => {
             .then(response => {
                 setMessage(response.data.message);
                 localStorage.setItem('Authorization', response.headers.authorization);
-                localStorage.setItem('loggedIn', 'true');
                 setTimeout(handleSuccessLogin, 500);
             })
             .catch(reason => {
