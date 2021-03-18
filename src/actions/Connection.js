@@ -20,7 +20,7 @@ export class Connection {
             callback(response.data);
         }).catch(reason => {
             if (reason == null) return;
-            errorCallback(reason.response.data.message);
+            errorCallback(reason.response);
         })
     }
 
@@ -31,7 +31,7 @@ export class Connection {
             callback(response.data);
         }).catch(reason => {
             if (reason == null) return;
-            errorCallback(reason.response.data.message);
+            errorCallback(reason.response);
         })
     }
 
@@ -42,7 +42,7 @@ export class Connection {
                 callback(response.data);
             }).catch(reason => {
             if (reason == null) return;
-            errorCallback(reason.response.data.message);
+            errorCallback(reason.response);
         })
     }
 
