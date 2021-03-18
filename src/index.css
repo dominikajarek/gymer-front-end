@@ -45,8 +45,7 @@ body {
 .router {
   background: rgb(186,189,194);
   background: radial-gradient(circle, rgba(242, 243, 243, 0.95) 0%, rgba(236, 239, 239, 0.95) 100%);
-  width: auto;
-  min-width: 120vh;
+  width: 130vh;
   height: auto;
   padding: 1em;
   overflow-y: hidden;
@@ -56,6 +55,18 @@ body {
           "header header header"
           "content content content"
           "footer footer footer"
+}
+
+@media screen and (max-width: 1300px) {
+  .router {
+    width: 90vh;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .router {
+    width: 50vh;
+  }
 }
 
 .main-menu {
