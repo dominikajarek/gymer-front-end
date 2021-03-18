@@ -47,12 +47,24 @@ body {
   background: radial-gradient(circle, rgba(242, 243, 243, 0.95) 0%, rgba(236, 239, 239, 0.95) 100%);
   width: 70%;
   height: auto;
-  grid-template-columns: 1fr 1fr;
+  padding: 1em;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 4fr 0.2fr;
   grid-template-areas:
-          "header  header"
-          "content content"
-          "footer  footer"
+          "header header header"
+          "content content content"
+          "footer footer footer"
+}
+
+.scroll {
+  padding:4px;
+  background-color: green;
+  width: 500px;
+  height: 110px;
+
+  text-align:justify;
 }
 
 .main-menu {

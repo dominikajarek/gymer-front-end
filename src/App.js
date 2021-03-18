@@ -46,6 +46,9 @@ export const App = () => {
                           <PrivateRoute exact path={'/partner-profile'} component={ PartnerProfile } />
                       </Switch>
                   </div>
+                  <div className='footer'>
+
+                  </div>
               </Router>
           </div>
   );

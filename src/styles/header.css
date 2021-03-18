@@ -9,7 +9,7 @@
     width: 100%;
     grid-template-areas:
             "logo search buttons null";
-    grid-template-columns: 2fr 2fr 1fr 0.5fr;
+    grid-template-columns: 2fr 2fr 1fr 1fr;
     font-size: 0.8em;
     grid-gap: 1em;
     padding: 1em;
@@ -106,8 +106,14 @@ div[class*=box] {
     letter-spacing: 0.1em;
 }
 
+.search__input__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .search__input {
-    width: 90%;
+    width: 75%;
     padding: 1em 1em;
     margin: 1em;
     background-color: transparent;
@@ -118,7 +124,7 @@ div[class*=box] {
     background-position: 95% center;
     transition: transform 250ms ease-in-out;
     font-size: 1em;
-    line-height: 1em;
+    line-height: 1.2em;
     color: #575756;
     border-radius: 2em;
     border: 1px solid #868686;
@@ -134,12 +140,9 @@ div[class*=box] {
 
 .search__input:hover,
 .search__input:focus {
-    padding: 1em 0;
     outline: 0;
-    border: 1px solid transparent;
-    border-bottom: var(--border-nav);
-    border-radius: 0;
-    background-position: 100% center;
+    border: 1px solid #A0A0A0;
+    background-position: 98% center;
 }
 
 .search-grids {
@@ -180,7 +183,6 @@ div[class*=box] {
 }
 
 .logo {
-    position: fixed;
     max-width: 12em;
 }
 
