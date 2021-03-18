@@ -10,7 +10,6 @@ export class Connection {
 
     static logMessageCallback = data => {
         console.log(data);
-        return <p>{data}</p>;
     }
 
     static getRequestWithCallbacks = (url, callback, errorCallback) => {
