@@ -17,8 +17,6 @@ export const UserProfileMenu = () => {
     }
 
     return (
-        <header className='header-container'>
-
             <div className="dropdown">
                 <button className="dropbtn">
                     <FontAwesomeIcon icon={faUserCircle} size='3x' onClick={openMenu} className='fa-icon' />
@@ -45,7 +43,5 @@ export const UserProfileMenu = () => {
                     }
                 </div>
             </div>
-
-        </header>
     );
 }

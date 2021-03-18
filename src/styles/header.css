@@ -9,7 +9,7 @@
     width: 100%;
     grid-template-areas:
             "logo search buttons null";
-    grid-template-columns: 2fr 2fr 1fr 1fr;
+    grid-template-columns: 2fr 2fr 1fr;
     font-size: 0.8em;
     grid-gap: 1em;
     padding: 1em;
@@ -121,8 +121,7 @@ div[class*=box] {
             url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-size: 1em 1em;
-    background-position: 95% center;
-    transition: transform 250ms ease-in-out;
+    background-position: 98% center;
     font-size: 1em;
     line-height: 1.2em;
     color: #575756;
@@ -142,6 +141,7 @@ div[class*=box] {
 .search__input:focus {
     outline: 0;
     border: 1px solid #A0A0A0;
+    background-color: whitesmoke;
     background-position: 98% center;
 }
 
@@ -186,12 +186,15 @@ div[class*=box] {
     max-width: 12em;
 }
 
+.sign-in, .sign-up {
+    padding: 1em;
+}
+
 .profile, .slots, .logout, .sign-in, .sign-up {
     justify-self: end;
 }
 
 .dropbtn {
-    padding: 1em;
     border: none;
     cursor: pointer;
     background-color: transparent;
@@ -199,18 +202,20 @@ div[class*=box] {
 }
 
 .dropdown {
+    display: flex;
+    justify-self: end;
+    right: 2em;
     grid-area: null;
-    position: static;
-    margin-left: 45em;
+    position: relative;
 }
 
 .dropdown-content {
-    display: none;
     position: absolute;
-    min-width: 160px;
+    left: -12em;
+    top: 4em;
     box-shadow: var(--box-shadow);
     z-index: 1;
-    background-color: rgba(249,249,249,0.90);
+    background-color: rgba(249,249,249,0.95);
     border-radius: var(--border-radius);
 }
 

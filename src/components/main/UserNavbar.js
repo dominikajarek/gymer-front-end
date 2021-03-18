@@ -3,6 +3,7 @@ import axios from "axios";
 import { UserProfileMenu } from "../user/UserProfileMenu";
 import { PartnerProfileMenu } from "../partner/settings/PartnerProfileMenu";
 import logo from "../../images/Logo-transparent.png";
+import {Link} from "react-router-dom";
 
 export const UserNavbar = () => {
 
@@ -24,13 +25,13 @@ export const UserNavbar = () => {
     };
 
     return (
-        <div>
-            <div className='logo'>
-                <a href='/'>
-                    <img alt='logo' src={logo} className='app-logo' />
-                </a>
-            </div>
-            {checkUserType()}
-        </div>
+            <header className='header-container'>
+                <div className='logo'>
+                    <a href='/'>
+                        <img alt='logo' src={logo} className='app-logo' />
+                    </a>
+                </div>
+                {checkUserType()}
+            </header>
     );
 }

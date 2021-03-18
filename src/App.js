@@ -21,7 +21,7 @@ import './index.css';
 
 export const App = () => {
 
-    const isLoggedIn = localStorage.getItem('Authorization') ? true : false;
+    const isLoggedIn = !!localStorage.getItem('Authorization');
 
     return (
           <div className='router'>

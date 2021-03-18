@@ -14,7 +14,7 @@ export const Header = () => {
                         <img alt='logo' src={logo} className='app-logo' />
                     </a>
                 </div>
-                <div className='buttons-user'>
+                <div className='dropdown'>
                     <Link to='/login'
                           className='btn btn-one sign-in link-style'>
                         Log in
