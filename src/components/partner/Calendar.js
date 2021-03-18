@@ -74,6 +74,7 @@ export const Calendars = () => {
                 <BookSlot
                     events={slots}
                     slotId={slotId}
+                    partnerId={id}
                 />
             </Modal>
         </div>

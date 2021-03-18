@@ -7,7 +7,7 @@ import { GuestBookForm } from "../forms/GuestBookForm";
 import { SlotInfo } from "../partner/SlotInfo";
 
 export const BookSlot = (props) => {
-
+    console.log(props.events.map(e => e.employee))
     const slotId = props.slotId;
 
     const [user, setUser] = useState();
@@ -31,7 +31,7 @@ export const BookSlot = (props) => {
     }, []);
 
     useEffect(() => {
-        axios.get(`${props.events[slotId-1].employee}`)
+        axios.get(`/api/partners/${props.partnerId}/employee/4`)
             .then(response => {
                 setSlotData({
                     name: response.data.firstName,

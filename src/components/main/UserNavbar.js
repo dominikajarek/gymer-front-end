@@ -11,7 +11,6 @@ export const UserNavbar = () => {
     useEffect(() => {
         axios.get('/api/me')
             .then(response => {
-                console.log(response)
                 setUserType(response.data.credential.role.toLowerCase());
             })
     }, []);
