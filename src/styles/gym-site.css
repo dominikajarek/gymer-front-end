@@ -1,10 +1,11 @@
 .container-gymsite {
     grid-template-areas:
             "name name"
+            "link link"
             "slider1 slider2"
             "contact about"
             "team team";
-    grid-template-rows: 0fr 1fr 2fr 2fr;
+    grid-template-rows: 0fr 0fr 1fr 2fr 2fr;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2em;
     color: var(--color-black);
@@ -23,15 +24,35 @@
     align-self: var(--align-self);
 }
 
-.gym-name, .info-container, .team-info, .gym-image1, .gym-image2, .about-info {
+.gym-link {
+    grid-area: link;
+    color: #101118;
+    align-self: var(--align-self);
+}
+
+.gym-name, .gym-link, .info-container, .team-info, .gym-image1, .gym-image2, .about-info {
     justify-self: var(--justify-self);
 }
 
 .info-container {
+    display: grid;
     grid-area: contact;
+    grid-template-areas:
+        "working"
+        "contacted";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
     width: 20rem;
     padding: 1em;
     max-width: 10em;
+}
+
+.working-details {
+    grid-area: working;
+}
+
+.contact-details {
+    grid-area: contacted;
 }
 
 .info-container, .modal {

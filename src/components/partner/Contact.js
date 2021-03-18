@@ -23,7 +23,7 @@ export const Contact = () => {
     if (address.data) {
         return (
             content =
-                <div>
+                <div className='contact-details'>
                     <p className='info-header'>Contact</p>
                     <div className='working-hours'>
                         <p>{address.data.city}</p>

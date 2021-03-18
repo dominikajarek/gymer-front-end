@@ -23,7 +23,7 @@ export const WorkingHours = () => {
     if (hours.data) {
         return (
             content =
-                <div>
+                <div className='working-details'>
                     <p className='info-header'>Working hours</p>
                     <div className='working-hours'>
                         {hours.data._embedded.workingHourDTOList.map(hour =>

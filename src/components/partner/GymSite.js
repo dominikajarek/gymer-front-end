@@ -36,12 +36,12 @@ export const GymSite = () => {
                     <Navigation id={id} />
                     <div className='container-gymsite'>
                         <h1 className='gym-name'>{data.data.name}</h1>
+                        <a className='gym-link' href={data.data.website}>{data.data.website}</a>
                         <img alt='photo' src={image1} className='gym-image1' />
                         <img alt='photo' src={image} className='gym-image2' />
                         <div className="modal info-container">
                             <WorkingHours />
                             <Contact />
-                            {data.data.website}
                         </div>
                         <div className="about-info modal info-container">
                             <div>
