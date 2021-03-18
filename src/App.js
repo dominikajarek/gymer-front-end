@@ -18,6 +18,7 @@ import { UserNavbar } from "./components/main/UserNavbar";
 import { Home } from "./components/main/Home";
 
 import './index.css';
+import {Footer} from "./components/main/Footer";
 
 export const App = () => {
 
@@ -47,7 +48,7 @@ export const App = () => {
                       </Switch>
                   </div>
                   <div className='footer'>
-
+                    <Footer />
                   </div>
               </Router>
           </div>
