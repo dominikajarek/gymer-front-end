@@ -7,7 +7,7 @@ import { GuestBookForm } from "../forms/GuestBookForm";
 import { SlotInfo } from "../partner/SlotInfo";
 
 export const BookSlot = (props) => {
-    console.log(props.events.map(e => e.employee))
+
     const slotId = props.slotId;
 
     const [user, setUser] = useState();
@@ -15,6 +15,7 @@ export const BookSlot = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const [slotData, setSlotData] = useState({});
+    const [employee, setEmployee] = useState({});
 
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
@@ -31,17 +32,23 @@ export const BookSlot = (props) => {
     }, []);
 
     useEffect(() => {
-        axios.get(`/api/partners/${props.partnerId}/employee/4`)
+        axios.get(`/api/partners/${props.partnerId}/slots/${slotId}`)
             .then(response => {
                 setSlotData({
-                    name: response.data.firstName,
-                    surname: response.data.lastName,
-                    title: props.events[slotId-1].title,
-                    description: props.events[slotId-1].desc,
-                    date: props.events[slotId-1].end.toLocaleDateString(),
-                    startTime: props.events[slotId-1].start.toLocaleTimeString(),
-                    endTime: props.events[slotId-1].end.toLocaleTimeString()
+                    title: response.data.description,
+                    description: response.data.slotType,
+                    date: response.data.date,
+                    startTime: response.data.startTime,
+                    endTime: response.data.endTime,
                 });
+                const employeeId = response.data._links.employee.href.split("/")[7];
+                axios.get(`/api/partners/${props.partnerId}/employees/${employeeId}`)
+                    .then(response1 => {
+                        setEmployee({
+                            name: response1.data.firstName,
+                            lastName: response1.data.lastName
+                        });
+                    })
             })
     }, []);
 
@@ -84,6 +91,7 @@ export const BookSlot = (props) => {
                     <div className='modal-user-button'>
                         <SlotInfo
                             data={slotData}
+                            employee={employee}
                         />
                         <button className="button-submit-book" onClick={() => bookAsUser(slotId)}>Book</button>
                     </div>
@@ -91,6 +99,7 @@ export const BookSlot = (props) => {
                     <div>
                         <SlotInfo
                             data={slotData}
+                            employee={employee}
                         />
                         <GuestBookForm
                             name={name}

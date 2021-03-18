@@ -19,7 +19,7 @@ export const Gyms = () => {
         content = 'Loading...'
     }
 
-    if (gyms.data) {
+    if (gyms.data != null) {
         return (
             content =
                 gyms.data._embedded.partnerDTOList.map((gym, key) =>
