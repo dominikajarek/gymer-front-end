@@ -23,7 +23,7 @@ export const Gyms = () => {
         return (
             content =
                 gyms.data._embedded.partnerDTOList.map((gym, key) =>
-                    <div key={ key } >
+                    <div key={ key }>
                         <GymsCard
                             gyms={ gym } />
                     </div>

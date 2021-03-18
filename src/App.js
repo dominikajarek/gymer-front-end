@@ -19,6 +19,7 @@ import { LoginViaGoogleActivation } from "./components/main/LoginViaGoogleActiva
 import { BookingInfo } from "./components/forms/BookingInfo";
 import { PartnerProfile } from "./components/partner/settings/PartnerProfile";
 import { UserNavbar } from "./components/main/UserNavbar";
+import { Home } from "./components/main/Home";
 
 import './index.css';
 
@@ -37,6 +38,7 @@ export const App = () => {
                   </div>
                   <div className='content'>
                       <Switch>
+                          <Route exact path={'/'} component={ Home } />
                           <Route exact path={'/verify'} component={ Activation } />
                           <Route exact path={'/login'} component={ Login } />
                           <Route exact path={'/google'} component={ LoginViaGoogleActivation } />
@@ -51,7 +53,6 @@ export const App = () => {
                           <PrivateRoute exact path={'/partner-profile'} component={ PartnerProfile } />
                       </Switch>
                       <div className='categories'>
-                          <Route exact path={'/'} component={ Gyms } />
                           <Route exact path={'/gyms'} component={ Gyms } />
                           <Route exact path={'/fitness'} component={ Fitness } />
                           <Route exact path={'/personal-trainers'} component={ PersonalTrainers } />

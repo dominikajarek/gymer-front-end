@@ -8,9 +8,6 @@ export const Header = () => {
 
     return (
             <header className='header-container'>
-                <div>
-                    <input className="search__input" type="text" placeholder="Search" />
-                </div>
                 <div className='buttons-user'>
                     <Link to='/login'
                           className='btn btn-one sign-in link-style'>

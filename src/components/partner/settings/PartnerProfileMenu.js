@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Common } from "../../../actions/Common";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import 'react-responsive-modal/styles.css';
 import '../../../styles/header.css';
 
@@ -18,9 +18,6 @@ export const PartnerProfileMenu = () => {
 
     return (
         <header className='header-container'>
-            <div>
-                <input className="search__input" type="text" placeholder="Search" />
-            </div>
 
             <div className="dropdown">
                 <button className="dropbtn">

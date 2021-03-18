@@ -18,9 +18,6 @@ export const UserProfileMenu = () => {
 
     return (
         <header className='header-container'>
-            <div>
-                <input className="search__input" type="text" placeholder="Search" />
-            </div>
 
             <div className="dropdown">
                 <button className="dropbtn">
