@@ -83,30 +83,34 @@ export const UserSlots = () => {
 
     const listOfSlots = slots.map(slot =>
         <div className="grid-container-user-slots" key={slot.id}>
-            <div className="name padding-grid">{slot.slotType}</div>
+            <div className="name padding-grid">{slot.date}</div>
             <div className="date padding-grid">
-                <div className="day text-justify-in-grid">{slot.date}</div>
-                <div className="time text-justify-in-grid">{slot.startTime} - {slot.endTime}</div>
+                <div className="day text-justify-in-grid">
+                    <p>{"\n"}{slot.startTime.toLocaleString()} - {slot.endTime}</p>
+                    <p></p>
+                </div>
             </div>
-            <div className="description padding-grid">{slot.description}</div>
+            <h3 className="description padding-grid">{slot.description}</h3>
             <button className="resign button-on-slot padding-grid" onClick={() => resignPopup(slot.id)}>RESIGN</button>
             <button className="go-to-partner button-on-slot padding-grid"
                     onClick={() => goToPartner(slot._links.self.href)}>PARTNER
             </button>
-            <div className="private padding-grid">{slot.private ? "private" : "public"}</div>
+            <div className="private padding-grid">type: {slot.private ? "private" : "public"}</div>
             <div className="size padding-grid">{slot.size === 1 ? "1 slot" : slot.size + " slots"}</div>
         </div>
     );
 
     return (
-        <div className='slots-container'>
+        <div>
             <p className='slots-message'>{message}</p>
-        {
-            listOfSlots.length > 0 ? listOfSlots :
-            <div className='no-slots-container'>
-                <p className='user-info'>You don't have any active slots</p>
+            <div className='slots-container'>
+                {
+                    listOfSlots.length > 0 ? listOfSlots :
+                        <div className='no-slots-container'>
+                            <p className='user-info'>You don't have any active slots</p>
+                        </div>
+                }
             </div>
-        }
-    </div>
+        </div>
     );
 }

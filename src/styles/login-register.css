@@ -181,6 +181,7 @@ li .checkbox:hover, .active .checkbox {
     justify-content: center;
     padding-top: 1.5em;
     font-size: small;
+    grid-area: google;
 }
 
 .google-auth-button {
@@ -188,4 +189,20 @@ li .checkbox:hover, .active .checkbox {
     text-decoration: var(--text-deco);
     margin-top: 1em;
     color: var(--color-black);
+}
+
+.other-logins {
+    display: grid;
+    grid-template-areas: "google sign-up";
+    justify-content: start;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    font-size: small;
+}
+
+.sign-up-container {
+    grid-area: sign-up;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
 }

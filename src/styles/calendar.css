@@ -16,10 +16,6 @@
     width: 10em;
 }
 
-.calendar-nav {
-    grid-area: nav;
-}
-
 .calendar-header {
     background-color: #222;
     height: 1em;

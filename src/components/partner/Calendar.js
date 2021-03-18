@@ -49,8 +49,8 @@ export const Calendars = () => {
 
     return (
         <div>
+            <Navigation id={id} />
          <div className="calendar">
-             <Navigation id={ id } className='calendar-nav' />
              <Calendar
                 className='calendar-style'
                 onSelectEvent={event => {

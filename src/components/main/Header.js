@@ -19,10 +19,6 @@ export const Header = () => {
                           className='btn btn-one sign-in link-style'>
                         Log in
                     </Link>
-                    <Link to='/register'
-                          className='btn btn-one sign-up link-style'>
-                        Sign up
-                    </Link>
                 </div>
             </header>
     );

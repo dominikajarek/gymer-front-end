@@ -41,7 +41,7 @@ div[class*=box] {
 }
 
 .btn {
-    line-height: 3em;
+    line-height: 1.7em;
     height: 3em;
     text-align: var(--text-align);
     width: 10em;

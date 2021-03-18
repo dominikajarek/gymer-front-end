@@ -1,5 +1,6 @@
 import React from 'react';
 import logoGoogle from "../../images/google.svg";
+import {Link} from "react-router-dom";
 
 export const LoginForm = (props) => {
 
@@ -28,10 +29,19 @@ export const LoginForm = (props) => {
                 <p className='register-input-field'>
                     <input type="submit" value="Sign in" />
                 </p>
-                <p className='google-auth-container'>
-                    <img src={logoGoogle} alt="google login" className="icon"></img>
-                    <a className="google-auth-button" href="/api/google-auth">Login with google</a>
-                </p>
+
+                <div className='other-logins'>
+                    <p className='google-auth-container'>
+                        <img src={logoGoogle} alt="google login" className="icon"></img>
+                        <a className="google-auth-button" href="/api/google-auth">Login with google</a>
+                    </p>
+                    <div className='sign-up-container'>
+                        <Link to='/register'
+                              className='btn btn-one sign-up link-style'>
+                            Sign up
+                        </Link>
+                    </div>
+                </div>
             </form>
         </div>
     );

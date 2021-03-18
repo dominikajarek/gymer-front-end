@@ -21,6 +21,9 @@
 
 .slots-container {
     position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .slots-message {
@@ -69,7 +72,7 @@
 
 .time {
     grid-area: time;
-    justify-self: right;
+    justify-self: center;
 }
 
 .description {
@@ -156,10 +159,6 @@
 .profile-container {
     margin-top: 4em;
     border-radius: var(--border-radius);
-}
-
-.profile-labels {
-
 }
 
 .password-labels {
