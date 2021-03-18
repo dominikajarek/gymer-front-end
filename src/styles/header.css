@@ -149,6 +149,7 @@ div[class*=box] {
     padding: 2em;
     justify-items: center;
     align-items: center;
+    width: 100%;
 }
 
 .user-nav {
