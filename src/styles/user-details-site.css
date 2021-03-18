@@ -19,27 +19,34 @@
     margin: 0.2em 0.2em 0.2em 0.2em;
 }
 
+.slots-container {
+    position: relative;
+}
+
+.slots-message {
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: red;
+}
+
 .grid-container-user-slots {
     background-color: rgba(255, 255, 255, 0.70);
     box-shadow: var(--box-shadow);
-    padding: 0.3em;
+    margin: 1.5em auto 0 auto;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 0.8fr 0.2fr 0.2fr;
     grid-template-areas:
             "name date"
             "description description"
             "private size"
             "go-to-partner resign";
-    width: 50%;
+    width: 60%;
     border-radius: var(--border-radius);
-    margin-left: 15em;
-    margin-bottom: 2em;
     font-weight: var(--font-weight);
 }
 
 .name {
     grid-area: name;
-
 }
 
 .name, .date, .description, .private, .size {
@@ -127,8 +134,12 @@
 }
 
 .message {
-    height: 5em;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    margin: auto;
 }
+
 .no-slots-info {
     justify-items: center;
     align-items: center;

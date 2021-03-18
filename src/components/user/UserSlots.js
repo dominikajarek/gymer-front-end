@@ -15,7 +15,6 @@ export const UserSlots = () => {
      * Active user is obtained first, next slots list is obtained as well only if first request was valid.
      * All necessary information are stored in state variables.
      */
-    console.log(user)
     useEffect(() => {
         const activeUserUrl = '/api/me';
         Connection.getRequestWithCallbacks(activeUserUrl, setActiveUserAndGetUserSlots, Connection.logMessageCallback);
@@ -60,12 +59,16 @@ export const UserSlots = () => {
         }
 
         const removeSlotsUrl = '/api/slotuser/' + slotId + '/reservation/user';
-        Connection.postRequestWithCallbacks(removeSlotsUrl, body, handleRemoveAndSetMessage, Connection.logMessageCallback);
+        Connection.postRequestWithCallbacks(removeSlotsUrl, body, handleRemoveAndSetMessage, showMessage);
     }
 
     const handleRemoveAndSetMessage = data => {
         setMessage(data.message);
         handleRemoveSlot();
+    }
+
+    const showMessage = data => {
+        setMessage(data.data.message);
     }
 
     const goToPartner = slotUrl => {
@@ -97,7 +100,7 @@ export const UserSlots = () => {
 
     return (
         <div className='slots-container'>
-            <p className='message'>{message}</p>
+            <p className='slots-message'>{message}</p>
         {
             listOfSlots.length > 0 ? listOfSlots :
             <div className='no-slots-container'>
