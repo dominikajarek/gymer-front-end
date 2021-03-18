@@ -40,7 +40,6 @@ export const UserProfile = () => {
     }
 
     const setUserDetailsAndGetUserCredentials = data => {
-        console.log(data)
         setUserDetails(data);
         setFirstNameValue(data.firstName);
         setLastNameValue(data.lastName);

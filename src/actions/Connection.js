@@ -10,6 +10,7 @@ export class Connection {
 
     static logMessageCallback = data => {
         console.log(data);
+        return <p>{data}</p>;
     }
 
     static getRequestWithCallbacks = (url, callback, errorCallback) => {
@@ -19,7 +20,7 @@ export class Connection {
             callback(response.data);
         }).catch(reason => {
             if (reason == null) return;
-            errorCallback(reason.response);
+            errorCallback(reason.response.data.message);
         })
     }
 
@@ -30,7 +31,7 @@ export class Connection {
             callback(response.data);
         }).catch(reason => {
             if (reason == null) return;
-            errorCallback(reason.response);
+            errorCallback(reason.response.data.message);
         })
     }
 
@@ -41,7 +42,7 @@ export class Connection {
                 callback(response.data);
             }).catch(reason => {
             if (reason == null) return;
-            errorCallback(reason.response);
+            errorCallback(reason.response.data.message);
         })
     }
 
