@@ -22,9 +22,6 @@ export const BookSlot = (props) => {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
 
-    const history = useHistory();
-    const bookCallback = useCallback(() => history.push(`/booked`), [history]);
-
     useEffect(() => {
         const activeUserUrl = '/api/me';
         Connection.getRequestWithCallbacks(activeUserUrl, setActiveUser, Connection.logMessageCallback);
@@ -57,7 +54,6 @@ export const BookSlot = (props) => {
     };
 
     const showMessage = data => {
-        console.log(data.data.message)
         setMessage(data.data.message);
     }
 
@@ -86,8 +82,8 @@ export const BookSlot = (props) => {
 
     const handleBookSlot = data => {
         setMessage(data.message);
-        bookCallback();
-    };
+        setTimeout(props.closeModal, 1000);
+    }
 
     return (
         <div className="booking-modal">
