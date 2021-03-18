@@ -1,10 +1,10 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { useAxiosGet } from "../../actions/useAxiosGet";
+import {useParams} from "react-router-dom";
+import {useAxiosGet} from "../../actions/useAxiosGet";
 
 export const WorkingHours = () => {
 
-    const { id } = useParams();
+    const {id} = useParams();
     const url = `/api/partners/${id}/workinghours`;
     const hours = useAxiosGet(url);
     let content = null;
@@ -23,15 +23,17 @@ export const WorkingHours = () => {
     if (hours.data) {
         return (
             content =
-                <div className='working-details'>
-                    <p className='info-header'>Working hours</p>
-                    <div className='working-hours'>
-                        {hours.data._embedded.workingHourDTOList.map(hour =>
-                            <div key={hour.id} className='p-days'>
-                                <p>{hour.day}</p>
-                                <p>{hour.startHour}</p>
-                                <p>{hour.endHour}</p>
-                            </div>)}
+                <div>
+                    <div className="working-name column-name">Working hours</div>
+                    <div className="working-details">
+                        <div className='working-hours'>
+                            {hours.data._embedded.workingHourDTOList.map(hour =>
+                                <div key={hour.id} className='p-days'>
+                                    <p>{hour.day}</p>
+                                    <p>{hour.startHour}</p>
+                                    <p>{hour.endHour}</p>
+                                </div>)}
+                        </div>
                     </div>
                 </div>
         );
