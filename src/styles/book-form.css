@@ -1,13 +1,20 @@
+.booking-modal {
+    font-size: 0.5em;
+    font-weight: var(--font-weight);
+}
+
 .form-container {
     font-family: var(--font-family);
     font-weight: var(--font-weight);
-    width: 70vh;
+    width: 50vh;
     height: 50vh;
     font-size: 1em;
-    padding: 10em 3em 3em;
+    padding: 2em;
     display: grid;
     grid-template-areas: "name" "surname" "email" "phone" "submit";
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    align-content: center;
+    align-items: center;
 }
 
 .book-info {
@@ -17,7 +24,14 @@
     justify-content: center;
     align-content: center;
     text-align: center;
-    padding: 2em;
+    padding: 2em 2em 3em;
+    margin-bottom: 2em;
+    grid-area: info;
+}
+
+.slot-info {
+    margin: 0.5em;
+    text-shadow: 0.02em 0.02em var(--color-black);
 }
 
 .book-input-field {
@@ -27,12 +41,55 @@
 
 .button-submit-book {
     width: 100%;
-    height: 4em;
+    background: #e9ad81;
+    box-shadow: var(--box-shadow);
+    border: none;
+    color: var(--color-black);
+    cursor: pointer;
+    display: block;
+    line-height: 1.6em;
+    margin: 1em;
+    outline: none;
+    padding: .8em 0;
+    font-weight: var(--font-weight);
+    border-radius: var(--border-radius);
+    grid-area: submit-book;
+    align-self: end;
+}
+
+.button-submit-book-as-guest {
+    width: 100%;
+    background: #e9ad81;
+    box-shadow: var(--box-shadow);
+    border: none;
+    color: var(--color-black);
+    cursor: pointer;
+    display: block;
+    line-height: 1.6em;
+    outline: none;
+    padding: .8em 0;
+    font-weight: var(--font-weight);
+    border-radius: var(--border-radius);
     grid-area: submit;
+    align-self: center;
+    justify-self: center;
+    align-content: center;
+    justify-content: center;
+    margin: 2em;
+}
+
+.button-submit-book:hover, .button-submit-book-as-guest:hover {
+    background: rgb(229, 198, 183);
 }
 
 .modal-user-button {
-    width: 50vh;
-    height: 50vh;
-    padding-top: 5em;
+    padding-top: 2em;
+    width: 40vh;
+    height: 40vh;
+    border-radius: var(--border-radius);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
 }

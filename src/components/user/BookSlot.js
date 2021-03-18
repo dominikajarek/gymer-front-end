@@ -56,6 +56,11 @@ export const BookSlot = (props) => {
         localStorage.getItem('Authorization') ? setUser(data) : setUser(null);
     };
 
+    const showMessage = data => {
+        console.log(data.data.message)
+        setMessage(data.data.message);
+    }
+
     const bookAsGuest = (slotId) => {
         const guestBody = {
             "cancel": false,
@@ -66,7 +71,7 @@ export const BookSlot = (props) => {
             "slotId": slotId
         };
         const bookAsGuestUrl = `/api/slotuser/${slotId}/reservation/guest`;
-        Connection.postRequestWithCallbacks(bookAsGuestUrl, guestBody, handleBookSlot, Connection.logMessageCallback);
+        Connection.postRequestWithCallbacks(bookAsGuestUrl, guestBody, handleBookSlot, showMessage);
     };
 
     const bookAsUser = (slotId) => {
@@ -76,7 +81,7 @@ export const BookSlot = (props) => {
             "cancel": false
         };
         const bookAsUserUrl = `/api/slotuser/${slotId}/reservation/user`;
-        Connection.postRequestWithCallbacks(bookAsUserUrl, userBody, handleBookSlot, Connection.logMessageCallback);
+        Connection.postRequestWithCallbacks(bookAsUserUrl, userBody, handleBookSlot, showMessage);
     }
 
     const handleBookSlot = data => {
@@ -85,13 +90,14 @@ export const BookSlot = (props) => {
     };
 
     return (
-        <div className="register">
+        <div className="booking-modal">
             {
                 isLoggedIn ?
                     <div className='modal-user-button'>
                         <SlotInfo
                             data={slotData}
                             employee={employee}
+                            message={message}
                         />
                         <button className="button-submit-book" onClick={() => bookAsUser(slotId)}>Book</button>
                     </div>
@@ -100,6 +106,7 @@ export const BookSlot = (props) => {
                         <SlotInfo
                             data={slotData}
                             employee={employee}
+                            message={message}
                         />
                         <GuestBookForm
                             name={name}

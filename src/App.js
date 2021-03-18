@@ -16,9 +16,9 @@ import { BookingInfo } from "./components/forms/BookingInfo";
 import { PartnerProfile } from "./components/partner/settings/PartnerProfile";
 import { UserNavbar } from "./components/main/UserNavbar";
 import { Home } from "./components/main/Home";
+import { Footer } from "./components/main/Footer";
 
 import './index.css';
-import {Footer} from "./components/main/Footer";
 
 export const App = () => {
 
