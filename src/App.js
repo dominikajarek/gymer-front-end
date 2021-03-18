@@ -15,6 +15,7 @@ import { Login } from "./components/main/Login";
 import { Register } from "./components/main/Register";
 import { RegisterInfo } from "./components/forms/RegisterInfo";
 import { PrivateRoute } from "./actions/PrivateRoute";
+import { ProfileMenu } from "./components/user/ProfileMenu";
 import { LoginViaGoogleActivation } from "./components/main/LoginViaGoogleActivation";
 import { BookingInfo } from "./components/forms/BookingInfo";
 import { PartnerProfile } from "./components/partner/settings/PartnerProfile";
@@ -38,7 +39,6 @@ export const App = () => {
                   </div>
                   <div className='content'>
                       <Switch>
-                          <Route exact path={'/'} component={ Home } />
                           <Route exact path={'/verify'} component={ Activation } />
                           <Route exact path={'/login'} component={ Login } />
                           <Route exact path={'/google'} component={ LoginViaGoogleActivation } />
@@ -53,6 +53,7 @@ export const App = () => {
                           <PrivateRoute exact path={'/partner-profile'} component={ PartnerProfile } />
                       </Switch>
                       <div className='categories'>
+                          <Route exact path={'/'} component={ Gyms } />
                           <Route exact path={'/gyms'} component={ Gyms } />
                           <Route exact path={'/fitness'} component={ Fitness } />
                           <Route exact path={'/personal-trainers'} component={ PersonalTrainers } />
