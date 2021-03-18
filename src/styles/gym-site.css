@@ -1,17 +1,16 @@
 .container-gymsite {
     grid-template-areas:
             "name name"
+            "link link"
             "slider1 slider2"
-            "contact about"
+            "gym-info about-info"
             "team team";
-    grid-template-rows: 0fr 1fr 2fr 2fr;
+    grid-template-rows: 0fr 0fr 0fr 1fr 2fr;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2em;
     color: var(--color-black);
     font-weight: var(--font-weight);
-    margin-left: 1em;
-    margin-right: 1em;
-    margin-top: 4em;
+    margin: 4em 1em 1em;
 }
 
 .container-gymsite, .working-hours, .p-days, .contact-info, .name-photo-container, .employee-container {
@@ -23,15 +22,22 @@
     align-self: var(--align-self);
 }
 
-.gym-name, .info-container, .team-info, .gym-image1, .gym-image2, .about-info {
+.gym-link {
+    grid-area: link;
+    color: #101118;
+    align-self: var(--align-self);
+}
+
+.gym-name, .gym-link, .info-container, .team-info, .gym-image1, .gym-image2, .about-info, .gym-info {
     justify-self: var(--justify-self);
 }
 
-.info-container {
-    grid-area: contact;
-    width: 20rem;
-    padding: 1em;
-    max-width: 10em;
+.working-details {
+    grid-area: working;
+}
+
+.contact-details {
+    grid-area: contacted;
 }
 
 .info-container, .modal {
@@ -49,7 +55,7 @@
     line-height: 1.8;
 }
 
-.modal, .about-info {
+.modal, .about-info, .gym-info {
     text-align: var(--text-align);
 }
 
@@ -95,20 +101,20 @@
     align-self: var(--align-self);
 }
 
-.modal, .gym-image1, .gym-image2, .about-info {
+.modal, .gym-image1, .gym-image2, .about-info, .gym-info {
     border-radius: var(--border-radius);
 }
 
-.gym-image1, .gym-image2, .about-info {
+.gym-image1, .gym-image2, .about-info, .gym-info {
     box-shadow: var(--box-shadow);
 }
 
-.about-info {
+.about-info, .gym-info {
     grid-area: about;
     width: 20rem;
     line-height: 1.8;
     padding: 1.5em 1em 1em;
-    background-color: rgba(214,214,214,0.4);
+    background-color: rgba(214, 214, 214, 0.4);
 }
 
 .employee-grid {
@@ -127,4 +133,67 @@
 .employee-name {
     padding: 1em;
     font-size: large;
+}
+
+.about-info {
+    grid-area: about-info;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr 0fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "about-name"
+    "about-details";
+}
+
+.about-name {
+    grid-area: about-name;
+}
+
+.about-details {
+    grid-area: about-details;
+    margin-bottom: 1em;
+}
+
+.gym-info {
+    grid-area: gym-info;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr 0fr 0fr 0fr 0fr;
+    grid-template-areas:
+    "working-name"
+    "working-details"
+    "contact-name"
+    "contact-details"
+    "url-link";
+    width: 20rem;
+    line-height: 1.8;
+    background-color: rgba(177, 177, 177, 0.6);
+}
+
+.working-name {
+    grid-area: working-name;
+}
+
+.working-details {
+    grid-area: working-details;
+    margin-bottom: 1em;
+}
+
+.url-link {
+    grid-area: url-link;
+}
+
+.contact-name {
+    grid-area: contact-name;
+}
+
+.contact-details {
+    grid-area: contact-details;
+    margin-bottom: 1em;
+}
+
+.column-name {
+    font-size: 1.5em;
+    text-decoration: underline;
 }
