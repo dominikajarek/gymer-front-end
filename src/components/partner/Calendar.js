@@ -46,6 +46,9 @@ export const Calendars = () => {
     const onEventClick = () => {
         setOpen(true);
     }
+    const callbackModal = () => {
+        this.setState({ showModal: false });
+    }
 
     return (
         <div>
@@ -75,6 +78,7 @@ export const Calendars = () => {
                     events={slots}
                     slotId={slotId}
                     partnerId={id}
+                    closeModal = {() => setOpen( false)}
                 />
             </Modal>
         </div>
