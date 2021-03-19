@@ -6,7 +6,7 @@ export const LoginViaGoogleActivation = () => {
 
     const history = useHistory();
     const redirect = useCallback(() => {
-            history.push('/user-slots');
+            history.push('/');
             refreshPage();
     }, [history]);
 

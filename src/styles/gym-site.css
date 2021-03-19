@@ -13,19 +13,23 @@
     margin: 4em 1em 1em;
 }
 
-.container-gymsite, .working-hours, .p-days, .contact-info, .name-photo-container, .employee-container {
+.container-gymsite, .working-hours, .p-days,
+.contact-info, .name-photo-container, .employee-container,
+.gym-info, .about-info {
     display: var(--display-grid);
 }
 
 .gym-name {
     grid-area: name;
+}
+
+.gym-name, .gym-link, .gym-image1, .gym-image2 {
     align-self: var(--align-self);
 }
 
 .gym-link {
     grid-area: link;
     color: #101118;
-    align-self: var(--align-self);
 }
 
 .gym-name, .gym-link, .info-container, .team-info, .gym-image1, .gym-image2, .about-info, .gym-info {
@@ -97,10 +101,6 @@
     grid-area: slider2;
 }
 
-.gym-image1, .gym-image2 {
-    align-self: var(--align-self);
-}
-
 .modal, .gym-image1, .gym-image2, .about-info, .gym-info {
     border-radius: var(--border-radius);
 }
@@ -137,10 +137,9 @@
 
 .about-info {
     grid-area: about-info;
-    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0fr 0fr;
-    gap: 0px 0px;
+    gap: 0 0;
     grid-template-areas:
     "about-name"
     "about-details";
@@ -157,7 +156,6 @@
 
 .gym-info {
     grid-area: gym-info;
-    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0fr 0fr 0fr 0fr 0fr;
     grid-template-areas:

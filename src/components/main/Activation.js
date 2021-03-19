@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import axios from "axios";
-import '../../styles/activation-info.css';
+import '../../styles/user-details-site.css';
 
 export const Activation = () => {
     const [message, setMessage] = useState('');

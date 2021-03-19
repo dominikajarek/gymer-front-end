@@ -87,7 +87,6 @@ export const UserSlots = () => {
             <div className="date padding-grid">
                 <div className="day text-justify-in-grid">
                     <p>{"\n"}{slot.startTime.toLocaleString()} - {slot.endTime}</p>
-                    <p></p>
                 </div>
             </div>
             <h3 className="description padding-grid">{slot.description}</h3>

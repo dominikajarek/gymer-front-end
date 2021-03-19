@@ -1,6 +1,5 @@
 .register {
     font-size: 0.5em;
-    font-weight: var(--font-weight);
 }
 
 .register-form {
@@ -8,15 +7,17 @@
     padding: 4em 4em 2em;
     max-width: 400px;
     margin: 50px auto 0;
-    box-shadow: var(--box-shadow);
     max-height: 100em;
 }
 
 .text {
     margin:0 0 1em 0;
     padding: 1em;
-    font-weight: var(--font-weight);
     font-size: medium;
+}
+
+.text, .register {
+    font-weight: var(--font-weight);
 }
 
 .error, .text, li .checkbox {
@@ -40,10 +41,13 @@ input {
     margin:0;
 }
 
+input[type="submit"], .register-form {
+    box-shadow: var(--box-shadow);
+}
+
 input[type="email"],
 input[type="password"],
 .input-type-text {
-    background: rgba(255, 255, 255, 0.95);
     border: 1px solid #dbdbdb;
     font-size: 1.6em;
     padding: .8em .5em;
@@ -51,7 +55,10 @@ input[type="password"],
 
 input[type="email"]:focus,
 input[type="password"]:focus,
-.input-type-text:focus {
+.input-type-text:focus,
+input[type="email"],
+input[type="password"],
+.input-type-text, .formLabel, .floatLabel {
     background: rgba(255, 255, 255, 0.95);
 }
 
@@ -61,7 +68,6 @@ input[type="email"], input[type="password"], input[type="submit"], .input-type-t
 
 input[type="submit"] {
     background: #e9ad81;
-    box-shadow: var(--box-shadow);
     border: none;
     color: var(--color-black);
     cursor: pointer;
@@ -71,7 +77,6 @@ input[type="submit"] {
     margin: 2em 0 0;
     outline: none;
     padding: .8em 0;
-    font-weight: var(--font-weight);
 }
 
 input[type="submit"]:hover {
@@ -86,12 +91,10 @@ input[type="submit"]:hover {
     display: inline-block;
     padding: 4px 10px;
     font-weight: 400;
-    background-color: rgba(255, 255, 255, 0.95);
 }
 
 .floatLabel {
      top: -11px;
-     background-color: rgba(255, 255, 255, 0.95);
 }
 
 .tab-group {
@@ -138,10 +141,13 @@ li .checkbox:hover, .active .checkbox {
     display: none;
 }
 
-.user-info {
-    justify-self: center;
-    align-self: center;
+.user-info, input[type="submit"] {
     font-weight: var(--font-weight);
+}
+
+.icon, .user-info {
+    justify-self: var(--justify-self);
+    align-self: var(--align-self);
 }
 
 .button {
@@ -157,10 +163,10 @@ li .checkbox:hover, .active .checkbox {
     background-color: white;
     box-shadow: 0 16px 60px rgba(78, 79, 114, 0.08);
     position: relative;
-    justify-items: center;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
+    justify-items: var(--justify-items);
+    align-items: var(--align-items);
+    justify-content: var(--justify-content);
+    align-content: var(--align-content);
 }
 
 .buttonText {
@@ -172,12 +178,9 @@ li .checkbox:hover, .active .checkbox {
     height: 25px;
     width: 25px;
     position: center;
-    justify-self: center;
-    align-self: center;
 }
 
 .google-auth-container {
-    display: grid;
     justify-content: center;
     padding-top: 1.5em;
     font-size: small;
@@ -191,8 +194,11 @@ li .checkbox:hover, .active .checkbox {
     color: var(--color-black);
 }
 
+.google-auth-container, .other-logins, .sign-up-container {
+    display: var(--display-grid);
+}
+
 .other-logins {
-    display: grid;
     grid-template-areas: "google sign-up";
     justify-content: start;
     width: 100%;
@@ -202,7 +208,6 @@ li .checkbox:hover, .active .checkbox {
 
 .sign-up-container {
     grid-area: sign-up;
-    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
 }

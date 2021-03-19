@@ -23,7 +23,6 @@
     background-color: rgba(239,239,239,0.6);
     overflow: hidden;
     box-shadow: var(--box-shadow);
-    cursor: pointer;
     transition: 0.2s;
 }
 
@@ -61,6 +60,10 @@
     text-decoration: var(--text-deco);
 }
 
+.grid__item, .card__btn {
+    cursor: pointer;
+}
+
 .card__btn {
     display: block;
     width: 100%;
@@ -68,7 +71,6 @@
     font-size: 1em;
     border: none;
     transition: 0.2s;
-    cursor: pointer;
 }
 .card__btn span {
     margin-left: 1rem;

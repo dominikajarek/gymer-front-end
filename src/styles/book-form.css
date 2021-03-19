@@ -1,11 +1,13 @@
 .booking-modal {
     font-size: 0.5em;
+}
+
+.booking-modal, .form-container {
     font-weight: var(--font-weight);
 }
 
 .form-container {
     font-family: var(--font-family);
-    font-weight: var(--font-weight);
     width: 50vh;
     height: 50vh;
     font-size: 1em;
@@ -13,8 +15,11 @@
     display: grid;
     grid-template-areas: "name" "surname" "email" "phone" "submit";
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    align-content: center;
-    align-items: center;
+    align-items: var(--align-items);
+}
+
+.form-container, .book-info {
+    align-content: var(--align-content);
 }
 
 .book-info {
@@ -22,7 +27,6 @@
     font-weight: var(--font-weight);
     font-size: 2em;
     justify-content: center;
-    align-content: center;
     text-align: center;
     padding: 2em 2em 3em;
     margin-bottom: 2em;
@@ -36,8 +40,8 @@
 
 .message-slot {
     display: inline-grid;
-    justify-items: center;
-    align-items: center;
+    justify-items: var(--justify-items);
+    align-items: var(--align-items);
     font-size: 2em;
     text-decoration: underline;
 }
