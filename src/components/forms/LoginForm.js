@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 import logoGoogle from "../../images/google.svg";
-import {Link} from "react-router-dom";
 
 export const LoginForm = (props) => {
 

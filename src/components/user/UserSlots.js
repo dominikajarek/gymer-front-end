@@ -2,8 +2,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { Connection } from "../../actions/Connection.js";
 
-import '../../styles/user-details-site.css';
-
 export const UserSlots = () => {
 
     const [user, setUser] = useState([]);

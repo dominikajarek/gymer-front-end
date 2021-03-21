@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 import 'react-responsive-modal/styles.css';
-import '../../styles/header.css';
 import logo from "../../images/Logo-transparent.png";
 
 export const Header = () => {

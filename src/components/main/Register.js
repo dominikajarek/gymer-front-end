@@ -1,9 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from "axios";
 import { RegisterForm } from "../forms/RegisterForm";
-
-import '../../styles/login-register.css';
+import axios from "axios";
 
 export const Register = () => {
     const [email, setEmail] = useState('');

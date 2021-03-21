@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import axios from "axios";
-import '../../styles/user-details-site.css';
 
 export const Activation = () => {
     const [message, setMessage] = useState('');
@@ -19,8 +18,8 @@ export const Activation = () => {
     }, []);
 
     return (
-        <div className="info-container">
-            <h3 className="info">{message}</h3>
+        <div className="activation-info-container">
+            <p>{message}</p>
         </div>
     );
 }

@@ -8,26 +8,29 @@ export const EditProfileForm = (props) => {
             <form className="register-form">
                 <div>
                     <p className='register-input-field'>
-                        <label htmlFor="email" className="floatLabel formLabel">First name</label>
+                        <label htmlFor="name" className="floatLabel formLabel">First name</label>
                         <input defaultValue={props.firstNameValue}
-                               name="email"
-                               type="email"
+                               className='input-type-text'
+                               name="name"
+                               type="text"
                                onChange={({target}) => props.setFirstNameValue(target.value)}
                         />
                     </p>
                     <p className='register-input-field'>
-                        <label htmlFor="email" className="floatLabel formLabel">Last name</label>
+                        <label htmlFor="surname" className="floatLabel formLabel">Last name</label>
                         <input defaultValue={props.lastNameValue}
-                               name="email"
-                               type="email"
+                               className='input-type-text'
+                               name="surname"
+                               type="text"
                                onChange={({target}) => props.setLastNameValue(target.value)}
                         />
                     </p>
                     <p className='register-input-field'>
-                        <label htmlFor="email" className="floatLabel formLabel">Phone number</label>
+                        <label htmlFor="phone" className="floatLabel formLabel">Phone number</label>
                         <input defaultValue={props.phoneNumberValue}
-                               name="email"
-                               type="email"
+                               className='input-type-text'
+                               name="phone"
+                               type="text"
                                onChange={({target}) => props.setPhoneNumberValue(target.value)}
                         />
                     </p>

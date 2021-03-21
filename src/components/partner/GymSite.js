@@ -6,7 +6,6 @@ import { Contact } from './Contact';
 import { WorkingHours } from "./WorkingHours";
 import { useAxiosGet } from "../../actions/useAxiosGet";
 
-import '../../styles/gym-site.css';
 import image from '../../images/gym9.jpg';
 import image1 from '../../images/gym2.jpg';
 

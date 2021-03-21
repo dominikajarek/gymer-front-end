@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Common } from "../../actions/Common";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import 'react-responsive-modal/styles.css';
-import '../../styles/header.css';
 
 export const UserProfileMenu = () => {
 

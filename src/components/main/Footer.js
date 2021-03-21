@@ -1,6 +1,6 @@
-import logo from "../../images/Logo-transparent.png";
-import {Link} from "react-router-dom";
 import React from "react";
+
+import logo from "../../images/Logo-transparent.png";
 
 export const Footer = () => {
 
@@ -12,7 +12,7 @@ export const Footer = () => {
                 </a>
             </div>
             <div className='dropdown'>
-                <p>Copyright Team Gymer</p>
+                <p>&copy; Copyright Team Gymer</p>
             </div>
         </footer>
     );

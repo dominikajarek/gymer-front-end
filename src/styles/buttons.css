@@ -1,0 +1,66 @@
+.button-submit-book-as-guest {
+    width: 100%;
+    background: #e9ad81;
+    box-shadow: var(--box-shadow);
+    border: none;
+    color: var(--color-black);
+    cursor: pointer;
+    display: block;
+    line-height: 1.6em;
+    outline: none;
+    padding: .8em 0;
+    font-weight: var(--font-weight);
+    border-radius: var(--border-radius);
+    grid-area: submit;
+    align-self: center;
+    justify-self: center;
+    align-content: center;
+    justify-content: center;
+    margin: 2em;
+}
+
+.button-submit-book:hover, .button-submit-book-as-guest:hover {
+    background: rgb(229, 198, 183);
+}
+
+.button-submit-book {
+    width: 100%;
+    background: #e9ad81;
+    box-shadow: var(--box-shadow);
+    border: none;
+    color: var(--color-black);
+    cursor: pointer;
+    display: block;
+    line-height: 1.6em;
+    margin: 1em;
+    outline: none;
+    padding: .8em 0;
+    font-weight: var(--font-weight);
+    border-radius: var(--border-radius);
+    grid-area: submit-book;
+    align-self: end;
+}
+
+.button {
+    cursor: pointer;
+    display: block;
+    font-size: 1.3em;
+    box-sizing: content-box;
+    margin: 20px auto 0;
+    width: 20%;
+    padding: 15px 20px;
+    border-radius: 24px;
+    border-color: transparent;
+    background-color: white;
+    box-shadow: 0 16px 60px rgba(78, 79, 114, 0.08);
+    position: relative;
+    justify-items: var(--justify-items);
+    align-items: var(--align-items);
+    justify-content: var(--justify-content);
+    align-content: var(--align-content);
+}
+
+.buttonText {
+    color: #4285f4;
+    font-weight: bolder;
+}

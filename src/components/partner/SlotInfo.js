@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../styles/book-form.css';
 
 export const SlotInfo = (props) => {
+
     return (
         <div className='book-info'>
             <p className='error text'>{props.message}</p>

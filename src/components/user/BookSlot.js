@@ -1,10 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import axios from "axios";
-
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 import { Connection } from "../../actions/Connection";
 import { GuestBookForm } from "../forms/GuestBookForm";
 import { SlotInfo } from "../partner/SlotInfo";
+import axios from "axios";
 
 export const BookSlot = (props) => {
 

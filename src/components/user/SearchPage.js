@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from "axios";
 import { SearchBar } from "./SearchBar";
 import { GymsPlainList } from "../categories/GymsPlainList";
+import axios from "axios";
 
 export const SearchPage = () => {
     const [input, setInput] = useState('');
@@ -27,10 +27,10 @@ export const SearchPage = () => {
 
   return (
       <div>
-        <SearchBar
-            input={input}
-            onChange={updateInput}
-        />
+          <SearchBar
+              input={input}
+              onChange={updateInput}
+          />
           <div className='search-grids'>
               <GymsPlainList
                 gymsList={gymsList} />

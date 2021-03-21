@@ -1,6 +1,7 @@
-import React, {useCallback, useEffect} from 'react';
-import axios from "axios";
+import React, { useCallback, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
+import axios from "axios";
+
 
 export const LoginViaGoogleActivation = () => {
 

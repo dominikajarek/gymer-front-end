@@ -7,7 +7,6 @@
 }
 
 .form-container {
-    font-family: var(--font-family);
     width: 50vh;
     height: 50vh;
     font-size: 1em;
@@ -18,19 +17,25 @@
     align-items: var(--align-items);
 }
 
-.form-container, .book-info {
+.form-container, .book-info, .modal-user-button {
     align-content: var(--align-content);
 }
 
-.book-info {
+.form-container, .book-info {
     font-family: var(--font-family);
+}
+
+.book-info {
     font-weight: var(--font-weight);
     font-size: 2em;
-    justify-content: center;
     text-align: center;
     padding: 2em 2em 3em;
     margin-bottom: 2em;
     grid-area: info;
+}
+
+.book-info, .modal-user-button {
+    justify-content: var(--justify-content);
 }
 
 .slot-info {
@@ -40,8 +45,6 @@
 
 .message-slot {
     display: inline-grid;
-    justify-items: var(--justify-items);
-    align-items: var(--align-items);
     font-size: 2em;
     text-decoration: underline;
 }
@@ -51,57 +54,15 @@
     width: 100%;
 }
 
-.button-submit-book {
-    width: 100%;
-    background: #e9ad81;
-    box-shadow: var(--box-shadow);
-    border: none;
-    color: var(--color-black);
-    cursor: pointer;
-    display: block;
-    line-height: 1.6em;
-    margin: 1em;
-    outline: none;
-    padding: .8em 0;
-    font-weight: var(--font-weight);
-    border-radius: var(--border-radius);
-    grid-area: submit-book;
-    align-self: end;
-}
-
-.button-submit-book-as-guest {
-    width: 100%;
-    background: #e9ad81;
-    box-shadow: var(--box-shadow);
-    border: none;
-    color: var(--color-black);
-    cursor: pointer;
-    display: block;
-    line-height: 1.6em;
-    outline: none;
-    padding: .8em 0;
-    font-weight: var(--font-weight);
-    border-radius: var(--border-radius);
-    grid-area: submit;
-    align-self: center;
-    justify-self: center;
-    align-content: center;
-    justify-content: center;
-    margin: 2em;
-}
-
-.button-submit-book:hover, .button-submit-book-as-guest:hover {
-    background: rgb(229, 198, 183);
-}
-
 .modal-user-button {
     padding-top: 2em;
     width: 40vh;
     height: 40vh;
     border-radius: var(--border-radius);
     display: grid;
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
-    align-items: center;
+}
+
+.message-slot, .modal-user-button {
+    justify-items: var(--justify-items);
+    align-items: var(--align-items);
 }

@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import { UserProfileMenu } from "../user/UserProfileMenu";
+import { PartnerProfileMenu } from "../partner/settings/PartnerProfileMenu";
+import { Header } from "./Header";
 import axios from "axios";
-import {UserProfileMenu} from "../user/UserProfileMenu";
-import {PartnerProfileMenu} from "../partner/settings/PartnerProfileMenu";
+
 import logo from "../../images/Logo-transparent.png";
-import {Header} from "./Header";
 
 export const UserNavbar = () => {
 
@@ -12,14 +13,14 @@ export const UserNavbar = () => {
     useEffect(() => {
         axios.get('/api/me')
             .then(response => {
-                setUserType(response.data.credential.role.toLowerCase());
+                setUserType(response.data.credential.role);
             })
     }, []);
 
     const checkUserType = () => {
-        if (userType === 'user') {
+        if (userType === 'USER') {
             return <UserProfileMenu/>;
-        } else if (userType === 'partner') {
+        } else if (userType === 'PARTNER') {
             return <PartnerProfileMenu/>
         } else {
             return <Header/>

@@ -15,6 +15,5 @@ export class Common {
 
     static validLogout = () => {
         Common.refreshPage();
-        console.log('you are logged out');
     }
 }

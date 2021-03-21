@@ -15,7 +15,7 @@ export const GymsPlainList = ({gymsList = []}) => {
 
                         );
                     }
-                    return null;
+                    return gymsList;
                 })
             }
         </>

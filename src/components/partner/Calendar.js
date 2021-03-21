@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-import axios from "axios";
-
 import { Navigation } from "./Navigation";
 import { BookSlot } from "../user/BookSlot";
 import { Modal } from "react-responsive-modal";
+import moment from "moment";
+import axios from "axios";
 
-import '../../styles/calendar.css';
-import '../../styles/book-form.css';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
@@ -45,9 +42,6 @@ export const Calendars = () => {
 
     const onEventClick = () => {
         setOpen(true);
-    }
-    const callbackModal = () => {
-        this.setState({ showModal: false });
     }
 
     return (

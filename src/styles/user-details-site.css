@@ -255,7 +255,7 @@
     background: rgb(229, 198, 183);
 }
 
-.info-container {
+.activation-info-container {
     display : flex;
     justify-content: center;
 }

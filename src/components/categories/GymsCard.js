@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import image from '../../images/gym2.jpg';
-import '../../styles/categories.css';
 
 export const GymsCard = (props) => {
     return (

@@ -19,6 +19,15 @@ import { Home } from "./components/main/Home";
 import { Footer } from "./components/main/Footer";
 
 import './index.css';
+import './styles/book-form.css';
+import './styles/buttons.css';
+import './styles/calendar.css';
+import './styles/categories.css';
+import './styles/gym-site.css';
+import './styles/header.css';
+import './styles/login-register.css';
+import './styles/navigation.css';
+import './styles/user-details-site.css';
 
 export const App = () => {
 

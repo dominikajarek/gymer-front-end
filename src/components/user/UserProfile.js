@@ -3,8 +3,6 @@ import { useHistory } from "react-router-dom";
 import { Connection } from "../../actions/Connection.js";
 import { EditProfileForm } from "../forms/EditProfileForm";
 
-import '../../styles/user-details-site.css';
-
 export const UserProfile = () => {
 
     const [userDetails, setUserDetails] = useState([]);
@@ -68,8 +66,6 @@ export const UserProfile = () => {
         e.preventDefault();
         if (window.confirm('Do you really want to update your account details?')) {
             handleConfirmWhenSubmittingNewDetails();
-        } else {
-
         }
     }
 
@@ -99,8 +95,6 @@ export const UserProfile = () => {
         e.preventDefault();
         if (window.confirm('Do you really want to update your account details?')) {
             handleConfirmWhenSubmittingNewPassword();
-        } else {
-
         }
     }
 
