@@ -1,22 +1,29 @@
 .button-submit-book-as-guest {
+    grid-area: submit;
+    align-self: var(--align-self);
+    justify-self: var(--justify-self);
+    margin: 2em;
+}
+
+.button-submit-book-as-guest, .button-submit-book, .button-submit {
     width: 100%;
+    padding: .8em 0;
+}
+
+.button-submit-book-as-guest, .button-submit-book, .button-on-slot, .button-submit {
+    border-radius: var(--border-radius);
     background: #e9ad81;
     box-shadow: var(--box-shadow);
-    border: none;
     color: var(--color-black);
-    cursor: pointer;
-    display: block;
+    font-weight: var(--font-weight);
+    border: none;
     line-height: 1.6em;
     outline: none;
-    padding: .8em 0;
-    font-weight: var(--font-weight);
-    border-radius: var(--border-radius);
-    grid-area: submit;
-    align-self: center;
-    justify-self: center;
-    align-content: center;
-    justify-content: center;
-    margin: 2em;
+}
+
+.button, .button-submit-book-as-guest, .button-submit-book, .button-on-slot, .button-submit {
+    cursor: pointer;
+    display: block;
 }
 
 .button-submit-book:hover, .button-submit-book-as-guest:hover {
@@ -24,26 +31,20 @@
 }
 
 .button-submit-book {
-    width: 100%;
-    background: #e9ad81;
-    box-shadow: var(--box-shadow);
-    border: none;
-    color: var(--color-black);
-    cursor: pointer;
-    display: block;
-    line-height: 1.6em;
-    margin: 1em;
-    outline: none;
-    padding: .8em 0;
-    font-weight: var(--font-weight);
-    border-radius: var(--border-radius);
     grid-area: submit-book;
     align-self: end;
 }
 
+.button-submit-book, .button-on-slot {
+    margin: 1em;
+}
+
+.button, .button-submit-book-as-guest {
+    justify-content: var(--justify-content);
+    align-content: var(--align-content);
+}
+
 .button {
-    cursor: pointer;
-    display: block;
     font-size: 1.3em;
     box-sizing: content-box;
     margin: 20px auto 0;
@@ -56,11 +57,23 @@
     position: relative;
     justify-items: var(--justify-items);
     align-items: var(--align-items);
-    justify-content: var(--justify-content);
-    align-content: var(--align-content);
 }
 
 .buttonText {
     color: #4285f4;
     font-weight: bolder;
+}
+
+.button-on-slot {
+    font-size: 1em;
+    padding: 0.5em;
+}
+
+.button-submit {
+    font-size: 2em;
+    margin-bottom: 3em;
+}
+
+.button-on-slot:hover, .button-submit:hover {
+    background: rgb(229, 198, 183);
 }

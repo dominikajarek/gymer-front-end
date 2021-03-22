@@ -88,13 +88,3 @@ body {
 .footer {
   grid-area: footer;
 }
-
-.recommended-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.recommended {
-
-
-}

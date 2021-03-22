@@ -2,7 +2,7 @@
     font-size: 0.5em;
 }
 
-.booking-modal, .form-container {
+.booking-modal, .form-container, .book-info {
     font-weight: var(--font-weight);
 }
 
@@ -26,9 +26,8 @@
 }
 
 .book-info {
-    font-weight: var(--font-weight);
     font-size: 2em;
-    text-align: center;
+    text-align: var(--text-align);
     padding: 2em 2em 3em;
     margin-bottom: 2em;
     grid-area: info;
@@ -59,7 +58,7 @@
     width: 40vh;
     height: 40vh;
     border-radius: var(--border-radius);
-    display: grid;
+    display: var(--display-grid);
 }
 
 .message-slot, .modal-user-button {

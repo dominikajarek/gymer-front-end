@@ -10,7 +10,6 @@
     height: fit-content;
     grid-gap: 2em;
     grid-template-columns: 1fr;
-    align-items: var(--align-items);
 }
 
 @media (max-width: 60em) {
@@ -31,10 +30,13 @@
     box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
 }
 
+.grid, .card__content {
+    align-items: var(--align-items);
+}
+
 .card__content {
     padding: 1em 1em;
     justify-items: var(--justify-items);
-    align-items: var(--align-items);
     justify-content: var(--justify-content);
     align-content: var(--align-content);
 }
@@ -72,6 +74,7 @@
     border: none;
     transition: 0.2s;
 }
+
 .card__btn span {
     margin-left: 1rem;
     transition: 0.2s;

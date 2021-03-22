@@ -34,11 +34,14 @@
 }
 
 input {
-    display: block;
     box-sizing: border-box;
     width: 100%;
     outline: none;
     margin:0;
+}
+
+input[type="submit"], input, li .checkbox {
+    display: block;
 }
 
 input[type="submit"], .register-form {
@@ -69,14 +72,15 @@ input[type="email"], input[type="password"], input[type="submit"], .input-type-t
 input[type="submit"] {
     background: #e9ad81;
     border: none;
-    color: var(--color-black);
-    cursor: pointer;
-    display: block;
     font-size: 2em;
     line-height: 1.6em;
     margin: 2em 0 0;
     outline: none;
     padding: .8em 0;
+}
+
+input[type="submit"], li .checkbox {
+    cursor: pointer;
 }
 
 input[type="submit"]:hover {
@@ -108,17 +112,15 @@ input[type="submit"]:hover {
      content: "";
      display: table;
      clear: both;
- }
+}
 
 li .checkbox {
-    display: block;
     text-decoration: var(--text-deco);
     padding: 1em;
     background: #3b7e90;
     color: white;
     float: left;
     width: 50%;
-    cursor: pointer;
     transition: .5s ease;
     border-radius: 0.1em;
     margin-bottom: 2em;
@@ -133,7 +135,7 @@ li .checkbox:hover {
     box-shadow: #101118;
 }
 
-li .checkbox:hover, .active .checkbox {
+li .checkbox:hover, .active .checkbox, .google-auth-button, input[type="submit"] {
     color: var(--color-black);
 }
 
@@ -157,7 +159,7 @@ li .checkbox:hover, .active .checkbox {
 }
 
 .google-auth-container {
-    justify-content: center;
+    justify-content: var(--justify-content);
     padding-top: 1.5em;
     font-size: small;
     grid-area: google;
@@ -167,7 +169,6 @@ li .checkbox:hover, .active .checkbox {
     background-color: transparent;
     text-decoration: var(--text-deco);
     margin-top: 1em;
-    color: var(--color-black);
 }
 
 .google-auth-container, .other-logins, .sign-up-container {

@@ -117,10 +117,6 @@
     background-color: rgba(214, 214, 214, 0.4);
 }
 
-.employee-grid {
-    padding: 2em;
-}
-
 .name-photo-container {
     grid-template-areas:
             "employee1 employee2";

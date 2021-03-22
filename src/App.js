@@ -22,7 +22,7 @@ import './index.css';
 import './styles/book-form.css';
 import './styles/buttons.css';
 import './styles/calendar.css';
-import './styles/categories.css';
+import './styles/gyms-card.css';
 import './styles/gym-site.css';
 import './styles/header.css';
 import './styles/login-register.css';

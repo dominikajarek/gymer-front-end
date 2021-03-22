@@ -4,7 +4,6 @@
 
 .header-container {
     justify-content: stretch;
-    align-items: var(--align-items);
     width: 100%;
     grid-template-areas:
             "logo search buttons null";
@@ -22,7 +21,6 @@
     grid-area: buttons;
     grid-template-areas: "button1 button2";
     grid-template-columns: 1fr 1fr;
-
 }
 
 div[class*=box] {
@@ -105,16 +103,21 @@ div[class*=box] {
 }
 
 .search__input__container {
+    justify-content: var(--justify-content);
+}
+
+.dropdown, .search__input__container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.search__input__container, .search-grids, .header-container {
+    align-items: var(--align-items);
 }
 
 .search__input {
     width: 75%;
     padding: 1em 1em;
     margin: 1em;
-    background-color: transparent;
     background-image:
             url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -151,8 +154,7 @@ div[class*=box] {
     grid-template-columns: 1fr 1fr;
     grid-gap: 2em;
     padding: 2em;
-    justify-items: center;
-    align-items: center;
+    justify-items: var(--justify-items);
     width: 100%;
 }
 
@@ -163,7 +165,6 @@ div[class*=box] {
     grid-gap: 1em;
     margin: 1em;
     grid-area: buttons;
-    justify-self: end;
 }
 
 .profile {
@@ -190,20 +191,17 @@ div[class*=box] {
     padding: 1em;
 }
 
-.profile, .slots, .logout, .sign-in, .sign-up {
+.profile, .slots, .logout, .sign-in, .sign-up, .dropdown, .user-nav {
     justify-self: end;
 }
 
 .dropbtn {
     border: none;
     cursor: pointer;
-    background-color: transparent;
     outline: none;
 }
 
 .dropdown {
-    display: flex;
-    justify-self: end;
     right: 2em;
     grid-area: null;
     position: relative;
@@ -223,10 +221,9 @@ div[class*=box] {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
-    background-color: transparent;
 }
 
-.dropdown-content .user-nav:hover {
+.dropdown-content .user-nav:hover, .user-nav, .dropbtn, .search__input {
     background-color: transparent;
 }
 
