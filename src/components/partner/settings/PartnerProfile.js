@@ -2,11 +2,13 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { Connection } from "../../../actions/Connection";
 import { EditPartnerProfileForm } from "../../forms/EditPartnerProfileForm";
+import axios from "axios";
 
 export const PartnerProfile = () => {
 
     const [details, setDetails] = useState([]);
     const [credentials, setCredentials] = useState([]);
+    const [address, setAddress] = useState([]);
 
     const [message, setMessage] = useState('');
 
@@ -21,8 +23,15 @@ export const PartnerProfile = () => {
     const [website, setWebsite] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
 
+    const [city, setCity] = useState('');
+    const [street, setStreet] = useState('');
+    const [number, setNumber] = useState('');
+    const [zipCode, setZipCode] = useState('');
+
+
     const [partnerUrl, setPartnerUrl] = useState('');
     const [credentialsUrl, setCredentialsUrl] = useState('');
+    const [addressUrl, setAddressUrl] = useState('');
 
     const history = useHistory();
     const handleChangingDetails = useCallback(() => window.location.reload(), [history]);
@@ -32,13 +41,26 @@ export const PartnerProfile = () => {
         Connection.getRequestWithCallbacks(getActiveUserUrl, setActiveUser, Connection.logMessageCallback);
     }, []);
 
+    useEffect(() => {
+        axios.get(addressUrl)
+            .then(response => {
+                setAddress(response.data);
+                setCity(response.data.city);
+                setStreet(response.data.street);
+                setNumber(response.data.number);
+                setZipCode(response.data.zipCode);
+            })
+    }, [credentials]);
+
     const setActiveUser = data => {
         const partnerUrl = `/api/partners/${data.id}`;
+        const partnerAddressUrl = `/api/partners/${data.id}/addresses/${data.id}`;
         setPartnerUrl(partnerUrl);
-        Connection.getRequestWithCallbacks(partnerUrl, setUserDetails, Connection.logMessageCallback);
+        setAddressUrl(partnerAddressUrl);
+        Connection.getRequestWithCallbacks(partnerUrl, setPartnerDetails, Connection.logMessageCallback);
     };
 
-    const setUserDetails = data => {
+    const setPartnerDetails = data => {
         setDetails(data);
         setName(data.name);
         setDescription(data.description);
@@ -48,6 +70,7 @@ export const PartnerProfile = () => {
 
         const credentialsUrl = data._links.credential.href;
         setCredentialsUrl(credentialsUrl);
+
         Connection.getRequestWithCallbacks(credentialsUrl, setPartnerCredentials, Connection.logMessageCallback);
     };
 
@@ -64,6 +87,13 @@ export const PartnerProfile = () => {
         }
     };
 
+    const submitNewAddress = (e) => {
+        e.preventDefault();
+        if (window.confirm("Do you really want to change your address?")) {
+            handleSubmitNewAddress();
+        }
+    };
+
     const handleSubmitNewData = () => {
       const newPartnerData = {
         "id": details.id,
@@ -74,6 +104,17 @@ export const PartnerProfile = () => {
         "image": image
       };
       Connection.putRequestWithCallbacks(partnerUrl, newPartnerData, updateCredentials, Connection.logMessageCallback);
+    };
+
+    const handleSubmitNewAddress = () => {
+        const newAddress = {
+            "id": details.id,
+            "city": city,
+            "street": street,
+            "number": number,
+            "zipCode": zipCode
+        };
+        Connection.putRequestWithCallbacks(addressUrl, newAddress, updateCredentials, Connection.logMessageCallback);
     };
 
     const updateCredentials = () => {
@@ -106,12 +147,12 @@ export const PartnerProfile = () => {
 
     const showErrorMessage = response => {
         setMessage(response.data.message);
-    }
+    };
 
     const showSuccessMessage = () => {
         setMessage("Details updated successfully");
         setTimeout(handleChangingDetails, 300);
-    }
+    };
 
     return (
         <div>
@@ -135,8 +176,17 @@ export const PartnerProfile = () => {
                 setEmail={setEmail}
                 setPassword={setPassword}
                 setNewPassword={setNewPassword}
+                city={city}
+                street={street}
+                number={number}
+                zipCode={zipCode}
+                setCity={setCity}
+                setStreet={setStreet}
+                setNumber={setNumber}
+                setZipCode={setZipCode}
                 submitNewData={submitNewData}
                 submitNewPassword={submitNewPassword}
+                submitNewAdress={submitNewAddress}
             />
         </div>
     );

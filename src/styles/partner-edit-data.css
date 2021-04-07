@@ -1,0 +1,19 @@
+.day-time-label {
+    display: grid;
+}
+
+.time-input-field {
+    display: grid;
+    grid-template-areas: "days time";
+    grid-template-columns: 1fr 1fr;
+}
+
+.day-label {
+    grid-area: days;
+}
+
+.input-time {
+    margin: 0 0 3em 0;
+    position: relative;
+    width: 3em;
+}
