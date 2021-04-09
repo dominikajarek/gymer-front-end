@@ -28,6 +28,7 @@ import './styles/header.css';
 import './styles/login-register.css';
 import './styles/navigation.css';
 import './styles/user-details-site.css';
+import {PartnerSlots} from "./components/partner/settings/PartnerSlots";
 
 export const App = () => {
 
@@ -52,7 +53,7 @@ export const App = () => {
                           <Route exact path={'/calendar/:id'} component={ Calendars } />
                           <PrivateRoute exact path={'/user-slots'} component={ UserSlots } />
                           <PrivateRoute exact path={'/profile'} component={ UserProfile } />
-                          {/*<PrivateRoute exact path={'/partner-slots'} component={ PartnerProfile } />*/}
+                          <PrivateRoute exact path={'/partner-slots'} component={ PartnerSlots } />
                           <PrivateRoute exact path={'/partner-profile'} component={ PartnerProfile } />
                       </Switch>
                   </div>
