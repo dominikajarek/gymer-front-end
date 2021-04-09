@@ -31,6 +31,7 @@ import './styles/header.css';
 import './styles/login-register.css';
 import './styles/navigation.css';
 import './styles/user-details-site.css';
+import {PartnerSlots} from "./components/partner/settings/PartnerSlots";
 
 export const App = () => {
 
@@ -57,6 +58,7 @@ export const App = () => {
                           <PrivateRoute exact path={'/profile'} component={ UserProfile } />
                           <PrivateRoute exact path={'/employees'} component={ ManageEmployees } />
                           <PrivateRoute exact path={'/employees/:id'} component={ UpdateEmployeeById } />
+                          <PrivateRoute exact path={'/partner-slots'} component={ PartnerSlots } />
                           <PrivateRoute exact path={'/partner-profile'} component={ PartnerProfile } />
                           <PrivateRoute exact path={'/add-employee'} component={ Add } />
                       </Switch>
