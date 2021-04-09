@@ -6,8 +6,8 @@
     justify-content: stretch;
     width: 100%;
     grid-template-areas:
-            "logo search buttons null";
-    grid-template-columns: 2fr 2fr 1fr;
+            "logo buttons null";
+    grid-template-columns: 2fr 0.5fr 0.5fr;
     font-size: 0.8em;
     grid-gap: 1em;
     padding: 1em;
@@ -205,6 +205,7 @@ div[class*=box] {
     right: 2em;
     grid-area: null;
     position: relative;
+    justify-self: center;
 }
 
 .dropdown-content {
@@ -229,4 +230,9 @@ div[class*=box] {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.go-back-icon {
+    grid-area: buttons;
+    justify-self: end;
 }

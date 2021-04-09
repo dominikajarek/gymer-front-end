@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import image from '../../images/gym2.jpg';
 
 export const GymsCard = (props) => {
+
     return (
         <div className="grid">
             <div className="grid__item">

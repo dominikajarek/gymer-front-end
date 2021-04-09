@@ -2,6 +2,10 @@ import React from 'react';
 
 export const EditPartnerProfileForm = (props) => {
 
+    const days = props.workingHours.map(hour => hour.day);
+    const startHours = props.workingHours.map(hour => hour.startHour);
+    const endHours = props.workingHours.map(hour => hour.endHour);
+
     return (
         <div className='register'>
             <h3 className="text-justify-in-grid">{props.message}</h3>
@@ -101,147 +105,147 @@ export const EditPartnerProfileForm = (props) => {
                 <div>
                     <div className='time-input-field'>
                         <div className='day-time-label'>
-                            <p className='day-label'>Monday</p>
+                            <p className='day-label'>{days[0]}</p>
                             <br />
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">From</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">From</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={startHours[0]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">To</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">To</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={endHours[0]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                         </div>
                         <div className='day-time-label'>
-                            <p>Tuesday</p>
+                            <p>{days[1]}</p>
                             <br />
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">From</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">From</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={startHours[1]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">To</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">To</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={endHours[1]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                         </div>
                         <div className='day-time-label'>
-                            <p>Wednesday</p>
+                            <p>{days[2]}</p>
                             <br />
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">From</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">From</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={startHours[2]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">To</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">To</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={endHours[2]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                         </div>
                         <div className='day-time-label'>
-                            <p>Thursday</p>
+                            <p>{days[3]}</p>
                             <br />
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">From</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">From</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={startHours[3]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">To</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">To</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={endHours[3]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                         </div>
                         <div className='day-time-label'>
-                            <p>Friday</p>
+                            <p>{days[4]}</p>
                             <br />
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">From</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">From</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={startHours[4]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">To</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">To</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={endHours[4]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                         </div>
                         <div className='day-time-label'>
-                            <p>Saturday</p>
+                            <p>{days[5]}</p>
                             <br />
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">From</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">From</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={startHours[5]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">To</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">To</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={startHours[5]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                         </div>
                         <div className='day-time-label'>
-                            <p>Sunday</p>
+                            <p>{days[6]}</p>
                             <br />
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">From</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">From</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={startHours[6]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                             <p className='register-input-field'>
-                                <label htmlFor="logo" className="floatLabel formLabel">To</label>
-                                <input defaultValue={props.logo}
-                                       className='input-time'
-                                       name="logo"
-                                       type="text"
-                                       onChange={({target}) => props.setLogo(target.value)} />
+                                <label htmlFor="time" className="floatLabel formLabel">To</label>
+                                <input type="time"
+                                       name="time"
+                                       defaultValue={startHours[6]}
+                                       min="06:00" max="20:00"
+                                       required />
                             </p>
                         </div>
                     </div>
-                    <button className="button-submit">Confirm</button>
+                    <button className="button-submit" onClick={props.submitNewWorkingHours}>Confirm</button>
                 </div>
 
                 <div>

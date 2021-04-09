@@ -45,4 +45,11 @@ export class Connection {
         })
     }
 
+    static deleteRequestWithCallbacks = (url, callback, errorCallback) => {
+        axios.delete(url)
+            .then(response => {
+                console.log(response);
+            })
+    }
+
 }

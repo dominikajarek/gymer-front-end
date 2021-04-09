@@ -8,13 +8,13 @@ export const PartnerProfile = () => {
 
     const [details, setDetails] = useState([]);
     const [credentials, setCredentials] = useState([]);
-    const [address, setAddress] = useState([]);
 
     const [message, setMessage] = useState('');
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
+    const [partnerId, setPartnerId] = useState();
 
     const [name, setName] = useState('');
     const [logo, setLogo] = useState('');
@@ -27,14 +27,19 @@ export const PartnerProfile = () => {
     const [street, setStreet] = useState('');
     const [number, setNumber] = useState('');
     const [zipCode, setZipCode] = useState('');
-
+    const [workingHours, setWorkingHours] = useState([{}]);
+    const [startHour, setStartHour] = useState('');
+    const [endHour, setEndHour] = useState('');
 
     const [partnerUrl, setPartnerUrl] = useState('');
     const [credentialsUrl, setCredentialsUrl] = useState('');
     const [addressUrl, setAddressUrl] = useState('');
+    const [workingHoursUrl, setWorkingHoursUrl] = useState('');
 
     const history = useHistory();
     const handleChangingDetails = useCallback(() => window.location.reload(), [history]);
+
+    const daysIds = workingHours.map(hour => hour.id);
 
     useEffect(() => {
         const getActiveUserUrl = '/api/me';
@@ -44,7 +49,7 @@ export const PartnerProfile = () => {
     useEffect(() => {
         axios.get(addressUrl)
             .then(response => {
-                setAddress(response.data);
+                setPartnerId(response.data.id);
                 setCity(response.data.city);
                 setStreet(response.data.street);
                 setNumber(response.data.number);
@@ -52,11 +57,20 @@ export const PartnerProfile = () => {
             })
     }, [credentials]);
 
+    useEffect(() => {
+        axios.get(workingHoursUrl)
+            .then(response => {
+                setWorkingHours(response.data._embedded.workingHourDTOList);
+            })
+    }, [credentials]);
+
     const setActiveUser = data => {
         const partnerUrl = `/api/partners/${data.id}`;
         const partnerAddressUrl = `/api/partners/${data.id}/addresses/${data.id}`;
+        const hoursUrl = `/api/partners/${data.id}/workinghours`;
         setPartnerUrl(partnerUrl);
         setAddressUrl(partnerAddressUrl);
+        setWorkingHoursUrl(hoursUrl);
         Connection.getRequestWithCallbacks(partnerUrl, setPartnerDetails, Connection.logMessageCallback);
     };
 
@@ -94,6 +108,20 @@ export const PartnerProfile = () => {
         }
     };
 
+    const submitNewPassword = (e) => {
+        e.preventDefault();
+        if (window.confirm("Do you really want to change your password?")) {
+            handleSubmitNewPassword();
+        }
+    };
+
+    const submitNewWorkingHours = (e) => {
+      e.preventDefault();
+      if (window.confirm("Do you really want to change working hours?")) {
+        handleSubmitNewWorkingHours();
+      }
+    };
+
     const handleSubmitNewData = () => {
       const newPartnerData = {
         "id": details.id,
@@ -125,13 +153,6 @@ export const PartnerProfile = () => {
       Connection.putRequestWithCallbacks(credentialsUrl, newCredentials, showSuccessMessage, Connection.logMessageCallback);
     };
 
-    const submitNewPassword = (e) => {
-         e.preventDefault();
-         if (window.confirm("Do you really want to change your password?")) {
-             handleSubmitNewPassword();
-         }
-    };
-
     const handleSubmitNewPassword = () => {
       const newPasswordData = {
         "oldPassword": password,
@@ -139,6 +160,15 @@ export const PartnerProfile = () => {
       };
       const newPasswordUrl = `${partnerUrl}/password`;
       Connection.putRequestWithCallbacks(newPasswordUrl, newPasswordData, updatePassword, showErrorMessage);
+    };
+
+    const handleSubmitNewWorkingHours = () => {
+      const newHours = {
+        "startHour": startHour,
+        "endHour": endHour
+      };
+      const newHoursUrl = `api/partners/${details.id}/workinghours/${daysIds[0]}`;
+      Connection.putRequestWithCallbacks(newHoursUrl, newHours, showSuccessMessage, showErrorMessage);
     };
 
     const updatePassword = () => {
@@ -167,6 +197,11 @@ export const PartnerProfile = () => {
                 password={password}
                 newPassword={newPassword}
                 message={message}
+                city={city}
+                street={street}
+                number={number}
+                zipCode={zipCode}
+                workingHours={workingHours}
                 setName={setName}
                 setImage={setImage}
                 setLogo={setLogo}
@@ -176,17 +211,15 @@ export const PartnerProfile = () => {
                 setEmail={setEmail}
                 setPassword={setPassword}
                 setNewPassword={setNewPassword}
-                city={city}
-                street={street}
-                number={number}
-                zipCode={zipCode}
                 setCity={setCity}
                 setStreet={setStreet}
                 setNumber={setNumber}
                 setZipCode={setZipCode}
+                setWorkingHours={setWorkingHours}
                 submitNewData={submitNewData}
                 submitNewPassword={submitNewPassword}
                 submitNewAdress={submitNewAddress}
+                submitNewWorkingHours={submitNewWorkingHours}
             />
         </div>
     );

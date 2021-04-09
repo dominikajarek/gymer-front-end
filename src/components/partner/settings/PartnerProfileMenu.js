@@ -28,9 +28,9 @@ export const PartnerProfileMenu = () => {
                                       className='btn btn-one link-style profile'>
                                     Edit data
                                 </Link>
-                                <Link to='/partner-slots'
+                                <Link to='/employees'
                                       className='btn btn-one link-style slots'>
-                                    Manage slots
+                                    Manage employees
                                 </Link>
                                 <Link to='/login'
                                       className='btn btn-one link-style logout'

@@ -17,6 +17,9 @@ import { PartnerProfile } from "./components/partner/settings/PartnerProfile";
 import { UserNavbar } from "./components/main/UserNavbar";
 import { Home } from "./components/main/Home";
 import { Footer } from "./components/main/Footer";
+import { ManageEmployees } from "./components/partner/settings/ManageEmployees";
+import { UpdateEmployeeById } from "./components/partner/settings/UpdateEmployeeById";
+import { Add } from "./components/partner/settings/Add";
 
 import './index.css';
 import './styles/book-form.css';
@@ -52,8 +55,10 @@ export const App = () => {
                           <Route exact path={'/calendar/:id'} component={ Calendars } />
                           <PrivateRoute exact path={'/user-slots'} component={ UserSlots } />
                           <PrivateRoute exact path={'/profile'} component={ UserProfile } />
-                          {/*<PrivateRoute exact path={'/partner-slots'} component={ PartnerProfile } />*/}
+                          <PrivateRoute exact path={'/employees'} component={ ManageEmployees } />
+                          <PrivateRoute exact path={'/employees/:id'} component={ UpdateEmployeeById } />
                           <PrivateRoute exact path={'/partner-profile'} component={ PartnerProfile } />
+                          <PrivateRoute exact path={'/add-employee'} component={ Add } />
                       </Switch>
                   </div>
                   <div className='footer'>
