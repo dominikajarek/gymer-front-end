@@ -84,7 +84,7 @@
     grid-area: hours;
 }
 
-.info-header, .title {
+.info-header, .title, .column-name {
     border-bottom: #0d0d0d solid 0.01em;
     font-size: 1.5em;
 }
@@ -148,6 +148,7 @@
 .about-details {
     grid-area: about-details;
     margin-bottom: 1em;
+    padding: 1em;
 }
 
 .gym-info {
@@ -185,9 +186,4 @@
 .contact-details {
     grid-area: contact-details;
     margin-bottom: 1em;
-}
-
-.column-name {
-    font-size: 1.5em;
-    text-decoration: underline;
 }
