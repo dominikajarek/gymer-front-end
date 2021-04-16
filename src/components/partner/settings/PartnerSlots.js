@@ -15,28 +15,27 @@ export const PartnerSlots = () => {
     const handleRemoveSlot = useCallback(() => window.location.reload(), []);
 
     useEffect(() => {
-        const getActiveUserUrl = '/api/me';
-        Connection.getRequestWithCallbacks(getActiveUserUrl, getUserSlots, Connection.logMessageCallback);
-    }, []);
+            const getActiveUserUrl = '/api/me';
+            Connection.getRequestWithCallbacks(getActiveUserUrl, getSlots, Connection.logMessageCallback);
+        }, []);
 
-    const getUserSlots = data => {
+    const getSlots = data => {
         setPartnerId(data.id);
         const getSlotsUrl = '/api/partners/' + data.id + '/slots';
-        axios.get(getSlotsUrl)
-            .then(response => {
-               setSlots(response.data._embedded.slotDTOList);
-            }).catch(error => {
-                setMessage(error);
-        })
+        Connection.getRequestWithCallbacks(getSlotsUrl, setSlotsList, Connection.logMessageCallback);
+    }
+
+    const setSlotsList = response => {
+        setSlots(response._embedded.slotDTOList);
     }
 
     const deleteSlot = (slotId) => {
         if (window.confirm('Do you want to delete this slot?')) {
             const deleteSlotUrl = `/api/partners/${partnerId}/slots/${slotId}`
             axios.delete(deleteSlotUrl)
-                .then(response => {
+                .then( () => {
                     setMessage("Successfully delete slot");
-                    handleRemoveSlot()
+                    handleRemoveSlot();
                 })
         }
     }
