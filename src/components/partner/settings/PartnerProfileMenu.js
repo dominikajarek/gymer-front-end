@@ -29,7 +29,7 @@ export const PartnerProfileMenu = () => {
                                     Edit data
                                 </Link>
                                 <Link to='/employees'
-                                      className='btn btn-one link-style slots'>
+                                      className='btn btn-one link-style employees'>
                                     Manage employees
                                 </Link>
                                 <Link to='/partner-slots'
