@@ -8,10 +8,6 @@ import image from '../../../images/kitty.jpg';
 export const ManageEmployees = () => {
     const [employeesList, setEmployeesList] = useState();
     const [partnerId, setPartnerId] = useState();
-    const [description, setDescription] = useState('');
-    const [image, setImage] = useState('');
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
 
     useEffect(() => {
         axios.get('/api/me')
@@ -42,7 +38,9 @@ export const ManageEmployees = () => {
         <div>
             <div className='search-grids'>
                 <EmployeeList
-                    employeesList={employeesList} />
+                    employeesList={employeesList}
+                    partnerId={partnerId}
+                />
             </div>
             <Link
                 className='gym-link'

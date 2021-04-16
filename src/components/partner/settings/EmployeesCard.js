@@ -16,7 +16,9 @@ export const EmployeesCard = (props) => {
                             to={{
                             pathname: `/employees/${props.employees.id}`,
                             state: {
-                                employees: props.employees
+                                employees: props.employees,
+                                id: props.employees.id,
+                                partnerId: props.partnerId
                             } }}>
                             <h1 className="card__header">{props.employees.firstName}{" "}{props.employees.lastName}</h1>
                         </Link>

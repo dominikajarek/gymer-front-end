@@ -1,7 +1,7 @@
 import React from 'react';
 import { EmployeesCard } from "./EmployeesCard";
 
-export const EmployeeList = ({employeesList = []}) => {
+export const EmployeeList = ({employeesList = [], partnerId}) => {
 
     return (
         <>
@@ -10,7 +10,9 @@ export const EmployeeList = ({employeesList = []}) => {
                         return (
                             <div key={index}>
                                 <EmployeesCard
-                                    employees={ data } />
+                                    employees={data}
+                                    partnerId={partnerId}
+                                />
                             </div>
                         );
                     }

@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const EditEmployeeForm = (props) => {
+
   return (
       <div className="register">
           <form className='register-form'>
@@ -11,6 +12,7 @@ export const EditEmployeeForm = (props) => {
                          type="text"
                          className='input-type-text'
                          value={props.firstName}
+                         onChange={({target}) => props.setFirstName(target.value)}
                   />
               </p>
               <p className='register-input-field'>
@@ -20,6 +22,7 @@ export const EditEmployeeForm = (props) => {
                          type="text"
                          className='input-type-text'
                          value={props.lastName}
+                         onChange={({target}) => props.setLastName(target.value)}
                   />
               </p>
               <p className='register-input-field'>
@@ -29,6 +32,7 @@ export const EditEmployeeForm = (props) => {
                          type="text"
                          className='input-type-text'
                          value={props.description}
+                         onChange={({target}) => props.setDescription(target.value)}
                   />
               </p>
               <p className='register-input-field'>
@@ -38,10 +42,11 @@ export const EditEmployeeForm = (props) => {
                          type="text"
                          className='input-type-text'
                          value={props.image}
+                         onChange={({target}) => props.setImage(target.value)}
                   />
               </p>
               <p className='register-input-field'>
-                  <input type="submit" value="Submit" />
+                  <button className="button-submit" onClick={props.onChange}>Save</button>
               </p>
               <button>Delete employee</button>
           </form>

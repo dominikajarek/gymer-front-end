@@ -161,7 +161,7 @@ div[class*=box] {
 .user-nav {
     grid-template-columns: 1fr;
     grid-template-areas:
-            "profile" "slots" "logout";
+            "profile" "employees" "slots" "logout";
     grid-gap: 1em;
     margin: 1em;
     grid-area: buttons;
@@ -169,6 +169,10 @@ div[class*=box] {
 
 .profile {
     grid-area: profile;
+}
+
+.employees {
+    grid-area: employees;
 }
 
 .slots {
