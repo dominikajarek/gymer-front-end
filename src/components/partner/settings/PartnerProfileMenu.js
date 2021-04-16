@@ -32,6 +32,10 @@ export const PartnerProfileMenu = () => {
                                       className='btn btn-one link-style slots'>
                                     Manage employees
                                 </Link>
+                                <Link to='/partner-slots'
+                                      className='btn btn-one link-style slots'>
+                                    Manage slots
+                                </Link>
                                 <Link to='/login'
                                       className='btn btn-one link-style logout'
                                       onClick={Common.logout}>
