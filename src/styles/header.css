@@ -161,10 +161,14 @@ div[class*=box] {
 .user-nav {
     grid-template-columns: 1fr;
     grid-template-areas:
-            "profile" "slots" "logout";
+            "profile" "slots" "employees" "logout";
     grid-gap: 1em;
     margin: 1em;
     grid-area: buttons;
+}
+
+.employees {
+    grid-area: employees;
 }
 
 .profile {
