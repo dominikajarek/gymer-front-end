@@ -14,10 +14,10 @@ export class Connection {
 
     static getRequestWithCallbacks = (url, callback, errorCallback) => {
         axios.get(url, config)
-        .then(response => {
-            if (response == null) return;
-            callback(response.data);
-        }).catch(reason => {
+            .then(response => {
+                if (response == null) return;
+                callback(response.data);
+            }).catch(reason => {
             if (reason == null) return;
             errorCallback(reason.response);
         })
@@ -25,10 +25,10 @@ export class Connection {
 
     static postRequestWithCallbacks = (url, body, callback, errorCallback) => {
         axios.post(url, body, config)
-        .then(response => {
-            if (response == null) return;
-            callback(response.data);
-        }).catch(reason => {
+            .then(response => {
+                if (response == null) return;
+                callback(response.data);
+            }).catch(reason => {
             if (reason == null) return;
             errorCallback(reason.response);
         })

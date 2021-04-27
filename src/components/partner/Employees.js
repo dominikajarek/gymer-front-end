@@ -1,12 +1,12 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useAxiosGet } from "../../actions/useAxiosGet";
+import {useParams} from 'react-router-dom';
+import {useAxiosGet} from "../../commonActions/useAxiosGet";
 
 import image from '../../images/kitty.jpg';
 
 export const Employees = () => {
 
-    const { id } = useParams();
+    const {id} = useParams();
     const url = `/api/partners/${id}/employees`;
     const employees = useAxiosGet(url);
     let content = null;
@@ -31,7 +31,7 @@ export const Employees = () => {
                         {employees.data._embedded.employeeDTOList.map(employee =>
                             <div key={employee.id}>
                                 <p className='employee-name'>{employee.firstName}{" "}{employee.lastName}</p>
-                                <img alt='photo' src={image} className='gym-image1' />
+                                <img alt='photo' src={image} className='gym-image1'/>
                             </div>)}
                     </div>
                 </div>

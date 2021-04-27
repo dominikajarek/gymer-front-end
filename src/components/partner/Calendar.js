@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import { Navigation } from "./Navigation";
-import { BookSlot } from "../user/BookSlot";
-import { Modal } from "react-responsive-modal";
+import React, {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom';
+import {Calendar, momentLocalizer} from "react-big-calendar";
+import {Navigation} from "./Navigation";
+import {BookSlot} from "../user/BookSlot";
+import {Modal} from "react-responsive-modal";
 import moment from "moment";
 import axios from "axios";
 
@@ -17,7 +17,7 @@ export const Calendars = () => {
     const [open, setOpen] = useState(false);
     const [slotId, setSlotId] = useState();
 
-    const { id } = useParams();
+    const {id} = useParams();
     const url = `/api/partners/${id}/slots`;
 
     useEffect(() => {
@@ -46,36 +46,36 @@ export const Calendars = () => {
 
     return (
         <div>
-            <Navigation id={id} />
-         <div className="calendar">
-             <Calendar
-                className='calendar-style'
-                onSelectEvent={event => {
-                    onEventClick(event);
-                    setSlotId(event.id);
-                }}
-                selectable
-                localizer={ localizer }
-                defaultDate={ new Date() }
-                defaultView="week"
-                events={ slots }
-                toolbar={ true }
-                min={ moment('6:00am', 'h:mma').toDate() }
-                max={ moment('20:00pm', 'h:mma').toDate() }
-                views={{
-                    day: true,
-                    week: true
-                }}
-            />
-            <Modal open={open} onClose={() => setOpen(false)} center>
-                <BookSlot
+            <Navigation id={id}/>
+            <div className="calendar">
+                <Calendar
+                    className='calendar-style'
+                    onSelectEvent={event => {
+                        onEventClick(event);
+                        setSlotId(event.id);
+                    }}
+                    selectable
+                    localizer={localizer}
+                    defaultDate={new Date()}
+                    defaultView="week"
                     events={slots}
-                    slotId={slotId}
-                    partnerId={id}
-                    closeModal = {() => setOpen( false)}
+                    toolbar={true}
+                    min={moment('6:00am', 'h:mma').toDate()}
+                    max={moment('20:00pm', 'h:mma').toDate()}
+                    views={{
+                        day: true,
+                        week: true
+                    }}
                 />
-            </Modal>
+                <Modal open={open} onClose={() => setOpen(false)} center>
+                    <BookSlot
+                        events={slots}
+                        slotId={slotId}
+                        partnerId={id}
+                        closeModal={() => setOpen(false)}
+                    />
+                </Modal>
+            </div>
         </div>
-    </div>
     );
 }

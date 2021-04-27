@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
-import { Connection } from "../../actions/Connection.js";
+import React, {useCallback, useEffect, useState} from 'react';
+import {useHistory} from "react-router-dom";
+import {Connection} from "../../commonActions/Connection.js";
 
 export const UserSlots = () => {
 
@@ -88,9 +88,9 @@ export const UserSlots = () => {
                 </div>
             </div>
             <h3 className="description padding-grid">{slot.description}</h3>
-            <button className="resign button-on-slot padding-grid" onClick={() => resignPopup(slot.id)}>RESIGN</button>
+            <button className="button-delete padding-grid" onClick={() => resignPopup(slot.id)}>Resign</button>
             <button className="go-to-partner button-on-slot padding-grid"
-                    onClick={() => goToPartner(slot._links.self.href)}>PARTNER
+                    onClick={() => goToPartner(slot._links.self.href)}>Partner
             </button>
             <div className="private padding-grid">type: {slot.private ? "private" : "public"}</div>
             <div className="size padding-grid">{slot.size === 1 ? "1 slot" : slot.size + " slots"}</div>

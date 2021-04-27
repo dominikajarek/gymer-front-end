@@ -1,17 +1,17 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { Navigation } from "./Navigation";
-import { Employees } from "./Employees";
-import { Contact } from './Contact';
-import { WorkingHours } from "./WorkingHours";
-import { useAxiosGet } from "../../actions/useAxiosGet";
+import {useParams} from 'react-router-dom';
+import {Navigation} from "./Navigation";
+import {Employees} from "./Employees";
+import {Contact} from './Contact';
+import {WorkingHours} from "./WorkingHours";
+import {useAxiosGet} from "../../commonActions/useAxiosGet";
 
 import image from '../../images/gym9.jpg';
 import image1 from '../../images/gym2.jpg';
 
 export const GymSite = () => {
 
-    const { id } = useParams();
+    const {id} = useParams();
 
     const url = `/api/partners/${id}`;
     const data = useAxiosGet(url);
@@ -32,14 +32,14 @@ export const GymSite = () => {
         return (
             content =
                 <div>
-                    <Navigation id={id} />
+                    <Navigation id={id}/>
                     <div className='container-gymsite'>
                         <h1 className='gym-name'>{data.data.name}</h1>
-                        <img alt='photo' src={image1} className='gym-image1' />
-                        <img alt='photo' src={image} className='gym-image2' />
+                        <img alt='photo' src={image1} className='gym-image1'/>
+                        <img alt='photo' src={image} className='gym-image2'/>
                         <div className="gym-info modal">
-                            <WorkingHours />
-                            <Contact />
+                            <WorkingHours/>
+                            <Contact/>
                             <div className='url-link'>
                                 <a className='gym-link' href={data.data.website}>{data.data.website}</a>
                             </div>
@@ -52,7 +52,7 @@ export const GymSite = () => {
                             </div>
                         </div>
                         <div className="team-info">
-                            <Employees />
+                            <Employees/>
                         </div>
                     </div>
                 </div>

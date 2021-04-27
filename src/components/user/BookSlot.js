@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Connection } from "../../actions/Connection";
-import { GuestBookForm } from "../forms/GuestBookForm";
-import { SlotInfo } from "../partner/SlotInfo";
+import React, {useEffect, useState} from 'react';
+import {Connection} from "../../commonActions/Connection";
+import {GuestBookForm} from "../forms/slots/GuestBookForm";
+import {SlotInfo} from "../partner/SlotInfo";
 import axios from "axios";
 
 export const BookSlot = (props) => {

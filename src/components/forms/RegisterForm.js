@@ -57,7 +57,7 @@ export const RegisterForm = (props) => {
                 </p>
                 <h3 className="error">{props.message}</h3>
                 <p className='register-input-field'>
-                    <input type="submit" value="Sign up" disabled={!props.validateForm()} />
+                    <input type="submit" value="Sign up" disabled={!props.validateForm()}/>
                 </p>
             </form>
         </div>

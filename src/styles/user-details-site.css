@@ -101,7 +101,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
             "names password";
-    background-color: rgba(249,249,249,0.80);
+    background-color: rgba(249, 249, 249, 0.80);
     width: 50em;
 }
 

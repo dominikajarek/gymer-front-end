@@ -1,23 +1,17 @@
-.day-time-label {
-    display: grid;
-}
-
-.time-input-field {
-    display: grid;
-    grid-template-areas: "days time";
-    grid-template-columns: 1fr 1fr;
-}
-
-.day-label {
-    grid-area: days;
-}
-
-.input-time {
-    margin: 0 0 3em 0;
-    position: relative;
+input[type='time'] {
+    padding: 2em;
     width: 3em;
 }
 
-.edit-form {
-    background: rgba(255, 255, 255, 0.96);
+.time-input-field {
+
+}
+
+.day-time-label {
+    padding: 1em;
+    margin: 1em;
+}
+
+.hours-container {
+    display: grid;
 }

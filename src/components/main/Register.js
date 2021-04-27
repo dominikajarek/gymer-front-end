@@ -1,6 +1,6 @@
-import React, { useCallback, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { RegisterForm } from "../forms/RegisterForm";
+import React, {useCallback, useState} from 'react';
+import {useHistory} from 'react-router-dom';
+import {RegisterForm} from "../forms/RegisterForm";
 import axios from "axios";
 
 export const Register = () => {
@@ -37,18 +37,18 @@ export const Register = () => {
 
     return (
         <RegisterForm
-             email={email}
-             password={password}
-             confirmPassword={confirmPassword}
-             accountType={accountType}
-             setEmail={setEmail}
-             setPassword={setPassword}
-             setConfirmPassword={setConfirmPassword}
-             setAccountType={setAccountType}
-             message={message}
-             handleSubmit={handleSubmit}
-             validateForm={validateForm}
-             setActive={setActive}
+            email={email}
+            password={password}
+            confirmPassword={confirmPassword}
+            accountType={accountType}
+            setEmail={setEmail}
+            setPassword={setPassword}
+            setConfirmPassword={setConfirmPassword}
+            setAccountType={setAccountType}
+            message={message}
+            handleSubmit={handleSubmit}
+            validateForm={validateForm}
+            setActive={setActive}
         />
     );
 }

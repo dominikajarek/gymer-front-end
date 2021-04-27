@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
-import { Connection } from "../../actions/Connection.js";
-import { EditProfileForm } from "../forms/EditProfileForm";
+import React, {useCallback, useEffect, useState} from 'react';
+import {useHistory} from "react-router-dom";
+import {Connection} from "../../commonActions/Connection.js";
+import {UpdateProfileForm} from "../forms/profiles/UpdateProfileForm";
 
 export const UserProfile = () => {
 
@@ -54,12 +54,13 @@ export const UserProfile = () => {
     }
 
     /**
-     * Section responsible for managing buttons and actions showed on site.
+     * Section responsible for managing buttons and commonActions showed on site.
      * First button is responsible for sending put request with User details.
      * Second button is responsible for sending put request with User new password settings.
      */
 
     const history = useHistory();
+    console.log(history)
     const handleChangingDetails = useCallback(() => window.location.reload(), [history]);
 
     const submitNewDetails = (e) => {
@@ -120,7 +121,7 @@ export const UserProfile = () => {
      */
 
     return (
-        <EditProfileForm
+        <UpdateProfileForm
             messageLabel={messageLabel}
             firstNameValue={firstNameValue}
             lastNameValue={lastNameValue}

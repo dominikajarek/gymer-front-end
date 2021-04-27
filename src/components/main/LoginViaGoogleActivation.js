@@ -1,14 +1,15 @@
-import React, { useCallback, useEffect } from 'react';
-import { useHistory } from "react-router-dom";
+import React, {useCallback, useEffect} from 'react';
+import {useHistory} from "react-router-dom";
 import axios from "axios";
+import {Common} from "../../commonActions/Common";
 
 
 export const LoginViaGoogleActivation = () => {
 
     const history = useHistory();
     const redirect = useCallback(() => {
-            history.push('/');
-            refreshPage();
+        history.push('/');
+        Common.refreshPage();
     }, [history]);
 
     useEffect(() => {
@@ -20,11 +21,7 @@ export const LoginViaGoogleActivation = () => {
             })
     }, []);
 
-    const refreshPage = () => {
-        window.location.reload();
-    }
-
     return (
-        <div> </div>
+        <></>
     );
 }

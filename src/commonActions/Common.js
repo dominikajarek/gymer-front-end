@@ -1,5 +1,5 @@
 import React from 'react';
-import { Connection } from "./Connection";
+import {Connection} from "./Connection";
 
 export class Common {
 

@@ -11,7 +11,7 @@
 }
 
 .text {
-    margin:0 0 1em 0;
+    margin: 0 0 1em 0;
     padding: 1em;
     font-size: medium;
 }
@@ -37,7 +37,7 @@ input {
     box-sizing: border-box;
     width: 100%;
     outline: none;
-    margin:0;
+    margin: 0;
 }
 
 input[type="submit"], input, li .checkbox {
@@ -50,7 +50,7 @@ input[type="submit"], .register-form {
 
 input[type="email"],
 input[type="password"],
-.input-type-text {
+.input-type-text, .input-new-employee {
     border: 1px solid #dbdbdb;
     font-size: 1.6em;
     padding: .8em .5em;
@@ -61,11 +61,12 @@ input[type="password"]:focus,
 .input-type-text:focus,
 input[type="email"],
 input[type="password"],
-.input-type-text, .formLabel, .floatLabel {
+.input-type-text, .formLabel, .floatLabel, .input-new-employee {
     background: rgba(255, 255, 255, 0.95);
 }
 
-input[type="email"], input[type="password"], input[type="submit"], .input-type-text, li .checkbox, .register-form {
+input[type="email"], input[type="password"], input[type="submit"], .input-type-text,
+li .checkbox, .register-form, .input-new-employee {
     border-radius: var(--border-radius);
 }
 
@@ -74,13 +75,9 @@ input[type="submit"] {
     border: none;
     font-size: 2em;
     line-height: 1.6em;
-    margin: 2em 0 0;
     outline: none;
     padding: .8em 0;
-}
-
-input[type="submit"], li .checkbox {
-    cursor: pointer;
+    margin: 2em 0 0;
 }
 
 input[type="submit"]:hover {
@@ -98,7 +95,7 @@ input[type="submit"]:hover {
 }
 
 .floatLabel {
-     top: -11px;
+    top: -11px;
 }
 
 .tab-group {
@@ -109,9 +106,9 @@ input[type="submit"]:hover {
 }
 
 .tab-group:after {
-     content: "";
-     display: table;
-     clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 li .checkbox {

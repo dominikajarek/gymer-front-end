@@ -1,6 +1,6 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { useAxiosGet } from "../../actions/useAxiosGet";
+import {useParams} from "react-router-dom";
+import {useAxiosGet} from "../../commonActions/useAxiosGet";
 
 export const WorkingHours = () => {
 

@@ -1,7 +1,7 @@
-import React, { useCallback, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { Common } from "../../actions/Common";
-import { LoginForm } from "../forms/LoginForm";
+import React, {useCallback, useState} from 'react';
+import {useHistory} from 'react-router-dom';
+import {Common} from "../../commonActions/Common";
+import {LoginForm} from "../forms/LoginForm";
 import axios from "axios";
 
 export const Login = () => {

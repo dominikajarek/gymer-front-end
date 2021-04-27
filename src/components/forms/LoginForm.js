@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import logoGoogle from "../../images/google.svg";
 
@@ -28,7 +28,7 @@ export const LoginForm = (props) => {
                 </p>
                 <h3 className="error">{props.message}</h3>
                 <p className='register-input-field'>
-                    <input type="submit" value="Sign in" />
+                    <input type="submit" value="Sign in"/>
                 </p>
 
                 <div className='other-logins'>

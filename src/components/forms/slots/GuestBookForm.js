@@ -37,7 +37,8 @@ export const GuestBookForm = (props) => {
                        onChange={({target}) => props.setPhoneNumber(target.value)}
                 />
             </p>
-            <button className="button-submit-book-as-guest" onClick={() => props.bookAsGuest(props.slotId)}>Book</button>
+            <button className="button-submit-book-as-guest" onClick={() => props.bookAsGuest(props.slotId)}>Book
+            </button>
         </div>
     );
 }

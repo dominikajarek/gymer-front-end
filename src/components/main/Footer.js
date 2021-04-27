@@ -8,7 +8,7 @@ export const Footer = () => {
         <footer className='header-container'>
             <div className='logo'>
                 <a href='/'>
-                    <img alt='logo' src={logo} className='app-logo' />
+                    <img alt='logo' src={logo} className='app-logo'/>
                 </a>
             </div>
             <div className='dropdown'>

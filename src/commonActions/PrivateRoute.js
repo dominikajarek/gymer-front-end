@@ -1,7 +1,7 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import {Route, Redirect} from 'react-router-dom'
 
-export const PrivateRoute = ({ component: Component, ...rest }) => {
+export const PrivateRoute = ({component: Component, ...rest}) => {
 
     return (
         <Route
@@ -11,9 +11,9 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
                     <Component {...props} />
                 ) : (
                     <Redirect to={{
-                    pathname: '/login',
+                        pathname: '/login',
                         state: {from: props.location}
-                    }} />
+                    }}/>
                 )
             }
         />

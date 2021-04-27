@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
-import { Connection } from "../../../actions/Connection";
-import { EditPartnerProfileForm } from "../../forms/EditPartnerProfileForm";
+import React, {useCallback, useEffect, useState} from 'react';
+import {useHistory} from "react-router-dom";
+import {Connection} from "../../../commonActions/Connection";
+import {UpdatePartnerProfileForm} from "../../forms/profiles/UpdatePartnerProfileForm";
 import axios from "axios";
 
 export const PartnerProfile = () => {
@@ -14,7 +14,6 @@ export const PartnerProfile = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
-    const [partnerId, setPartnerId] = useState();
 
     const [name, setName] = useState('');
     const [logo, setLogo] = useState('');
@@ -27,19 +26,13 @@ export const PartnerProfile = () => {
     const [street, setStreet] = useState('');
     const [number, setNumber] = useState('');
     const [zipCode, setZipCode] = useState('');
-    const [workingHours, setWorkingHours] = useState([{}]);
-    const [startHour, setStartHour] = useState('');
-    const [endHour, setEndHour] = useState('');
 
     const [partnerUrl, setPartnerUrl] = useState('');
     const [credentialsUrl, setCredentialsUrl] = useState('');
     const [addressUrl, setAddressUrl] = useState('');
-    const [workingHoursUrl, setWorkingHoursUrl] = useState('');
 
     const history = useHistory();
     const handleChangingDetails = useCallback(() => window.location.reload(), [history]);
-
-    const daysIds = workingHours.map(hour => hour.id);
 
     useEffect(() => {
         const getActiveUserUrl = '/api/me';
@@ -49,18 +42,10 @@ export const PartnerProfile = () => {
     useEffect(() => {
         axios.get(addressUrl)
             .then(response => {
-                setPartnerId(response.data.id);
                 setCity(response.data.city);
                 setStreet(response.data.street);
                 setNumber(response.data.number);
                 setZipCode(response.data.zipCode);
-            })
-    }, [credentials]);
-
-    useEffect(() => {
-        axios.get(workingHoursUrl)
-            .then(response => {
-                setWorkingHours(response.data._embedded.workingHourDTOList);
             })
     }, [credentials]);
 
@@ -70,7 +55,6 @@ export const PartnerProfile = () => {
         const hoursUrl = `/api/partners/${data.id}/workinghours`;
         setPartnerUrl(partnerUrl);
         setAddressUrl(partnerAddressUrl);
-        setWorkingHoursUrl(hoursUrl);
         Connection.getRequestWithCallbacks(partnerUrl, setPartnerDetails, Connection.logMessageCallback);
     };
 
@@ -115,23 +99,16 @@ export const PartnerProfile = () => {
         }
     };
 
-    const submitNewWorkingHours = (e) => {
-      e.preventDefault();
-      if (window.confirm("Do you really want to change working hours?")) {
-        handleSubmitNewWorkingHours();
-      }
-    };
-
     const handleSubmitNewData = () => {
-      const newPartnerData = {
-        "id": details.id,
-        "name": name,
-        "description": description,
-        "website": website,
-        "logo": logo,
-        "image": image
-      };
-      Connection.putRequestWithCallbacks(partnerUrl, newPartnerData, updateCredentials, Connection.logMessageCallback);
+        const newPartnerData = {
+            "id": details.id,
+            "name": name,
+            "description": description,
+            "website": website,
+            "logo": logo,
+            "image": image
+        };
+        Connection.putRequestWithCallbacks(partnerUrl, newPartnerData, updateCredentials, Connection.logMessageCallback);
     };
 
     const handleSubmitNewAddress = () => {
@@ -146,33 +123,24 @@ export const PartnerProfile = () => {
     };
 
     const updateCredentials = () => {
-      const newCredentials = {
-          "id": credentials.id,
-          "phoneNumber": phoneNumber
-      };
-      Connection.putRequestWithCallbacks(credentialsUrl, newCredentials, showSuccessMessage, Connection.logMessageCallback);
+        const newCredentials = {
+            "id": credentials.id,
+            "phoneNumber": phoneNumber
+        };
+        Connection.putRequestWithCallbacks(credentialsUrl, newCredentials, showSuccessMessage, Connection.logMessageCallback);
     };
 
     const handleSubmitNewPassword = () => {
-      const newPasswordData = {
-        "oldPassword": password,
-        "newPassword": newPassword
-      };
-      const newPasswordUrl = `${partnerUrl}/password`;
-      Connection.putRequestWithCallbacks(newPasswordUrl, newPasswordData, updatePassword, showErrorMessage);
-    };
-
-    const handleSubmitNewWorkingHours = () => {
-      const newHours = {
-        "startHour": startHour,
-        "endHour": endHour
-      };
-      const newHoursUrl = `api/partners/${details.id}/workinghours/${daysIds[0]}`;
-      Connection.putRequestWithCallbacks(newHoursUrl, newHours, showSuccessMessage, showErrorMessage);
+        const newPasswordData = {
+            "oldPassword": password,
+            "newPassword": newPassword
+        };
+        const newPasswordUrl = `${partnerUrl}/password`;
+        Connection.putRequestWithCallbacks(newPasswordUrl, newPasswordData, updatePassword, showErrorMessage);
     };
 
     const updatePassword = () => {
-      setMessage("Password changed successfully");
+        setMessage("Password changed successfully");
     };
 
     const showErrorMessage = response => {
@@ -186,7 +154,7 @@ export const PartnerProfile = () => {
 
     return (
         <div>
-            <EditPartnerProfileForm
+            <UpdatePartnerProfileForm
                 name={name}
                 image={image}
                 logo={logo}
@@ -201,7 +169,6 @@ export const PartnerProfile = () => {
                 street={street}
                 number={number}
                 zipCode={zipCode}
-                workingHours={workingHours}
                 setName={setName}
                 setImage={setImage}
                 setLogo={setLogo}
@@ -215,11 +182,9 @@ export const PartnerProfile = () => {
                 setStreet={setStreet}
                 setNumber={setNumber}
                 setZipCode={setZipCode}
-                setWorkingHours={setWorkingHours}
                 submitNewData={submitNewData}
                 submitNewPassword={submitNewPassword}
                 submitNewAdress={submitNewAddress}
-                submitNewWorkingHours={submitNewWorkingHours}
             />
         </div>
     );

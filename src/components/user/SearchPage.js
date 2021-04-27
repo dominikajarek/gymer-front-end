@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { SearchBar } from "./SearchBar";
-import { GymsPlainList } from "../categories/GymsPlainList";
+import React, {useState, useEffect} from 'react';
+import {SearchBar} from "./SearchBar";
+import {GymsPlainList} from "../main/gyms/GymsPlainList";
 import axios from "axios";
 
 export const SearchPage = () => {
@@ -18,23 +18,23 @@ export const SearchPage = () => {
 
     const updateInput = (input) => {
         const filtered = gymsListDefault.filter(gym => {
-           return gym.name.toLowerCase().includes(input.toLowerCase());
+            return gym.name.toLowerCase().includes(input.toLowerCase());
         });
         setInput(input);
         setGymsList(filtered);
     };
 
 
-  return (
-      <div>
-          <SearchBar
-              input={input}
-              onChange={updateInput}
-          />
-          <div className='search-grids'>
-              <GymsPlainList
-                gymsList={gymsList} />
-          </div>
-      </div>
-  );
+    return (
+        <div>
+            <SearchBar
+                input={input}
+                onChange={updateInput}
+            />
+            <div className='search-grids'>
+                <GymsPlainList
+                    gymsList={gymsList}/>
+            </div>
+        </div>
+    );
 };

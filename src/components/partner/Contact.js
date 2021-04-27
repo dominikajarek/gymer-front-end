@@ -1,10 +1,10 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { useAxiosGet } from "../../actions/useAxiosGet";
+import {useParams} from "react-router-dom";
+import {useAxiosGet} from "../../commonActions/useAxiosGet";
 
 export const Contact = () => {
 
-    const { id } = useParams();
+    const {id} = useParams();
     const url = `/api/addresses/${id}`;
     const address = useAxiosGet(url);
     let content = null;

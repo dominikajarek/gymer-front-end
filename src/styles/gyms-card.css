@@ -19,7 +19,7 @@
 }
 
 .grid__item {
-    background-color: rgba(239,239,239,0.6);
+    background-color: rgba(239, 239, 239, 0.6);
     overflow: hidden;
     box-shadow: var(--box-shadow);
     transition: 0.2s;
@@ -60,10 +60,6 @@
 
 .card__header, .card__btn, .gym-link {
     text-decoration: var(--text-deco);
-}
-
-.grid__item, .card__btn {
-    cursor: pointer;
 }
 
 .card__btn {

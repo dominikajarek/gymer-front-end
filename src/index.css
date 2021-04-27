@@ -1,90 +1,91 @@
 :root {
-  --display-grid: grid;
-  --justify-content: center;
-  --align-content: center;
-  --justify-self: center;
-  --align-self: center;
-  --justify-items: center;
-  --align-items: center;
-  --font-family: "HelveticaNeue-Light", sans-serif;
-  --border-nav: rgba(167, 165, 165, 0.5) solid 0.1em;
-  --font-weight: lighter;
-  --border-radius: 0.5em;
-  --box-shadow: 1em 1em 1em 0.5em rgba(0,0,0,0.1);
-  --text-align: center;
-  --color-black: rgba(2, 2, 2, 0.8);
-  --text-deco: none;
-  --font-size: 1.5em;
+    --display-grid: grid;
+    --justify-content: center;
+    --align-content: center;
+    --justify-self: center;
+    --align-self: center;
+    --justify-items: center;
+    --align-items: center;
+    --font-family: "HelveticaNeue-Light", sans-serif;
+    --border-nav: rgba(167, 165, 165, 0.5) solid 0.1em;
+    --font-weight: lighter;
+    --border-radius: 0.5em;
+    --box-shadow: 1em 1em 1em 0.5em rgba(0, 0, 0, 0.1);
+    --text-align: center;
+    --color-black: rgba(2, 2, 2, 0.8);
+    --text-deco: none;
+    --font-size: 1.5em;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 #root {
-  justify-content: var(--justify-content);
-  align-content: var(--align-content);
-  font-family: var(--font-family);
+    justify-content: var(--justify-content);
+    align-content: var(--align-content);
+    font-family: var(--font-family);
 }
 
 #root, body, .router, .categories, .content {
-  display: var(--display-grid);
+    display: var(--display-grid);
 }
 
 body, .router {
-  align-self: var(--align-self);
-  justify-self: var(--justify-self);
+    align-self: var(--align-self);
+    justify-self: var(--justify-self);
 }
 
 body {
-  background: url('images/gym.jpg') no-repeat center fixed;
-  background-size: 100% 100%;
-  grid-template-columns: 1fr;
+    background: url('images/gym.jpg') no-repeat center fixed;
+    background-size: 100% 100%;
+    grid-template-columns: 1fr;
 }
 
 .router {
-  background: rgb(186,189,194);
-  background: radial-gradient(circle, rgba(242, 243, 243, 0.95) 0%, rgba(236, 239, 239, 0.95) 100%);
-  width: 130vh;
-  height: auto;
-  padding: 1em;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 4fr 0.1fr;
-  grid-template-areas:
+    background: rgb(186, 189, 194);
+    background: radial-gradient(circle, rgba(242, 243, 243, 0.95) 0%, rgba(236, 239, 239, 0.95) 100%);
+    width: 130vh;
+    height: auto;
+    padding: 1em;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 4fr 0.1fr;
+    grid-template-areas:
           "header header header"
           "content content content"
           "footer footer footer"
 }
 
 @media screen and (max-width: 1300px) {
-  .router {
-    width: 90vh;
-  }
+    .router {
+        width: 90vh;
+    }
 }
 
 @media screen and (max-width: 900px) {
-  .router {
-    width: 50vh;
-  }
+    .router {
+        width: 50vh;
+    }
 }
 
 .main-menu {
-  grid-area: nav;
-  border-right: var(--border-nav);
-  padding: 1em;
+    grid-area: nav;
+    border-right: var(--border-nav);
+    padding: 1em;
 }
 
 .header {
-  grid-area: header;
+    grid-area: header;
+    height: fit-content;
 }
 
 .content {
-  grid-area: content;
-  min-height: 70vh;
+    grid-area: content;
+    min-height: 70vh;
 }
 
 .footer {
-  grid-area: footer;
+    grid-area: footer;
 }

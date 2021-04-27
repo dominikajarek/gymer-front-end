@@ -5,14 +5,13 @@
     margin: 2em;
 }
 
-.button-submit-book-as-guest, .button-submit-book, .button-submit {
+.button-submit-book-as-guest, .button-submit-book, .button-submit, .button-submit-delete {
     width: 100%;
     padding: .8em 0;
 }
 
-.button-submit-book-as-guest, .button-submit-book, .button-on-slot, .button-submit {
+.button-submit-book-as-guest, .button-submit-book, .button-on-slot, .button-submit, .button-submit-delete, .button-delete {
     border-radius: var(--border-radius);
-    background: #e9ad81;
     box-shadow: var(--box-shadow);
     color: var(--color-black);
     font-weight: var(--font-weight);
@@ -21,8 +20,11 @@
     outline: none;
 }
 
-.button, .button-submit-book-as-guest, .button-submit-book, .button-on-slot, .button-submit {
-    cursor: pointer;
+.button-submit-book-as-guest, .button-submit-book, .button-on-slot, .button-submit {
+    background: #e9ad81;
+}
+
+.button, .button-submit-book-as-guest, .button-submit-book, .button-on-slot, .button-submit, .button-submit-delete, .button-delete {
     display: block;
 }
 
@@ -35,7 +37,7 @@
     align-self: end;
 }
 
-.button-submit-book, .button-on-slot {
+.button-submit-book, .button-on-slot, .button-delete {
     margin: 1em;
 }
 
@@ -64,9 +66,10 @@
     font-weight: bolder;
 }
 
-.button-on-slot {
+.button-on-slot, .button-delete {
     font-size: 1em;
     padding: 0.5em;
+    margin-top: 3em;
 }
 
 .button-submit {
@@ -74,6 +77,22 @@
     margin-bottom: 3em;
 }
 
+.button-submit-delete {
+    margin-top: 3em;
+}
+
+.button-submit-delete, .button-delete {
+    background-color: #c83223;
+}
+
 .button-on-slot:hover, .button-submit:hover {
     background: rgb(229, 198, 183);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.button-submit-delete:hover, .button-delete:hover {
+    background-color: #ff857e;
 }

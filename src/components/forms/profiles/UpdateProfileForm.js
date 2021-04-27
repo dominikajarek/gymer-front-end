@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const EditProfileForm = (props) => {
+export const UpdateProfileForm = (props) => {
 
     return (
         <div className='register'>

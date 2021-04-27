@@ -1,10 +1,10 @@
 import React from 'react';
-import { SearchPage } from "../user/SearchPage";
+import {SearchPage} from "../user/SearchPage";
 
 export const Home = () => {
-  return (
-      <div>
-          <SearchPage />
-      </div>
-  );
+    return (
+        <div>
+            <SearchPage/>
+        </div>
+    );
 };

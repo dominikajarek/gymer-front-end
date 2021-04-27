@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
-import { UserProfileMenu } from "../user/UserProfileMenu";
-import { PartnerProfileMenu } from "../partner/settings/PartnerProfileMenu";
-import { Header } from "./Header";
-import { faArrowLeft}  from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, {useEffect, useState} from 'react';
+import {useHistory} from "react-router-dom";
+import {UserProfileMenu} from "../user/UserProfileMenu";
+import {PartnerProfileMenu} from "../partner/settings/PartnerProfileMenu";
+import {Header} from "./Header";
+import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import axios from "axios";
 
 import logo from "../../images/Logo-transparent.png";
@@ -39,7 +39,7 @@ export const UserNavbar = () => {
                 </a>
             </div>
             {checkUserType()}
-            <FontAwesomeIcon icon={faArrowLeft} onClick={history.goBack} className='go-back-icon' size='2x' />
+            <FontAwesomeIcon icon={faArrowLeft} onClick={history.goBack} className='go-back-icon' size='2x'/>
         </header>
     );
 }

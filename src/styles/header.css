@@ -11,6 +11,7 @@
     font-size: 0.8em;
     grid-gap: 1em;
     padding: 1em;
+    height: 5em;
 }
 
 .header-container, .btn {
@@ -67,8 +68,8 @@ div[class*=box] {
     border-bottom-width: 0.1em;
     border-top-style: solid;
     border-bottom-style: solid;
-    border-top-color: rgba(0,0,0,0.5);
-    border-bottom-color: rgba(0,0,0,0.5);
+    border-top-color: rgba(0, 0, 0, 0.5);
+    border-bottom-color: rgba(0, 0, 0, 0.5);
     transform: scale(0.1, 1);
 }
 
@@ -118,8 +119,7 @@ div[class*=box] {
     width: 75%;
     padding: 1em 1em;
     margin: 1em;
-    background-image:
-            url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-size: 1em 1em;
     background-position: 98% center;
@@ -146,7 +146,7 @@ div[class*=box] {
     background-position: 98% center;
 }
 
-.search-grids, .user-nav, .dropdown-content, .buttons-user, .header-container {
+.search-grids, .user-nav, .dropdown-content, .buttons-user, .header-container, .user-nav-partner {
     display: var(--display-grid);
 }
 
@@ -158,10 +158,19 @@ div[class*=box] {
     width: 100%;
 }
 
-.user-nav {
+.user-nav-partner {
     grid-template-columns: 1fr;
     grid-template-areas:
             "profile" "employees" "slots" "logout";
+    grid-gap: 1em;
+    margin: 1em;
+    grid-area: buttons;
+}
+
+.user-nav {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+            "profile" "slots" "logout";
     grid-gap: 1em;
     margin: 1em;
     grid-area: buttons;
@@ -195,13 +204,12 @@ div[class*=box] {
     padding: 1em;
 }
 
-.profile, .slots, .logout, .sign-in, .sign-up, .dropdown, .user-nav {
+.profile, .slots, .logout, .sign-in, .sign-up, .dropdown, .user-nav, .user-nav-partner {
     justify-self: end;
 }
 
 .dropbtn {
     border: none;
-    cursor: pointer;
     outline: none;
 }
 
@@ -218,21 +226,21 @@ div[class*=box] {
     top: 4em;
     box-shadow: var(--box-shadow);
     z-index: 1;
-    background-color: rgba(249,249,249,0.95);
+    background-color: rgba(249, 249, 249, 0.95);
     border-radius: var(--border-radius);
 }
 
-.dropdown-content .user-nav {
+.dropdown-content .user-nav, .user-nav-partner {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
 }
 
-.dropdown-content .user-nav:hover, .user-nav, .dropbtn, .search__input {
+.user-nav:hover, .user-nav, .dropbtn, .search__input, .user-nav-partner, .user-nav-partner:hover {
     background-color: transparent;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover {
     display: block;
 }
 

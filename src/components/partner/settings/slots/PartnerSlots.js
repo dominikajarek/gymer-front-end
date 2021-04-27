@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {PartnerSlotsForm} from "../../forms/PartnerSlotsForm";
-import {Connection} from "../../../actions/Connection";
+import {DisplayPartnerSlots} from "./DisplayPartnerSlots";
+import {Connection} from "../../../../commonActions/Connection";
 import axios from "axios";
 import {Modal} from "react-responsive-modal";
 import {AddNewSlot} from "./AddNewSlot";
@@ -15,9 +15,9 @@ export const PartnerSlots = () => {
     const handleRemoveSlot = useCallback(() => window.location.reload(), []);
 
     useEffect(() => {
-            const getActiveUserUrl = '/api/me';
-            Connection.getRequestWithCallbacks(getActiveUserUrl, getSlots, Connection.logMessageCallback);
-        }, []);
+        const getActiveUserUrl = '/api/me';
+        Connection.getRequestWithCallbacks(getActiveUserUrl, getSlots, Connection.logMessageCallback);
+    }, []);
 
     const getSlots = data => {
         setPartnerId(data.id);
@@ -33,7 +33,7 @@ export const PartnerSlots = () => {
         if (window.confirm('Do you want to delete this slot?')) {
             const deleteSlotUrl = `/api/partners/${partnerId}/slots/${slotId}`
             axios.delete(deleteSlotUrl)
-                .then( () => {
+                .then(() => {
                     setMessage("Successfully delete slot");
                     handleRemoveSlot();
                 })
@@ -48,21 +48,20 @@ export const PartnerSlots = () => {
             <Modal open={open} onClose={() => setOpen(false)} center>
                 <AddNewSlot
                     partnerId={partnerId}
-                    closeModal = {() => setOpen( false)}
+                    closeModal={() => setOpen(false)}
                 />
             </Modal>
-
-            {
-                slots.map((slot, index) => {
-                    return (<div key={index}>
-                            <PartnerSlotsForm
+            <div className='slots-container'>
+                {
+                    slots.map((slot, index) => {
+                        return (<DisplayPartnerSlots
                             slot={slot}
                             deleteSlot={deleteSlot}
-                            />
-                        </div>
-                    )
-                })
-            }
+                            key={index}
+                        />)
+                    })
+                }
+            </div>
         </div>
     )
 
